@@ -1,10 +1,402 @@
-<!doctype html>
-<html>
-<head><title>Cliff Baldridge</title></head>
-<body style="font-family:sans-serif;text-align:center;margin-top:10%;">
-  <h1>Cliff Baldridge</h1>
-  <p>AI • Quantum • AR/VR • Robotics • Media</p>
-  <p>Building the future with AI Quantum Cypher.</p>
-  <p><a href="mailto:hello@example.com">Contact</a></p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cliff Baldridge - Portfolio</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif; color: #1a1a1a; line-height: 1.6; background: #fff; }
+        
+        nav { position: fixed; top: 0; width: 100%; background: linear-gradient(135deg, #0066cc 0%, #004999 100%); color: white; padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; z-index: 1000; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+        .logo { font-size: 22px; font-weight: bold; }
+        nav ul { display: flex; gap: 30px; list-style: none; }
+        nav a { color: white; text-decoration: none; text-transform: uppercase; font-size: 12px; letter-spacing: 1px; font-weight: 600; }
+        nav a:hover { opacity: 0.8; }
+        
+        .hero { min-height: 70vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 120px 40px 80px; background: linear-gradient(135deg, #0066cc 0%, #004999 100%); color: white; }
+        .hero h1 { font-size: 56px; font-weight: 700; margin-bottom: 20px; }
+        .hero h2 { font-size: 24px; font-weight: 300; line-height: 1.8; max-width: 900px; margin: 0 auto 20px; }
+        .hero .badge { display: inline-block; background: rgba(255,255,255,0.2); padding: 8px 20px; border-radius: 30px; margin: 5px; font-size: 14px; font-weight: 500; }
+        
+        .section { max-width: 1100px; margin: 0 auto; padding: 80px 40px; }
+        .section-alt { background: #f8f9fa; }
+        
+        h2 { font-size: 42px; font-weight: 700; margin-bottom: 15px; text-align: center; color: #0066cc; }
+        .intro { font-size: 18px; color: #666; margin-bottom: 50px; text-align: center; line-height: 1.8; }
+        
+        .timeline { max-width: 900px; margin: 0 auto; }
+        .job { background: white; border-left: 4px solid #0066cc; padding: 30px; margin-bottom: 40px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); border-radius: 8px; transition: transform 0.3s ease; }
+        .job:hover { transform: translateX(10px); box-shadow: 0 8px 30px rgba(0,0,0,0.12); }
+        .job-header { margin-bottom: 15px; }
+        .job-title { font-size: 24px; font-weight: 700; color: #1a1a1a; margin-bottom: 5px; }
+        .job-company { font-size: 18px; color: #0066cc; font-weight: 600; margin-bottom: 5px; }
+        .job-date { font-size: 14px; color: #999; background: #f0f0f0; padding: 5px 15px; border-radius: 20px; display: inline-block; margin: 5px 0; }
+        .job-location { font-size: 14px; color: #666; margin-bottom: 15px; }
+        .job-description { line-height: 1.8; color: #444; }
+        .job-description ul { margin: 15px 0; padding-left: 20px; }
+        .job-description li { margin: 8px 0; }
+        .job-link { color: #0066cc; text-decoration: none; font-weight: 600; display: block; margin-top: 10px; }
+        .job-link:hover { text-decoration: underline; }
+        
+        .highlight { background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%); color: white; border-left: 4px solid #fff; }
+        .highlight .job-title, .highlight .job-company, .highlight .job-description, .highlight .job-location, .highlight .job-link { color: white; }
+        .highlight .job-date { background: rgba(255,255,255,0.3); color: white; }
+        
+        .show-card { margin-bottom: 60px; text-align: center; }
+        .show-card img { width: 100%; max-width: 800px; border-radius: 12px; box-shadow: 0 8px 30px rgba(0,0,0,0.15); transition: transform 0.3s ease; }
+        .show-card:hover img { transform: translateY(-5px); box-shadow: 0 12px 40px rgba(0,0,0,0.2); }
+        .show-card-content { padding: 25px 0; }
+        .show-card h4 { font-size: 28px; margin-bottom: 10px; font-weight: 700; color: #1a1a1a; }
+        .show-card p { font-size: 18px; color: #666; line-height: 1.6; }
+        
+        .contact { background: linear-gradient(135deg, #0066cc 0%, #004999 100%); color: white; text-align: center; padding: 80px 40px; }
+        .contact h2 { color: white; font-size: 42px; margin-bottom: 20px; }
+        .contact a { color: white; font-size: 22px; text-decoration: underline; font-weight: 600; }
+        
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 36px; }
+            .hero h2 { font-size: 18px; }
+            h2 { font-size: 32px; }
+            .section { padding: 50px 20px; }
+            nav { padding: 15px 20px; flex-direction: column; gap: 15px; }
+            nav ul { justify-content: center; gap: 15px; }
+            .job { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">Cliff Baldridge</div>
+        <ul>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="hero">
+        <div>
+            <h1>Cliff Baldridge</h1>
+            <h2>Creative Technologist | Media & Entertainment Innovator<br>Meta Ambassador | Television Academy Member</h2>
+            <div>
+                <span class="badge">YouTube Partner</span>
+                <span class="badge">Emmy Judge</span>
+                <span class="badge">28K+ LinkedIn</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="section" id="experience">
+        <h2>Experience</h2>
+        <p class="intro">A career spanning animation dynasties, streaming platforms, quantum AI, and entertainment technology</p>
+
+        <div class="timeline">
+            
+            <div class="job highlight">
+                <div class="job-header">
+                    <div class="job-title">Meta Ambassador</div>
+                    <div class="job-company">Meta</div>
+                    <div class="job-date">2025 - Present</div>
+                    <div class="job-location">Los Angeles, California</div>
+                </div>
+                <div class="job-description">
+                    <p>Selected as Meta Ambassador representing cutting-edge AR/VR spatial computing initiatives and community advocacy.</p>
+                </div>
+            </div>
+
+            <div class="job">
+                <div class="job-header">
+                    <div class="job-title">Member & Judge</div>
+                    <div class="job-company">Television Academy (Emmy Awards)</div>
+                    <div class="job-date">Aug 2018 - Present</div>
+                    <div class="job-location">Greater Los Angeles Area</div>
+                </div>
+                <div class="job-description">
+                    <p><strong>Hollywood Television Academy Member & Judge</strong></p>
+                    <ul>
+                        <li>Member of the Emerging Media Programming Peer Group</li>
+                        <li>Judge for College Television Awards</li>
+                        <li>Judge for Television Academy Foundation Internship Program</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="job">
+                <div class="job-header">
+                    <div class="job-title">Chief Technology Officer</div>
+                    <div class="job-company">AI Quantum Cypher</div>
+                    <div class="job-date">Mar 2019 - Present</div>
+                    <div class="job-location">Los Angeles, California</div>
+                </div>
+                <div class="job-description">
+                    <p><strong>Quantum GenAI systems architect and media-tech futurist</strong></p>
+                    <ul>
+                        <li>Architecting text-to-video pipelines: Gen-2, Runway, Pika, WAN AI</li>
+                        <li>Developing Model Context Protocols (MCP) and Agent-to-Agent frameworks</li>
+                        <li>Snap Spectacles 5 AR development with NextMind EEG headset integration</li>
+                        <li>Cross-platform immersive systems: Unity, Unreal Engine, Magic Leap, HoloLens 2</li>
+                        <li>Quantum computing: IBM Qiskit, Google Cirq, Microsoft Q#, IonQ</li>
+                        <li>Winner: AT&T Developer Hackathon, Intel IoT, Xreal AR Hackathon</li>
+                        <li>28,000+ global LinkedIn connections across GenAI, media, and spatial computing</li>
+                    </ul>
+                    <a href="https://aiquantumcypher.com" class="job-link" target="_blank">→ aiquantumcypher.com</a>
+                </div>
+            </div>
+
+            <div class="job highlight">
+                <div class="job-header">
+                    <div class="job-title">Advertising Director / Senior Consultant</div>
+                    <div class="job-company">Genius Brands International (NASDAQ: GNUS)</div>
+                    <div class="job-date">Mar 2016 - Mar 2023</div>
+                    <div class="job-location">Beverly Hills, California</div>
+                </div>
+                <div class="job-description">
+                    <p><strong>Full-Time:</strong> March 2016 – March 2019 | <strong>Consultant:</strong> March 2019 – March 2023</p>
+                    <ul>
+                        <li><strong>Built 110M household OTT network</strong> across Amazon Prime, Roku, Xumo, YouTube TV, Twitch</li>
+                        <li>Produced <strong>Stan Lee VR Experience</strong> - the only official Stan Lee VR content</li>
+                        <li>Relaunched <strong>Warren Buffett's Secret Millionaires Club</strong> on streaming</li>
+                        <li>Managed <strong>Llama Llama Netflix Original</strong> starring Jennifer Garner</li>
+                        <li>Oversaw production for Netflix, Amazon, Nickelodeon</li>
+                        <li>Collaborated with <strong>Andy Heyward (Inspector Gadget creator)</strong></li>
+                        <li>Ran multi-million dollar Google Ads campaigns with YouTube Kids & TV teams</li>
+                        <li>Managed global YouTube MCN and Content ID strategy</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="job">
+                <div class="job-header">
+                    <div class="job-title">Social Media Specialist</div>
+                    <div class="job-company">NBCUniversal - Steve Harvey Show</div>
+                    <div class="job-date">Jan 2016 - Mar 2016</div>
+                    <div class="job-location">Greater Los Angeles Area</div>
+                </div>
+                <div class="job-description">
+                    <p><strong>NBCUniversal / Endemol Shine</strong></p>
+                    <ul>
+                        <li>YouTube channel management following viral Miss Universe moment</li>
+                        <li>Scaled from 800K to <strong>2M+ subscribers</strong> and 2M+ daily views</li>
+                        <li><strong>10M+ combined followers</strong> across all platforms</li>
+                        <li>Syndicated show to Hulu, Comcast Xfinity, VOD platforms</li>
+                        <li>Managed daily content, SEO, thumbnails, social strategy</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="job">
+                <div class="job-header">
+                    <div class="job-title">Chief Photographer & Video Producer</div>
+                    <div class="job-company">Santa Barbara Social Scene Magazine</div>
+                    <div class="job-date">Jan 2006 - Dec 2011</div>
+                    <div class="job-location">Santa Barbara, California</div>
+                </div>
+                <div class="job-description">
+                    <p><strong>Chief Photographer for Santa Barbara's Elite Society Magazine</strong></p>
+                    <ul>
+                        <li>Captured cover photography for bi-weekly glossy publications</li>
+                        <li>Covered exclusive charity galas, red carpets, and Montecito elite events</li>
+                        <li>Photographed 48 Most Invited socialites in Santa Barbara/Montecito</li>
+                        <li>Event videography and web content management</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="job">
+                <div class="job-header">
+                    <div class="job-title">Google Partner</div>
+                    <div class="job-company">Google / YouTube</div>
+                    <div class="job-date">Jan 2008 - Jan 2016</div>
+                    <div class="job-location">Los Angeles, California</div>
+                </div>
+                <div class="job-description">
+                    <p><strong>425K YouTube subscribers | 200M+ views</strong></p>
+                    <ul>
+                        <li>Official Google Partner: YouTube, Google Video, Google Helpouts</li>
+                        <li>Generated millions in revenue, billions of views</li>
+                        <li>Award-winning Producer Partner at <strong>YouTube Space LA</strong></li>
+                        <li><strong>YouTube Certified:</strong> Asset Monetization</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="job">
+                <div class="job-header">
+                    <div class="job-title">Executive Producer</div>
+                    <div class="job-company">Santa Barbara Navy League</div>
+                    <div class="job-date">Jan 2006 - Dec 2008</div>
+                    <div class="job-location">Santa Barbara, California</div>
+                </div>
+                <div class="job-description">
+                    <p><strong>Navy League TV - 30 Half-Hour Episodes</strong></p>
+                    <ul>
+                        <li>Filmed aboard USS Ronald Reagan nuclear aircraft carrier</li>
+                        <li>VIP access to Blue Angels at El Centro Air Base</li>
+                        <li>Filmed at Vandenberg Space Force Base</li>
+                        <li>Reagan Ranch coverage (President Reagan's Western White House)</li>
+                        <li><strong>Recipient:</strong> National Navy League Public Relations Award</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="job">
+                <div class="job-header">
+                    <div class="job-title">Director</div>
+                    <div class="job-company">Baldridge Reading & Study Skills</div>
+                    <div class="job-date">Jan 2002 - Dec 2003</div>
+                    <div class="job-location">Santa Barbara, California</div>
+                </div>
+                <div class="job-description">
+                    <p><strong>Legacy Holder - Nationally Recognized Reading Program</strong></p>
+                    <p>Taught at 400+ institutions: Yale, Princeton, Colgate, Johns Hopkins. Used by White House during Carter Administration for President's Daily Brief.</p>
+                </div>
+            </div>
+
+            <div class="job highlight">
+                <div class="job-header">
+                    <div class="job-title">Software Engineer & QA Specialist</div>
+                    <div class="job-company">Addictive Media (Netlojix) - Paul Allen Funded</div>
+                    <div class="job-date">Jan 1999 - Jun 1999</div>
+                    <div class="job-location">Santa Barbara, California</div>
+                </div>
+                <div class="job-description">
+                    <p><strong>Radio Disney Song Maker - Disney Imagineering Attraction</strong></p>
+                    <p>Interactive karaoke attraction used by millions at Disney parks worldwide</p>
+                    <ul>
+                        <li>Paul Allen-funded startup building Disney Imagineering attraction</li>
+                        <li>Python-powered software and CD-burning hardware prototyping</li>
+                        <li>UI/UX development: bouncing-ball lyrics, on-screen controls, live mic</li>
+                        <li>Hardware-software integration for in-attraction CD-burn kiosks</li>
+                    </ul>
+                    <a href="https://www.youtube.com/watch?v=cRjA0lxnwN0" class="job-link" target="_blank">→ Watch Radio Disney Song Maker in Action (Fan Video)</a>
+                </div>
+            </div>
+
+            <div class="job">
+                <div class="job-header">
+                    <div class="job-title">Creative Archive & Royalty Associate</div>
+                    <div class="job-company">Bagdasarian Productions</div>
+                    <div class="job-date">Jan 1998 - Dec 1998</div>
+                    <div class="job-location">Montecito, California</div>
+                </div>
+                <div class="job-description">
+                    <p><strong>Alvin and the Chipmunks Animation Dynasty</strong></p>
+                    <ul>
+                        <li>Preserved entire legacy archive with Ross and Janice Bagdasarian</li>
+                        <li>Designed workflow to scan, catalog film, audio, and print materials</li>
+                        <li>Managed royalty collections for song catalog</li>
+                        <li>Authored script rewrites with Ross Bagdasarian Jr. for Universal Studios</li>
+                        <li>Produced coffee-table book with photography and layout</li>
+                    </ul>
+                    <a href="https://en.wikipedia.org/wiki/Alvin_and_the_Chipmunks_Meet_the_Wolfman" class="job-link" target="_blank">→ Alvin Meets Wolfman - Wikipedia</a>
+                    <a href="https://en.wikipedia.org/wiki/Alvin_and_the_Chipmunks_Meet_Frankenstein" class="job-link" target="_blank">→ Alvin Meets Frankenstein - Wikipedia</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="section section-alt" id="portfolio">
+        <h2>Portfolio Highlights</h2>
+        <p class="intro">Stan Lee | Warren Buffett | Arnold Schwarzenegger | Jennifer Garner | Netflix</p>
+
+        <div class="show-card">
+            <img src="images/stanandcliff.png" alt="Cliff Baldridge with Stan Lee">
+            <div class="show-card-content">
+                <h4>With Stan Lee</h4>
+                <p>Collaborated on VR experiences and final animation projects</p>
+            </div>
+        </div>
+
+        <div class="show-card">
+            <img src="images/buffett.jpg" alt="Warren Buffett's Secret Millionaires Club">
+            <div class="show-card-content">
+                <h4>Warren Buffett's Secret Millionaires Club</h4>
+                <p>Educational animated series teaching financial literacy</p>
+            </div>
+        </div>
+
+        <div class="show-card">
+            <img src="images/stanleehero.png" alt="Stan Lee's Superhero Kindergarten">
+            <div class="show-card-content">
+                <h4>Stan Lee's Superhero Kindergarten</h4>
+                <p>Starring Arnold Schwarzenegger</p>
+            </div>
+        </div>
+
+        <div class="show-card">
+            <img src="images/cosmiccrusaders.jpeg" alt="Stan Lee's Cosmic Crusaders">
+            <div class="show-card-content">
+                <h4>Stan Lee's Cosmic Crusaders & Mighty Seven</h4>
+                <p>Action-packed superhero adventures</p>
+            </div>
+        </div>
+
+        <div class="show-card">
+            <img src="images/llama.jpg" alt="Llama Llama Netflix">
+            <div class="show-card-content">
+                <h4>Llama Llama</h4>
+                <p>Netflix Original Starring Jennifer Garner</p>
+            </div>
+        </div>
+
+        <div class="show-card">
+            <img src="images/stanleevr.jpeg" alt="Stan Lee VR Experience">
+            <div class="show-card-content">
+                <h4>Stan Lee VR Experience</h4>
+                <p>The only official Stan Lee VR content - Comic-Con International with The Hollywood Reporter</p>
+            </div>
+        </div>
+
+        <div class="show-card">
+            <img src="images/warrenbuffettdoll.jpg" alt="Warren Buffett Talking Doll">
+            <div class="show-card-content">
+                <h4>Warren Buffett Talking Doll</h4>
+                <p>Custom merchandise for Berkshire Hathaway Conference</p>
+            </div>
+        </div>
+
+        <div class="show-card">
+            <img src="images/kartoon.jpg" alt="Kartoon Channel Network">
+            <div class="show-card-content">
+                <h4>Kartoon Channel Network</h4>
+                <p>110 Million US Household OTT Platform</p>
+            </div>
+        </div>
+
+        <div class="show-card">
+            <img src="images/socialscene1.jpg" alt="Santa Barbara Social Scene Magazine Cover">
+            <div class="show-card-content">
+                <h4>Santa Barbara Social Scene Magazine</h4>
+                <p>Chief Photographer - MDA Black and Blue Ball Cover, Fess Parker Resort</p>
+            </div>
+        </div>
+
+        <div class="show-card">
+            <img src="images/socialscene2.jpg" alt="Santa Barbara Social Scene 48 Most Invited">
+            <div class="show-card-content">
+                <h4>48 Most Invited</h4>
+                <p>Santa Barbara and Montecito's Elite - Cover Photography</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="contact" id="contact">
+        <h2>Let's Work Together</h2>
+        <p style="margin-bottom: 20px;">Contact: <a href="mailto:vipmediapr@gmail.com">vipmediapr@gmail.com</a></p>
+        <p style="font-size: 18px;">28,419 LinkedIn Connections | Television Academy Member | Meta Ambassador</p>
+    </div>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
 </html>
