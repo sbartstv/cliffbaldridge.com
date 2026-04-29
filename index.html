@@ -74,10 +74,11 @@
 
         /* PORTFOLIO GRID */
         #portfolio { padding: 72px 48px; background: var(--dark); }
-        .portfolio-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; grid-auto-rows: 280px; }
-        .grid-item { position: relative; overflow: hidden; background: #111; cursor: pointer; }
-        .grid-item.wide { grid-column: span 2; }
-        .grid-item img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; transition: transform 0.5s ease, filter 0.4s ease; filter: brightness(0.82) saturate(0.9); }
+        .portfolio-grid { display: flex; flex-direction: column; gap: 8px; }
+        .grid-item { position: relative; background: #111; cursor: pointer; width: 100%; }
+        .grid-item.wide { grid-column: unset; }
+        .grid-item img { width: 100%; height: auto; display: block; transition: filter 0.4s ease; filter: brightness(0.92) saturate(0.9); }
+        .grid-item:hover img { filter: brightness(1) saturate(1.1); }
         .grid-item:hover img { transform: scale(1.06); filter: brightness(1) saturate(1.1); }
         .grid-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.88) 0%, transparent 55%); display: flex; flex-direction: column; justify-content: flex-end; padding: 20px; opacity: 0; transition: opacity 0.3s ease; }
         .grid-item:hover .grid-overlay { opacity: 1; }
@@ -123,8 +124,7 @@
             .badge { font-size: 10px; padding: 6px 12px; }
 
             #portfolio { padding: 36px 8px; }
-            .portfolio-grid { grid-template-columns: repeat(2, 1fr); gap: 3px; grid-auto-rows: 200px; }
-            .portfolio-grid .wide { grid-column: span 2; }
+            .portfolio-grid { gap: 3px; }
             .grid-overlay { opacity: 1; background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 60%); }
 
             #experience { padding: 40px 16px; }
@@ -179,7 +179,7 @@
         <span class="badge">Television Academy Member</span>
 
         <span class="badge">28K+ LinkedIn Connections</span>
-        <span class="badge gold">AI Quantum Cypher — CTO</span>
+        <span class="badge gold">AI Quantum Cypher — Generative AI Engineer</span>
     </div>
 
     <!-- PORTFOLIO -->
@@ -347,16 +347,16 @@
                     <div class="job-location">Los Angeles, California</div>
                 </div>
                 <div>
-                    <div class="job-title">Founder &amp; CTO — Quantum GenAI Systems</div>
+                    <div class="job-title">Founder — Generative AI Engineer</div>
                     <div class="job-body">
-                        <p>Hollywood consultant and Quantum GenAI systems architect — building cutting-edge generative AI pipelines and immersive technology solutions at the forefront of film and media production.</p>
+                        <p>Generative AI engineer specializing in image/video model pipelines, LoRA fine-tuning, and ComfyUI-based production systems for visual storytelling.</p>
                         <ul>
-                            <li>T2I, I2V, T2V pipelines using <strong>WAN 2.2</strong>, <strong>ByteDance Seedance</strong>, and ComfyUI — first-frame, last-frame, and prompt-driven generation</li>
-                            <li><strong>Custom LoRA training</strong> on NVIDIA H100/H200 GPUs via RunPod for character consistency, style transfer, and production asset generation</li>
-                            <li>Built and deployed <strong>Model Context Protocol (MCP)</strong> and Agent-to-Agent AI frameworks</li>
-                            <li>Quantum GenAI systems: IBM Qiskit, Google Cirq, IonQ — hybrid quantum-classical architectures</li>
-                            <li>HoloLens enterprise sales and deployment · Magic Leap DevRel Evangelist · NVIDIA Omniverse Developer</li>
-                            <li><strong>Hackathon wins:</strong> AT&amp;T Developer Award, Intel IoT Innovation Award (5x), XReal AR Hackathon</li>
+                            <li>Hands-on ComfyUI node-based workflow development — custom pipelines integrating WAN 2.2, SD, and video diffusion models</li>
+                            <li>Built end-to-end generation pipelines (T2I, I2V, T2V) including first-frame/last-frame control, conditioning, and temporal consistency workflows</li>
+                            <li>LoRA fine-tuning for character consistency, style transfer, and production-ready outputs on NVIDIA H100/H200 via RunPod</li>
+                            <li>Python, PyTorch, OpenCV, CUDA-based workflows — model debugging, parameter tuning, and pipeline optimization</li>
+                            <li>Built evaluation frameworks for generative outputs: quality, consistency, artifact detection, and iteration cycles</li>
+                            <li>Winner: AT&amp;T Developer Award · Intel IoT Innovation Award (5x)</li>
                         </ul>
                         <a href="https://aiquantumcypher.com" class="job-link" target="_blank">→ aiquantumcypher.com</a>
                     </div>
@@ -370,14 +370,14 @@
                     <div class="job-location">Beverly Hills, California</div>
                 </div>
                 <div>
-                    <div class="job-title disney">Senior Consultant — R&amp;D &amp; Technology</div>
+                    <div class="job-title disney">Senior Technology Consultant</div>
                     <div class="job-body">
-                        <p>Consulting partner to <strong>Andy Heyward</strong> (creator of Inspector Gadget) and <strong>Stan Lee</strong> on his final living projects.</p>
+                        <p>Technology partner to <strong>Andy Heyward</strong> (creator of Inspector Gadget) and <strong>Stan Lee</strong> on his final living projects.</p>
                         <ul>
-                            <li>R&amp;D in generative AI, machine learning, and computer vision for animated content production</li>
+                            <li>Prototyped early generative AI and computer vision systems for animation and content pipelines</li>
                             <li>Unity, Unreal Engine, Maya, and Magic Leap immersive pipeline development</li>
                             <li>Produced <strong>Stan Lee VR Experience</strong> — the only official Stan Lee VR content (Comic-Con / Hollywood Reporter)</li>
-                            <li>Built <strong>125M household OTT network</strong>: Amazon Prime Video, Netflix, Nickelodeon paid apps, Roku, Xumo, YouTube TV</li>
+                            <li>Built 125M household distribution network: Amazon Prime Video, Netflix, Nickelodeon, Roku</li>
                         </ul>
                     </div>
                 </div>
