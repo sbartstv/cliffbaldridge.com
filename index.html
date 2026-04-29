@@ -52,9 +52,8 @@
         }
         .video-label {
             display: flex; align-items: center; justify-content: space-between;
-            padding: 20px 48px;
+            padding: 40px 48px 20px;
             background: var(--dark);
-            border-bottom: 1px solid rgba(255,255,255,0.06);
         }
         .video-label h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(28px, 4vw, 64px); letter-spacing: 4px; line-height: 1; color: white; }
         .video-label .role-tag { font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold); font-weight: 500; text-align: right; line-height: 2.1; }
@@ -75,9 +74,10 @@
 
         /* PORTFOLIO GRID */
         #portfolio { padding: 72px 48px; background: var(--dark); }
-        .portfolio-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; }
-        .grid-item { position: relative; overflow: hidden; aspect-ratio: 4/3; background: #111; cursor: pointer; }
-        .grid-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s ease, filter 0.4s ease; filter: brightness(0.8) saturate(0.85); }
+        .portfolio-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; grid-auto-rows: 280px; }
+        .grid-item { position: relative; overflow: hidden; background: #111; cursor: pointer; }
+        .grid-item.wide { grid-column: span 2; }
+        .grid-item img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; transition: transform 0.5s ease, filter 0.4s ease; filter: brightness(0.82) saturate(0.9); }
         .grid-item:hover img { transform: scale(1.06); filter: brightness(1) saturate(1.1); }
         .grid-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.88) 0%, transparent 55%); display: flex; flex-direction: column; justify-content: flex-end; padding: 20px; opacity: 0; transition: opacity 0.3s ease; }
         .grid-item:hover .grid-overlay { opacity: 1; }
@@ -115,12 +115,7 @@
             nav ul { gap: 14px; }
             nav a { font-size: 11px; letter-spacing: 1px; }
 
-            .video-label {
-                padding: 16px 16px;
-                flex-direction: column;
-                gap: 6px;
-                align-items: flex-start;
-            }
+            .video-label { padding: 24px 16px 12px; flex-direction: column; gap: 6px; align-items: flex-start; }
             .video-label h1 { font-size: 32px; letter-spacing: 2px; }
             .video-label .role-tag { text-align: left; font-size: 11px; line-height: 1.9; }
 
@@ -128,10 +123,8 @@
             .badge { font-size: 10px; padding: 6px 12px; }
 
             #portfolio { padding: 36px 8px; }
-            .portfolio-grid { grid-template-columns: repeat(2, 1fr); gap: 3px; }
-            .portfolio-grid .wide { grid-column: span 2; aspect-ratio: 16/7; }
-            .grid-item { aspect-ratio: 1/1; }
-            /* Always show overlay on touch devices */
+            .portfolio-grid { grid-template-columns: repeat(2, 1fr); gap: 3px; grid-auto-rows: 200px; }
+            .portfolio-grid .wide { grid-column: span 2; }
             .grid-overlay { opacity: 1; background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 60%); }
 
             #experience { padding: 40px 16px; }
@@ -167,14 +160,14 @@
                 allowfullscreen>
             </iframe>
         </div>
+    </div>
 
     <div class="video-label">
-            <h1>Cliff Baldridge</h1>
-            <div class="role-tag">
-                Senior Software Engineer — Disney<br>
-                Generative AI &amp; Visual Storytelling<br>
-                Television Academy Member &amp; Emmy Judge
-            </div>
+        <h1>Cliff Baldridge</h1>
+        <div class="role-tag">
+            Senior Software Engineer — Disney<br>
+            Generative AI &amp; Visual Storytelling<br>
+            Television Academy Member &amp; Emmy Judge
         </div>
     </div>
 
@@ -194,7 +187,65 @@
         <div class="section-label">Selected Work</div>
         <div class="portfolio-grid">
 
+            <!-- CHARACTER / COMFYUI IMAGES — ADD YOUR FILENAMES BELOW -->
+            <div class="grid-item wide">
+                <img src="snyordataset1.jpg" alt="Text to Image Photorealistic Character Concept">
+                <div class="grid-overlay">
+                    <h4>Text to Image — Photorealistic Character Concept</h4>
+                    <p>Custom LoRA · WAN 2.2 · RunPod H100</p>
+                </div>
+            </div>
+
             <div class="grid-item">
+                <img src="character2.jpg" alt="Extracting Dataset in ComfyUI">
+                <div class="grid-overlay">
+                    <h4>Extracting Dataset in ComfyUI</h4>
+                    <p>Character Dataset Pipeline · WAN 2.2 i2v</p>
+                </div>
+            </div>
+
+            <div class="grid-item">
+                <img src="trained.jpg" alt="Custom LoRA Trained — ComfyUI Trigger Word">
+                <div class="grid-overlay">
+                    <h4>Custom LoRA — Trained &amp; Triggered</h4>
+                    <p>ComfyUI · Custom Trigger Word · Character Consistency</p>
+                </div>
+            </div>
+            <div class="grid-item wide">
+                <img src="i2vv.jpg" alt="Image to Video — WAN 2.2 in Action">
+                <div class="grid-overlay">
+                    <h4>Image to Video — WAN 2.2 in Action</h4>
+                    <p>i2v Pipeline · ComfyUI · RunPod Cloud GPU</p>
+                </div>
+            </div>
+
+            <div class="grid-item">
+                <img src="snyorffl.jpg" alt="First Frame Last Frame — ComfyUI">
+                <div class="grid-overlay">
+                    <h4>First Frame / Last Frame</h4>
+                    <p>ComfyUI · WAN 2.2 · Character FFL Pipeline</p>
+                </div>
+            </div>
+
+            <div class="grid-item">
+                <img src="ffllpsd.jpg" alt="First Frame Last Frame with Prompt — ByteDance SeedDance">
+                <div class="grid-overlay">
+                    <h4>FFL + Prompt — ByteDance SeedDance</h4>
+                    <p>Photorealistic 8K · WAN 2.2 · ComfyUI</p>
+                </div>
+            </div>
+
+            <div class="grid-item wide">
+                <img src="t2vwf1.jpg" alt="Text to Video Workflow — WAN 2.2 ComfyUI">
+                <div class="grid-overlay">
+                    <h4>Text to Video — WAN 2.2 ComfyUI Workflow</h4>
+                    <p>8K Photorealistic Human · T2V Pipeline · RunPod</p>
+                </div>
+            </div>
+
+            <!-- END CHARACTER IMAGES -->
+
+            <div class="grid-item wide">
                 <img src="stanandcliff.png" alt="With Stan Lee">
                 <div class="grid-overlay">
                     <h4>With Stan Lee</h4>
@@ -226,7 +277,7 @@
                 </div>
             </div>
 
-            <div class="grid-item">
+            <div class="grid-item wide">
                 <img src="buffett.jpg" alt="Warren Buffett's Secret Millionaires Club">
                 <div class="grid-overlay">
                     <h4>Warren Buffett's Secret Millionaires Club</h4>
@@ -250,21 +301,7 @@
                 </div>
             </div>
 
-            <div class="grid-item">
-                <img src="socialscene1.png" alt="Santa Barbara Social Scene">
-                <div class="grid-overlay">
-                    <h4>Santa Barbara Social Scene</h4>
-                    <p>Chief Photographer — MDA Black &amp; Blue Ball</p>
-                </div>
-            </div>
 
-            <div class="grid-item">
-                <img src="socialscene48.png" alt="48 Most Invited">
-                <div class="grid-overlay">
-                    <h4>48 Most Invited</h4>
-                    <p>Santa Barbara &amp; Montecito elite cover photography</p>
-                </div>
-            </div>
 
         </div>
     </section>
@@ -305,20 +342,21 @@
 
             <div class="job">
                 <div class="job-meta">
-                    <div class="job-date">Mar 2019 – Present</div>
-                    <div class="job-company">AI Quantum Cypher</div>
+                    <div class="job-date">2019 – Present</div>
+                    <div class="job-company">AI Quantum Cypher Labs</div>
                     <div class="job-location">Los Angeles, California</div>
                 </div>
                 <div>
-                    <div class="job-title">Chief Technology Officer</div>
+                    <div class="job-title">Founder &amp; CTO — Quantum GenAI Systems</div>
                     <div class="job-body">
-                        <p>Quantum GenAI systems architect and media-tech futurist.</p>
+                        <p>Hollywood consultant and Quantum GenAI systems architect — building cutting-edge generative AI pipelines and immersive technology solutions at the forefront of film and media production.</p>
                         <ul>
-                            <li>Generative AI video pipelines: Runway, Pika, WAN AI</li>
-                            <li>Model Context Protocols (MCP) and Agent-to-Agent frameworks</li>
-                            <li>Cross-platform immersive systems: Unity, Unreal Engine, Magic Leap, HoloLens 2</li>
-                            <li>Quantum computing: IBM Qiskit, Google Cirq, IonQ</li>
-                            <li>Winner: AT&amp;T Developer Hackathon, Intel IoT, XReal AR Hackathon</li>
+                            <li>T2I, I2V, T2V pipelines using <strong>WAN 2.2</strong>, <strong>ByteDance Seedance</strong>, and ComfyUI — first-frame, last-frame, and prompt-driven generation</li>
+                            <li><strong>Custom LoRA training</strong> on NVIDIA H100/H200 GPUs via RunPod for character consistency, style transfer, and production asset generation</li>
+                            <li>Built and deployed <strong>Model Context Protocol (MCP)</strong> and Agent-to-Agent AI frameworks</li>
+                            <li>Quantum GenAI systems: IBM Qiskit, Google Cirq, IonQ — hybrid quantum-classical architectures</li>
+                            <li>HoloLens enterprise sales and deployment · Magic Leap DevRel Evangelist · NVIDIA Omniverse Developer</li>
+                            <li><strong>Hackathon wins:</strong> AT&amp;T Developer Award, Intel IoT Innovation Award (5x), XReal AR Hackathon</li>
                         </ul>
                         <a href="https://aiquantumcypher.com" class="job-link" target="_blank">→ aiquantumcypher.com</a>
                     </div>
@@ -327,18 +365,38 @@
 
             <div class="job">
                 <div class="job-meta">
-                    <div class="job-date">Mar 2016 – Mar 2023</div>
+                    <div class="job-date">Mar 2019 – Mar 2023</div>
                     <div class="job-company">Genius Brands International</div>
                     <div class="job-location">Beverly Hills, California</div>
                 </div>
                 <div>
-                    <div class="job-title">Advertising Director / Senior Consultant</div>
+                    <div class="job-title disney">Senior Consultant — R&amp;D &amp; Technology</div>
+                    <div class="job-body">
+                        <p>Consulting partner to <strong>Andy Heyward</strong> (creator of Inspector Gadget) and <strong>Stan Lee</strong> on his final living projects.</p>
+                        <ul>
+                            <li>R&amp;D in generative AI, machine learning, and computer vision for animated content production</li>
+                            <li>Unity, Unreal Engine, Maya, and Magic Leap immersive pipeline development</li>
+                            <li>Produced <strong>Stan Lee VR Experience</strong> — the only official Stan Lee VR content (Comic-Con / Hollywood Reporter)</li>
+                            <li>Built <strong>125M household OTT network</strong>: Amazon Prime Video, Netflix, Nickelodeon paid apps, Roku, Xumo, YouTube TV</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="job">
+                <div class="job-meta">
+                    <div class="job-date">Mar 2016 – Mar 2019</div>
+                    <div class="job-company">Genius Brands International</div>
+                    <div class="job-location">Beverly Hills, California — Full Time</div>
+                </div>
+                <div>
+                    <div class="job-title">Director of Advertising &amp; R&amp;D</div>
                     <div class="job-body">
                         <ul>
-                            <li>Produced <strong>Stan Lee VR Experience</strong> — only official Stan Lee VR content</li>
                             <li>Managed <strong>Llama Llama Netflix Original</strong> starring Jennifer Garner</li>
-                            <li>Built 110M household network: Amazon Prime, Roku, Xumo, YouTube TV</li>
-                            <li>Relaunched Warren Buffett's Secret Millionaires Club on streaming</li>
+                            <li>Relaunched <strong>Warren Buffett's Secret Millionaires Club</strong> on streaming</li>
+                            <li>R&amp;D with Magic Leap, Unity, Unreal Engine, Maya across production pipelines</li>
+                            <li>Early generative AI, machine learning, and computer vision prototyping for animated content</li>
                             <li>Multi-million dollar Google Ads campaigns with YouTube Kids &amp; TV teams</li>
                         </ul>
                     </div>
@@ -352,12 +410,12 @@
                     <div class="job-location">Greater Los Angeles Area</div>
                 </div>
                 <div>
-                    <div class="job-title">Social Media Specialist</div>
+                    <div class="job-title">OTT Engineer &amp; Social Media Specialist</div>
                     <div class="job-body">
                         <ul>
-                            <li>Scaled YouTube from 800K to <strong>2M+ subscribers</strong> and 2M+ daily views</li>
+                            <li>Scaled YouTube from 800K to <strong>2M+ subscribers</strong> and 2M+ daily views post-viral Miss Universe moment</li>
                             <li>10M+ combined followers across all platforms</li>
-                            <li>Syndicated to Hulu, Comcast Xfinity, VOD platforms</li>
+                            <li>OTT distribution: Hulu, Comcast Xfinity, VOD platforms</li>
                         </ul>
                     </div>
                 </div>
@@ -365,83 +423,18 @@
 
             <div class="job">
                 <div class="job-meta">
-                    <div class="job-date">Jan 2008 – Jan 2016</div>
+                    <div class="job-date">2008 – 2020</div>
                     <div class="job-company">Google / YouTube</div>
                     <div class="job-location">Los Angeles, California</div>
                 </div>
                 <div>
-                    <div class="job-title">YouTube Creator — 400K Subscribers</div>
+                    <div class="job-title">Executive Producer &amp; Google Partner</div>
                     <div class="job-body">
                         <ul>
-                            <li>425K subscribers, 200M+ views</li>
-                            <li>Official Google Partner — YouTube Space LA award-winning producer</li>
-                            <li>YouTube Certified: Asset Monetization</li>
+                            <li>419K subscribers · 200M+ views · Official Google Partner</li>
+                            <li>Award-winning Producer Partner at <strong>YouTube Space LA</strong></li>
+                            <li>Certified: YouTube, Google Ads, Google Analytics</li>
                         </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div class="job">
-                <div class="job-meta">
-                    <div class="job-date">Jan 2006 – Dec 2008</div>
-                    <div class="job-company">Santa Barbara Navy League</div>
-                    <div class="job-location">Santa Barbara, California</div>
-                </div>
-                <div>
-                    <div class="job-title">Executive Producer</div>
-                    <div class="job-body">
-                        <ul>
-                            <li>30 half-hour episodes filmed aboard USS Ronald Reagan</li>
-                            <li>VIP access: Blue Angels, Vandenberg SFB, Reagan Ranch</li>
-                            <li>Recipient: National Navy League Public Relations Award</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div class="job">
-                <div class="job-meta">
-                    <div class="job-date">Jan 2002 – Dec 2003</div>
-                    <div class="job-company">Baldridge Reading &amp; Study Skills</div>
-                    <div class="job-location">Santa Barbara, California</div>
-                </div>
-                <div>
-                    <div class="job-title">Director</div>
-                    <div class="job-body">
-                        <p>Nationally recognized reading program taught at 400+ institutions including Yale, Princeton, Johns Hopkins. Used by White House during Carter Administration.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="job">
-                <div class="job-meta">
-                    <div class="job-date">Jan 1999 – Jun 1999</div>
-                    <div class="job-company">Addictive Media / Disney Imagineering</div>
-                    <div class="job-location">Santa Barbara, California</div>
-                </div>
-                <div>
-                    <div class="job-title">Software Engineer &amp; QA Specialist</div>
-                    <div class="job-body">
-                        <p><strong>Radio Disney Song Maker</strong> — Paul Allen-funded interactive karaoke attraction used by millions at Disney parks worldwide.</p>
-                        <ul>
-                            <li>Python-powered software and CD-burning hardware prototyping</li>
-                            <li>UI/UX: bouncing-ball lyrics, live mic, in-attraction CD-burn kiosks</li>
-                        </ul>
-                        <a href="https://www.youtube.com/watch?v=cRjA0lxnwN0" class="job-link" target="_blank">→ Watch Radio Disney Song Maker in Action</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="job">
-                <div class="job-meta">
-                    <div class="job-date">Jan 1998 – Dec 1998</div>
-                    <div class="job-company">Bagdasarian Productions</div>
-                    <div class="job-location">Montecito, California</div>
-                </div>
-                <div>
-                    <div class="job-title">Creative Archive &amp; Royalty Associate</div>
-                    <div class="job-body">
-                        <p>Alvin and the Chipmunks dynasty — preserved legacy archive, managed royalty collections, co-wrote scripts with Ross Bagdasarian Jr. for Universal Studios.</p>
                     </div>
                 </div>
             </div>
@@ -453,7 +446,7 @@
     <section id="contact">
         <h2>Let's Work Together</h2>
         <p style="margin-bottom:20px;"><a href="mailto:vipmediapr@gmail.com">vipmediapr@gmail.com</a></p>
-        <p>28,419 LinkedIn Connections &nbsp;·&nbsp; Television Academy Member Television Academy Member &nbsp;·&nbsp; Meta Ambassadornbsp;·Television Academy Member &nbsp;·&nbsp; Meta Ambassadornbsp; Former Meta Ambassador</p>
+        <p>28,419 LinkedIn Connections &nbsp;·&nbsp; Television Academy Member &nbsp;·&nbsp; Emmy Judge</p>
     </section>
 
     <script>
