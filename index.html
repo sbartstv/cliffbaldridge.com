@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cliff Baldridge</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --blue: #0055cc;
+            --dark: #080808;
+            --mid: #141414;
+            --light: #f0ede8;
+            --gold: #c9a84c;
+            --muted: #888;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'DM Sans', sans-serif; background: var(--dark); color: white; }
+
+        /* NAV */
+        nav {
+            position: fixed; top: 0; width: 100%; z-index: 200;
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 16px 48px;
+            background: rgba(8,8,8,0.9);
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+        .logo { font-family: 'Bebas Neue', sans-serif; font-size: 20px; letter-spacing: 3px; color: white; text-decoration: none; }
+        nav ul { display: flex; gap: 32px; list-style: none; }
+        nav a { color: rgba(255,255,255,0.65); text-decoration: none; font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 500; transition: color 0.2s; }
+        nav a:hover { color: white; }
+
+        /* VIDEO HERO */
+        .video-hero { position: relative; width: 100%; padding-top: 56px; background: #000; }
+        .video-wrapper { position: relative; width: 100%; padding-bottom: 56.25%; overflow: hidden; }
+        .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+        .video-label {
+            position: absolute; bottom: 0; left: 0; right: 0;
+            padding: 80px 48px 36px;
+            background: linear-gradient(to top, rgba(8,8,8,0.97) 0%, rgba(8,8,8,0.3) 60%, transparent 100%);
+            display: flex; align-items: flex-end; justify-content: space-between;
+            pointer-events: none;
+        }
+        .video-label h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(40px, 5.5vw, 80px); letter-spacing: 4px; line-height: 1; color: white; }
+        .video-label .role-tag { font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold); font-weight: 500; text-align: right; line-height: 2.1; pointer-events: auto; }
+
+        /* BADGES */
+        .badges {
+            display: flex; flex-wrap: wrap; gap: 10px;
+            justify-content: center; padding: 26px 48px;
+            background: var(--mid);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .badge { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; padding: 7px 18px; border-radius: 2px; font-weight: 600; color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.09); }
+        .badge.gold { color: var(--gold); border-color: rgba(201,168,76,0.3); background: rgba(201,168,76,0.07); }
+
+        /* SECTION LABEL */
+        .section-label { font-family: 'Bebas Neue', sans-serif; font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--muted); margin-bottom: 36px; display: flex; align-items: center; gap: 16px; }
+        .section-label::after { content: ''; flex: 1; height: 1px; background: rgba(255,255,255,0.07); }
+
+        /* PORTFOLIO GRID */
+        #portfolio { padding: 72px 48px; background: var(--dark); }
+        .portfolio-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; }
+        .portfolio-grid .wide { grid-column: span 2; }
+        .grid-item { position: relative; overflow: hidden; aspect-ratio: 4/3; background: #111; cursor: pointer; }
+        .grid-item.wide { aspect-ratio: 8/3; }
+        .grid-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s ease, filter 0.4s ease; filter: brightness(0.8) saturate(0.85); }
+        .grid-item:hover img { transform: scale(1.06); filter: brightness(1) saturate(1.1); }
+        .grid-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.88) 0%, transparent 55%); display: flex; flex-direction: column; justify-content: flex-end; padding: 20px; opacity: 0; transition: opacity 0.3s ease; }
+        .grid-item:hover .grid-overlay { opacity: 1; }
+        .grid-overlay h4 { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
+        .grid-overlay p { font-size: 12px; color: rgba(255,255,255,0.6); }
+
+        /* EXPERIENCE */
+        #experience { padding: 72px 48px; background: var(--mid); }
+        .timeline { max-width: 860px; margin: 0 auto; }
+        .job { display: grid; grid-template-columns: 190px 1fr; gap: 0 40px; padding: 36px 0; border-bottom: 1px solid rgba(255,255,255,0.06); }
+        .job:last-child { border-bottom: none; }
+        .job-meta { padding-top: 6px; }
+        .job-date { font-size: 12px; color: var(--muted); margin-bottom: 6px; }
+        .job-company { font-size: 13px; color: var(--blue); font-weight: 600; }
+        .job-location { font-size: 11px; color: rgba(255,255,255,0.28); margin-top: 4px; }
+        .job-title { font-family: 'Bebas Neue', sans-serif; font-size: 26px; letter-spacing: 1px; margin-bottom: 12px; color: white; }
+        .job-title.disney { color: var(--gold); }
+        .job-body { font-size: 14px; color: rgba(255,255,255,0.58); line-height: 1.8; }
+        .job-body ul { padding-left: 16px; margin-top: 10px; }
+        .job-body li { margin: 6px 0; }
+        .job-body strong { color: rgba(255,255,255,0.82); font-weight: 500; }
+        .job-link { color: var(--blue); font-size: 13px; text-decoration: none; display: inline-block; margin-top: 10px; }
+        .job-link:hover { text-decoration: underline; }
+
+        /* CONTACT */
+        #contact { padding: 80px 48px; background: var(--dark); text-align: center; border-top: 1px solid rgba(255,255,255,0.06); }
+        #contact h2 { font-family: 'Bebas Neue', sans-serif; font-size: 52px; letter-spacing: 4px; margin-bottom: 20px; }
+        #contact a { color: var(--gold); font-size: 20px; text-decoration: none; }
+        #contact a:hover { text-decoration: underline; }
+        #contact p { color: var(--muted); font-size: 13px; letter-spacing: 0.5px; margin-top: 20px; }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            nav { padding: 14px 20px; }
+            nav ul { gap: 16px; }
+            .video-label { padding: 40px 20px 20px; flex-direction: column; gap: 8px; align-items: flex-start; }
+            .video-label .role-tag { text-align: left; }
+            .badges { padding: 18px 16px; }
+            #portfolio { padding: 48px 12px; }
+            .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+            .portfolio-grid .wide { grid-column: span 1; aspect-ratio: 4/3; }
+            #experience { padding: 48px 20px; }
+            .job { grid-template-columns: 1fr; gap: 4px; }
+            #contact { padding: 60px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a class="logo" href="#">Cliff Baldridge</a>
+        <ul>
+            <li><a href="#portfolio">Work</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- VIDEO HERO -->
+    <div class="video-hero">
+        <div class="video-wrapper">
+            <iframe
+                src="https://www.youtube.com/embed/GXAoid63ybs?autoplay=1&mute=1&loop=1&playlist=GXAoid63ybs&controls=1&modestbranding=1&rel=0"
+                allow="autoplay; encrypted-media"
+                allowfullscreen>
+            </iframe>
+        </div>
+        <div class="video-label">
+            <h1>Cliff Baldridge</h1>
+            <div class="role-tag">
+                Senior Software Engineer — Disney<br>
+                Generative AI &amp; Visual Storytelling<br>
+                Television Academy Television Academy &nbsp;·&nbsp; Meta Ambassadornbsp;·Television Academy &nbsp;·&nbsp; Meta Ambassadornbsp; Former Meta Ambassador
+            </div>
+        </div>
+    </div>
+
+    <!-- BADGES -->
+    <div class="badges">
+        <span class="badge gold">Senior Software Engineer — Disney</span>
+        <span class="badge">400K+ YouTube Subscribers</span>
+        <span class="badge">Emmy Judge</span>
+        <span class="badge">Television Academy Member</span>
+
+        <span class="badge">28K+ LinkedIn Connections</span>
+        <span class="badge gold">AI Quantum Cypher — CTO</span>
+    </div>
+
+    <!-- PORTFOLIO -->
+    <section id="portfolio">
+        <div class="section-label">Selected Work</div>
+        <div class="portfolio-grid">
+
+            <div class="grid-item wide">
+                <img src="stanandcliff.png" alt="With Stan Lee">
+                <div class="grid-overlay">
+                    <h4>With Stan Lee</h4>
+                    <p>VR experiences and final animation projects</p>
+                </div>
+            </div>
+
+            <div class="grid-item">
+                <img src="stanleevr.jpeg" alt="Stan Lee VR Experience">
+                <div class="grid-overlay">
+                    <h4>Stan Lee VR Experience</h4>
+                    <p>Only official Stan Lee VR content — Comic-Con / Hollywood Reporter</p>
+                </div>
+            </div>
+
+            <div class="grid-item">
+                <img src="stanleehero.png" alt="Superhero Kindergarten">
+                <div class="grid-overlay">
+                    <h4>Superhero Kindergarten</h4>
+                    <p>Starring Arnold Schwarzenegger</p>
+                </div>
+            </div>
+
+            <div class="grid-item">
+                <img src="cosmiccrusaders.jpeg" alt="Cosmic Crusaders">
+                <div class="grid-overlay">
+                    <h4>Cosmic Crusaders &amp; Mighty Seven</h4>
+                    <p>Stan Lee action-adventure series</p>
+                </div>
+            </div>
+
+            <div class="grid-item wide">
+                <img src="buffett.jpg" alt="Warren Buffett's Secret Millionaires Club">
+                <div class="grid-overlay">
+                    <h4>Warren Buffett's Secret Millionaires Club</h4>
+                    <p>Educational animated series on financial literacy</p>
+                </div>
+            </div>
+
+            <div class="grid-item">
+                <img src="llama.jpg" alt="Llama Llama Netflix">
+                <div class="grid-overlay">
+                    <h4>Llama Llama</h4>
+                    <p>Netflix Original — Jennifer Garner</p>
+                </div>
+            </div>
+
+            <div class="grid-item">
+                <img src="kartoon.jpg" alt="Kartoon Channel">
+                <div class="grid-overlay">
+                    <h4>Kartoon Channel</h4>
+                    <p>110M household OTT platform</p>
+                </div>
+            </div>
+
+            <div class="grid-item">
+                <img src="socialscene1.png" alt="Santa Barbara Social Scene">
+                <div class="grid-overlay">
+                    <h4>Santa Barbara Social Scene</h4>
+                    <p>Chief Photographer — MDA Black &amp; Blue Ball</p>
+                </div>
+            </div>
+
+            <div class="grid-item">
+                <img src="socialscene48.png" alt="48 Most Invited">
+                <div class="grid-overlay">
+                    <h4>48 Most Invited</h4>
+                    <p>Santa Barbara &amp; Montecito elite cover photography</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience">
+        <div style="max-width:860px; margin:0 auto;">
+            <div class="section-label">Experience</div>
+        </div>
+-tuning including <strong>LoRA training</strong> for production workflows</li>
+                            <li>Building evaluation tooling for emerging AI platforms and APIs</li>
+                            <li>ComfyUI, Unreal Engine, Unity integration for film and TV pipelines</li>
+                            <li>Cross-functional collaboration with creative, production, and technical teams</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="job">
+                <div class="job-meta">
+                    <div class="job-date">2024 – 2025</div>
+                    <div class="job-company">Meta</div>
+                    <div class="job-location">Los Angeles, California</div>
+                </div>
+                <div>
+                    <div class="job-title">Meta Ambassador</div>
+                    <div class="job-body">
+                        <p>AR/VR spatial computing advocacy and community leadership.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="job">
+                <div class="job-meta">
+                    <div class="job-date">Aug 2018 – Present</div>
+                    <div class="job-company">Television Academy</div>
+                    <div class="job-location">Greater Los Angeles Area</div>
+                </div>
+                <div>
+                    <div class="job-title">Member &amp; Emmy Judge</div>
+                    <div class="job-body">
+                        <ul>
+                            <li>Emerging Media Programming Peer Group</li>
+                            <li>Judge — College Television Awards</li>
+                            <li>Judge — Television Academy Foundation Internship Program</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="job">
+                <div class="job-meta">
+                    <div class="job-date">Mar 2019 – Present</div>
+                    <div class="job-company">AI Quantum Cypher</div>
+                    <div class="job-location">Los Angeles, California</div>
+                </div>
+                <div>
+                    <div class="job-title">Chief Technology Officer</div>
+                    <div class="job-body">
+                        <p>Quantum GenAI systems architect and media-tech futurist.</p>
+                        <ul>
+                            <li>Generative AI video pipelines: Runway, Pika, WAN AI</li>
+                            <li>Model Context Protocols (MCP) and Agent-to-Agent frameworks</li>
+                            <li>Cross-platform immersive systems: Unity, Unreal Engine, Magic Leap, HoloLens 2</li>
+                            <li>Quantum computing: IBM Qiskit, Google Cirq, IonQ</li>
+                            <li>Winner: AT&amp;T Developer Hackathon, Intel IoT, XReal AR Hackathon</li>
+                        </ul>
+                        <a href="https://aiquantumcypher.com" class="job-link" target="_blank">→ aiquantumcypher.com</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="job">
+                <div class="job-meta">
+                    <div class="job-date">Mar 2016 – Mar 2023</div>
+                    <div class="job-company">Genius Brands International</div>
+                    <div class="job-location">Beverly Hills, California</div>
+                </div>
+                <div>
+                    <div class="job-title">Advertising Director / Senior Consultant</div>
+                    <div class="job-body">
+                        <ul>
+                            <li>Produced <strong>Stan Lee VR Experience</strong> — only official Stan Lee VR content</li>
+                            <li>Managed <strong>Llama Llama Netflix Original</strong> starring Jennifer Garner</li>
+                            <li>Built 110M household network: Amazon Prime, Roku, Xumo, YouTube TV</li>
+                            <li>Relaunched Warren Buffett's Secret Millionaires Club on streaming</li>
+                            <li>Multi-million dollar Google Ads campaigns with YouTube Kids &amp; TV teams</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="job">
+                <div class="job-meta">
+                    <div class="job-date">Jan 2016 – Mar 2016</div>
+                    <div class="job-company">NBCUniversal — Steve Harvey Show</div>
+                    <div class="job-location">Greater Los Angeles Area</div>
+                </div>
+                <div>
+                    <div class="job-title">Social Media Specialist</div>
+                    <div class="job-body">
+                        <ul>
+                            <li>Scaled YouTube from 800K to <strong>2M+ subscribers</strong> and 2M+ daily views</li>
+                            <li>10M+ combined followers across all platforms</li>
+                            <li>Syndicated to Hulu, Comcast Xfinity, VOD platforms</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="job">
+                <div class="job-meta">
+                    <div class="job-date">Jan 2008 – Jan 2016</div>
+                    <div class="job-company">Google / YouTube</div>
+                    <div class="job-location">Los Angeles, California</div>
+                </div>
+                <div>
+                    <div class="job-title">YouTube Creator — 400K Subscribers</div>
+                    <div class="job-body">
+                        <ul>
+                            <li>425K subscribers, 200M+ views</li>
+                            <li>Official Google Partner — YouTube Space LA award-winning producer</li>
+                            <li>YouTube Certified: Asset Monetization</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="job">
+                <div class="job-meta">
+                    <div class="job-date">Jan 2006 – Dec 2008</div>
+                    <div class="job-company">Santa Barbara Navy League</div>
+                    <div class="job-location">Santa Barbara, California</div>
+                </div>
+                <div>
+                    <div class="job-title">Executive Producer</div>
+                    <div class="job-body">
+                        <ul>
+                            <li>30 half-hour episodes filmed aboard USS Ronald Reagan</li>
+                            <li>VIP access: Blue Angels, Vandenberg SFB, Reagan Ranch</li>
+                            <li>Recipient: National Navy League Public Relations Award</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="job">
+                <div class="job-meta">
+                    <div class="job-date">Jan 2002 – Dec 2003</div>
+                    <div class="job-company">Baldridge Reading &amp; Study Skills</div>
+                    <div class="job-location">Santa Barbara, California</div>
+                </div>
+                <div>
+                    <div class="job-title">Director</div>
+                    <div class="job-body">
+                        <p>Nationally recognized reading program taught at 400+ institutions including Yale, Princeton, Johns Hopkins. Used by White House during Carter Administration.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="job">
+                <div class="job-meta">
+                    <div class="job-date">Jan 1999 – Jun 1999</div>
+                    <div class="job-company">Addictive Media / Disney Imagineering</div>
+                    <div class="job-location">Santa Barbara, California</div>
+                </div>
+                <div>
+                    <div class="job-title">Software Engineer &amp; QA Specialist</div>
+                    <div class="job-body">
+                        <p><strong>Radio Disney Song Maker</strong> — Paul Allen-funded interactive karaoke attraction used by millions at Disney parks worldwide.</p>
+                        <ul>
+                            <li>Python-powered software and CD-burning hardware prototyping</li>
+                            <li>UI/UX: bouncing-ball lyrics, live mic, in-attraction CD-burn kiosks</li>
+                        </ul>
+                        <a href="https://www.youtube.com/watch?v=cRjA0lxnwN0" class="job-link" target="_blank">→ Watch Radio Disney Song Maker in Action</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="job">
+                <div class="job-meta">
+                    <div class="job-date">Jan 1998 – Dec 1998</div>
+                    <div class="job-company">Bagdasarian Productions</div>
+                    <div class="job-location">Montecito, California</div>
+                </div>
+                <div>
+                    <div class="job-title">Creative Archive &amp; Royalty Associate</div>
+                    <div class="job-body">
+                        <p>Alvin and the Chipmunks dynasty — preserved legacy archive, managed royalty collections, co-wrote scripts with Ross Bagdasarian Jr. for Universal Studios.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+        <h2>Let's Work Together</h2>
+        <p style="margin-bottom:20px;"><a href="mailto:vipmediapr@gmail.com">vipmediapr@gmail.com</a></p>
+        <p>28,419 LinkedIn Connections &nbsp;·&nbsp; Television Academy Member Television Academy Member &nbsp;·&nbsp; Meta Ambassadornbsp;·Television Academy Member &nbsp;·&nbsp; Meta Ambassadornbsp; Former Meta Ambassador</p>
+    </section>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', e => {
+                e.preventDefault();
+                document.querySelector(a.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
+
+</body>
+</html>
