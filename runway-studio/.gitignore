@@ -1,0 +1,25 @@
+# Secrets: API keys live only in the browser's local storage, never in files.
+.env
+.env.*
+*.key
+secrets*.json
+config.local.json
+
+# Model weights and generated media
+*.safetensors
+*.ckpt
+*.gguf
+*.pt
+*.pth
+output/
+outputs/
+*.mp4
+*.webm
+
+# Python / OS / editor
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

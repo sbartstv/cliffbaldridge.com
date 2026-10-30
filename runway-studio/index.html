@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Runway Studio</title>
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <header class="top">
+    <div class="brand">
+      <span class="logo">◆</span>
+      <div>
+        <h1>Runway Studio</h1>
+        <p class="tag">Design a model, pick a dress, try it on, walk the runway. Open weights, running on ComfyUI.</p>
+      </div>
+    </div>
+    <div class="top-actions">
+      <span id="conn" class="pill"><i></i><span>Connecting…</span></span>
+      <button id="open-settings" class="ghost">Settings</button>
+    </div>
+  </header>
+
+  <div id="offline" class="offline" hidden>
+    <b>ComfyUI isn't running.</b> Can't reach <span id="offline-url"></span>.
+    Start ComfyUI and keep its window open (see "Run it on your computer" below). This page reconnects by itself.
+  </div>
+
+  <div class="credits">
+    <div class="byline">Built by <b>Cliff Baldridge</b> · <a href="https://www.linkedin.com/in/cliffbaldridge/" target="_blank" rel="noopener">linkedin.com/in/cliffbaldridge</a></div>
+    <div class="event">Built for the <b>Comfy Open Source Higgsfield Hackathon</b> · Built at <b>AI on the Lot</b>, 10/29/2026</div>
+    <div class="models">
+      <a href="https://huggingface.co/black-forest-labs/FLUX.2-klein-4b-fp8" target="_blank" rel="noopener">FLUX.2 Klein 4B ↗</a>
+      <a href="https://huggingface.co/Comfy-Org/flux2-klein" target="_blank" rel="noopener">Qwen3 4B ↗</a>
+      <a href="https://huggingface.co/Comfy-Org/flux2-dev" target="_blank" rel="noopener">FLUX.2 VAE ↗</a>
+      <a href="https://huggingface.co/xocialize/tryon-FLUX.2-klein-4B-lora" target="_blank" rel="noopener">Klein Try-on LoRA ↗</a>
+      <a href="https://huggingface.co/Lightricks/LTX-2.3-fp8" target="_blank" rel="noopener">LTX-2.3 22B ↗</a>
+      <a href="https://huggingface.co/Comfy-Org/ltx-2" target="_blank" rel="noopener">Gemma 3 12B ↗</a>
+      <a href="https://github.com/Comfy-Org/ComfyUI" target="_blank" rel="noopener">ComfyUI ↗</a>
+      <span class="ow">100% open weights · runs locally</span>
+    </div>
+  </div>
+
+  <main>
+    <details class="setup" id="setup">
+      <summary>⚙️ Run it on your computer (free) <span id="setup-status" class="hint"></span></summary>
+      <div class="setup-body">
+        <p>This page is the app. The AI runs on <b>your</b> computer through ComfyUI, so it's free and private.</p>
+        <ol>
+          <li>
+            <b>Use Google Chrome.</b> Safari blocks web pages from talking to your computer.
+            If Chrome asks to allow access to your local network, click <b>Allow</b>.
+          </li>
+          <li>
+            <b>Install <a href="https://www.comfy.org/download" target="_blank" rel="noopener">ComfyUI</a> and download the models</b>
+            into your <code>ComfyUI/models/</code> folders (about 48 GB total):
+            <table class="models-table">
+              <thead><tr><th>Status</th><th>Model</th><th>Put it in</th><th>Size</th></tr></thead>
+              <tbody id="model-rows"></tbody>
+            </table>
+            <p class="hint">Video needs an NVIDIA GPU with 16 GB of VRAM or more. On a Mac the image steps work, but the 22B video model is too heavy; use Comfy Cloud at the bottom for video.</p>
+          </li>
+          <li>
+            <b>Start ComfyUI and allow this site:</b>
+            <div class="cmd"><span>Windows (portable)</span><code id="cmd-win"></code><button type="button" class="ghost copy" data-copy="cmd-win">Copy</button></div>
+            <div class="cmd"><span>Mac / Linux</span><code id="cmd-mac"></code><button type="button" class="ghost copy" data-copy="cmd-mac">Copy</button></div>
+            <div class="cmd"><span>ComfyUI Desktop</span><code>Settings → Server-Config → Enable CORS header: <span class="origin"></span></code></div>
+          </li>
+          <li><b>Refresh this page.</b> The dot at the top right turns green and the model list shows ✓.</li>
+        </ol>
+        <p id="gpu-info" class="hint"></p>
+      </div>
+    </details>
+
+    <section class="hero">
+      <div class="hero-text">
+        <h2>One click. Model, dress, try-on, runway.</h2>
+        <p>Runs on your own GPU with open-weight models. No cloud, no credits.</p>
+      </div>
+      <div class="hero-actions">
+        <button id="one-click" class="primary big">✨ Create runway look</button>
+        <div class="row">
+          <label class="toggle"><input type="checkbox" id="auto-surprise" checked> 🎲 Surprise me</label>
+          <label class="toggle"><input type="checkbox" id="auto-video" checked> Include runway video <span id="video-note" class="hint"></span></label>
+        </div>
+      </div>
+      <div id="pipeline" class="pipeline">
+        <span data-step="woman">Model</span>
+        <span data-step="dress">Dress</span>
+        <span data-step="tryon">Try-on</span>
+        <span data-step="runway">Runway</span>
+        <b id="total"></b>
+      </div>
+    </section>
+
+    <!-- Stage 1 -->
+    <section class="stage">
+      <div class="stage-head">
+        <span class="num">1</span>
+        <div>
+          <h2>Model &amp; Dress</h2>
+          <p>FLUX.2 Klein 4B generates each one. Pick a preset, write your own, or upload a photo.</p>
+        </div>
+      </div>
+      <div class="grid two">
+        <div class="panel" id="woman">
+          <h3>Model</h3>
+          <div class="chips"></div>
+          <textarea rows="4" placeholder="Describe the model…"></textarea>
+          <div class="row">
+            <button class="primary gen">Generate model</button>
+            <label class="ghost upload">Upload photo<input type="file" accept="image/*" hidden></label>
+          </div>
+          <div class="status"><div class="bar"><b></b></div><span></span></div>
+          <div class="out"></div>
+        </div>
+        <div class="panel" id="dress">
+          <h3>Dress</h3>
+          <div class="chips"></div>
+          <textarea rows="4" placeholder="Describe the dress…"></textarea>
+          <div class="row">
+            <button class="primary gen">Generate dress</button>
+            <label class="ghost upload">Upload photo<input type="file" accept="image/*" hidden></label>
+          </div>
+          <div class="status"><div class="bar"><b></b></div><span></span></div>
+          <div class="out"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stage 2 -->
+    <section class="stage">
+      <div class="stage-head">
+        <span class="num">2</span>
+        <div>
+          <h2>Try it on</h2>
+          <p>FLUX.2 Klein merges the model and the dress into one look.</p>
+        </div>
+      </div>
+      <div class="grid two">
+        <div class="panel" id="tryon">
+          <div class="inputs">
+            <figure data-slot="woman"><div class="thumb empty">Model from stage 1</div><figcaption>Model</figcaption></figure>
+            <span class="plus">+</span>
+            <figure data-slot="dress"><div class="thumb empty">Dress from stage 1</div><figcaption>Dress</figcaption></figure>
+          </div>
+          <div class="chips"></div>
+          <textarea rows="4" placeholder="How should the dress be put on?"></textarea>
+          <label class="toggle"><input type="checkbox" class="use-lora"> Use try-on LoRA <span class="hint">(tryon-klein-4b, open weights)</span></label>
+          <div class="row"><button class="primary gen">Try it on</button></div>
+          <div class="status"><div class="bar"><b></b></div><span></span></div>
+        </div>
+        <div class="panel result" id="tryon-out">
+          <h3>Look</h3>
+          <div class="out"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stage 3 -->
+    <section class="stage">
+      <div class="stage-head">
+        <span class="num">3</span>
+        <div>
+          <h2>Runway</h2>
+          <p>LTX-2.3 turns the look into a video with sound.</p>
+        </div>
+      </div>
+      <div class="grid two">
+        <div class="panel" id="runway">
+          <div class="inputs">
+            <figure data-slot="look"><div class="thumb empty">Look from stage 2</div><figcaption>Look</figcaption></figure>
+          </div>
+          <div class="chips"></div>
+          <textarea rows="4" placeholder="Describe the scene…"></textarea>
+          <div class="row">
+            <select class="duration" title="Length">
+              <option value="3">3 s</option>
+              <option value="4" selected>4 s</option>
+              <option value="5">5 s</option>
+            </select>
+            <select class="size" title="Resolution">
+              <option value="512x768" selected>Draft 512×768</option>
+              <option value="576x1024">HD 576×1024</option>
+            </select>
+            <button class="primary gen">Make runway video</button>
+          </div>
+          <div class="status"><div class="bar"><b></b></div><span></span></div>
+        </div>
+        <div class="panel result" id="runway-out">
+          <h3>Video</h3>
+          <div class="out"></div>
+        </div>
+      </div>
+    </section>
+    <!-- Comfy Cloud API (optional) -->
+    <section class="stage cloud" id="cloud">
+      <div class="stage-head">
+        <span class="num">☁</span>
+        <div>
+          <h2>Comfy Cloud API <span class="soon">optional</span></h2>
+          <p>Runs locally with open weights by default. Add your Comfy API key to run the same workflows on Comfy Cloud GPUs and plug in more models.</p>
+        </div>
+      </div>
+      <div class="row">
+        <input id="cloud-key" type="password" autocomplete="off" placeholder="Comfy API key (comfyui-…)">
+        <label class="toggle"><input type="checkbox" id="cloud-on"> Run on Comfy Cloud</label>
+        <button id="cloud-save" class="primary">Save</button>
+      </div>
+      <p class="hint">Get a key at <a href="https://platform.comfy.org/profile/api-keys" target="_blank" rel="noopener">platform.comfy.org/profile/api-keys</a>. The key is stored only in this browser and sent only to Comfy Cloud. <span id="cloud-status"></span></p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="byline">Built by <b>Cliff Baldridge</b> · <a href="https://www.linkedin.com/in/cliffbaldridge/" target="_blank" rel="noopener">linkedin.com/in/cliffbaldridge</a></div>
+    <div>Open source (MIT). Models: FLUX.2 Klein 4B (Apache 2.0), LTX-2.3. Built on ComfyUI.</div>
+  </footer>
+
+  <dialog id="settings">
+    <form method="dialog">
+      <h2>Settings</h2>
+      <fieldset>
+        <legend>Run on</legend>
+        <label class="radio"><input type="radio" name="mode" value="local"> Local ComfyUI</label>
+        <label class="radio"><input type="radio" name="mode" value="cloud"> Comfy Cloud</label>
+      </fieldset>
+      <label>Local ComfyUI URL<input name="localUrl" type="url" placeholder="http://127.0.0.1:8188"></label>
+      <label>Comfy Cloud URL<input name="cloudUrl" type="url" placeholder="https://cloud.comfy.org"></label>
+      <label>Comfy API key
+        <input name="apiKey" type="password" autocomplete="off" placeholder="Only stored in this browser">
+      </label>
+      <p class="hint">Your key is saved in this browser's local storage only. It is never written to the code or sent anywhere except the Comfy Cloud URL above.</p>
+      <fieldset class="mcp">
+        <legend>MCP connection <span class="soon">coming soon</span></legend>
+        <label>MCP server URL<input name="mcpUrl" type="url" placeholder="e.g. Comfy MCP endpoint" disabled></label>
+        <p class="hint">Placeholder: drive the studio from an AI assistant through Comfy MCP.</p>
+      </fieldset>
+      <div class="row end">
+        <button type="button" id="clear-key" class="ghost">Clear key</button>
+        <button value="save" class="primary">Save</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>

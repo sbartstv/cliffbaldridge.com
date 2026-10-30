@@ -1,0 +1,17 @@
+[project]
+name = "comfyui-runway-studio"
+description = "Runway Studio: one-click virtual try-on and runway video web app for ComfyUI. Generate a model and a dress with FLUX.2 Klein, try it on, and walk the runway with LTX-2.3. Open weights, runs locally at /studio/."
+version = "0.1.0"
+license = { file = "LICENSE" }
+dependencies = []
+
+[project.urls]
+# Update to the GitHub repo once it is created.
+Repository = "https://github.com/sbartstv/cliffbaldridge.com/tree/main/runway-studio"
+Homepage = "https://cliffbaldridge.com/runway-studio/"
+
+[tool.comfy]
+# Must match the publisher created at https://registry.comfy.org
+PublisherId = "sbartstv"
+DisplayName = "Runway Studio"
+Icon = ""
