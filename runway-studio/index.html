@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Runway Studio</title>
+  <title>Runway Studio · Dress Try-On + Runway Video</title>
   <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
@@ -11,8 +11,8 @@
     <div class="brand">
       <span class="logo">◆</span>
       <div>
-        <h1>Runway Studio</h1>
-        <p class="tag">Design a model, pick a dress, try it on, walk the runway. Open weights, running on ComfyUI.</p>
+        <h1>Runway Studio <span class="h1-sub">· Dress Try-On + Runway Video</span></h1>
+        <p class="tag">One click · open weights · runs on ComfyUI</p>
       </div>
     </div>
     <div class="top-actions">
@@ -25,6 +25,29 @@
     <b>ComfyUI isn't running.</b> Can't reach <span id="offline-url"></span>.
     Start ComfyUI and keep its window open (see "Run it on your computer" below). This page reconnects by itself.
   </div>
+
+  <main>
+    <section class="hero">
+      <div class="hero-text">
+        <div class="kicker">Runway Studio</div>
+        <h2>Dress Try-On + Runway Video</h2>
+        <p>One click: AI model + dress → virtual try-on → runway video with sound. Open weights, running on your own GPU. No cloud, no credits.</p>
+      </div>
+      <div class="hero-actions">
+        <button id="one-click" class="primary big">✨ Create runway look</button>
+        <div class="row">
+          <label class="toggle"><input type="checkbox" id="auto-surprise" checked> 🎲 Surprise me</label>
+          <label class="toggle"><input type="checkbox" id="auto-video" checked> Include runway video <span id="video-note" class="hint"></span></label>
+        </div>
+      </div>
+      <div id="pipeline" class="pipeline">
+        <span data-step="woman">Model</span>
+        <span data-step="dress">Dress</span>
+        <span data-step="tryon">Try-on</span>
+        <span data-step="runway">Runway</span>
+        <b id="total"></b>
+      </div>
+    </section>
 
   <div class="credits">
     <div class="byline">Built by <b>Cliff Baldridge</b> · <a href="https://www.linkedin.com/in/cliffbaldridge/" target="_blank" rel="noopener">linkedin.com/in/cliffbaldridge</a></div>
@@ -46,7 +69,6 @@
     </div>
   </div>
 
-  <main>
     <details class="setup" id="setup">
       <summary>⚙️ Run it on your computer (free) <span id="setup-status" class="hint"></span></summary>
       <div class="setup-body">
@@ -76,27 +98,6 @@
         <p id="gpu-info" class="hint"></p>
       </div>
     </details>
-
-    <section class="hero">
-      <div class="hero-text">
-        <h2>One click. Model, dress, try-on, runway.</h2>
-        <p>Runs on your own GPU with open-weight models. No cloud, no credits.</p>
-      </div>
-      <div class="hero-actions">
-        <button id="one-click" class="primary big">✨ Create runway look</button>
-        <div class="row">
-          <label class="toggle"><input type="checkbox" id="auto-surprise" checked> 🎲 Surprise me</label>
-          <label class="toggle"><input type="checkbox" id="auto-video" checked> Include runway video <span id="video-note" class="hint"></span></label>
-        </div>
-      </div>
-      <div id="pipeline" class="pipeline">
-        <span data-step="woman">Model</span>
-        <span data-step="dress">Dress</span>
-        <span data-step="tryon">Try-on</span>
-        <span data-step="runway">Runway</span>
-        <b id="total"></b>
-      </div>
-    </section>
 
     <section class="stage examples" id="examples">
       <div class="stage-head">
