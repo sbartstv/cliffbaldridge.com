@@ -28,6 +28,24 @@
 
   <main>
     <section class="hero">
+      <!-- Hybrid setup notice: advanced users only, right above the one-click button -->
+      <style>
+        .hybrid-notice { grid-column: 1 / -1; background: #a80f1a; color: #fff; padding: 22px 20px; border-radius: 14px; text-align: center; font-weight: 800; line-height: 1.35; }
+        .hybrid-notice p { margin: 0 0 12px; color: #fff; font-size: clamp(15px, 1.6vw, 17px); }
+        .hybrid-notice p:last-child { margin-bottom: 0; }
+        .hybrid-notice .hybrid-notice-title { margin-bottom: 10px; font-size: clamp(26px, 4vw, 44px); font-weight: 900; line-height: 1.08; letter-spacing: -0.01em; }
+        .hybrid-notice .hybrid-notice-lead { font-size: clamp(17px, 2vw, 21px); font-weight: 900; }
+        .hybrid-notice a { color: #fff; text-decoration: underline; text-underline-offset: 3px; overflow-wrap: anywhere; }
+        @media (max-width: 640px) { .hybrid-notice { box-sizing: border-box; width: calc(100vw - 86px); justify-self: start; padding: 18px 14px; } }
+      </style>
+      <div class="hybrid-notice" role="note" aria-label="Important setup notice">
+        <p class="hybrid-notice-title">FOR ADVANCED COMFYUI USERS ONLY</p>
+        <p class="hybrid-notice-lead">IMPORTANT: THIS IS NOT A ONE-CLICK APP. YOU NEED A STRONG GPU AND REAL COMFYUI EXPERIENCE TO RUN IT. THIS IS NOT FOR BEGINNERS.</p>
+        <p>IF NOTHING HAPPENS, IT IS NOT BROKEN. THIS PAGE NEEDS COMFYUI RUNNING ON YOUR OWN COMPUTER.</p>
+        <p>THIS IS A HYBRID SYSTEM: THE WEB UI IS THE FRONT END AND YOUR COMFYUI IS THE BACK END. YOU WILL HAVE TO DOWNLOAD THE MODELS FROM HUGGING FACE TO YOUR OWN LOCAL COMPUTER. SETUP TAKES ABOUT 10 MINUTES, PLUS THE TIME TO DOWNLOAD ABOUT 48 GB OF MODELS.</p>
+        <p>FREE FOR EVERYONE NOW AS A HYBRID SYSTEM: USE THE WEB UI HERE AND RUN COMFYUI ON YOUR OWN COMPUTER.</p>
+        <p>NEED HELP RUNNING IT? WANT THIS HOSTED ON A SERVER SO EVERYONE CAN USE IT? CONTACT ME ON LINKEDIN: <a href="https://www.linkedin.com/in/cliffbaldridge/" target="_blank" rel="noopener">linkedin.com/in/cliffbaldridge</a></p>
+      </div>
       <div class="hero-text">
         <div class="kicker">Runway Studio</div>
         <h2>Dress Try-On + Runway Video</h2>
