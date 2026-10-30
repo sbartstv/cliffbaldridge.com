@@ -55,6 +55,18 @@ main { max-width: 1240px; margin: 0 auto; padding: 24px 28px 48px; display: grid
 @keyframes pulse { 50% { opacity: .55; } }
 .chip.dice { border-style: dashed; }
 
+.credits .links { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; font-size: 14px; }
+.credits .links a { color: var(--accent); text-decoration: none; }
+.credits .links a:hover { text-decoration: underline; }
+
+.example { display: flex; align-items: center; gap: 10px; margin-bottom: 18px; }
+.example figure { margin: 0; flex: 1; min-width: 0; }
+.example img, .example video { width: 100%; aspect-ratio: 2 / 3; object-fit: cover; border-radius: 10px; display: block; background: #000; }
+.example figcaption { text-align: center; font-size: 12px; color: var(--muted); margin-top: 4px; }
+.example .plus { flex: none; }
+.lookbook { width: 100%; border-radius: 12px; display: block; }
+.examples .num { font-size: 15px; }
+
 .setup { background: var(--panel); border: 1px solid var(--line); border-radius: 20px; padding: 16px 22px; }
 .setup summary { cursor: pointer; font-size: 17px; font-weight: 650; }
 .setup-body { margin-top: 12px; }
@@ -172,6 +184,9 @@ legend { color: var(--muted); font-size: 12px; padding: 0 6px; }
 .hint { margin: 0; font-size: 12px; color: var(--muted); }
 
 @media (max-width: 860px) {
+  .example { flex-wrap: wrap; }
+  .example figure { flex: 1 1 40%; }
+  .example .plus { display: none; }
   .hero { grid-template-columns: 1fr; }
   .hero-actions { align-items: stretch; }
   .grid.two { grid-template-columns: 1fr; }

@@ -5,35 +5,6 @@
  "last_link_id": 438,
  "nodes": [
   {
-   "id": 97,
-   "type": "MarkdownNote",
-   "pos": [
-    -630,
-    740
-   ],
-   "size": [
-    479.984375,
-    849.984375
-   ],
-   "flags": {},
-   "order": 0,
-   "mode": 0,
-   "inputs": [],
-   "outputs": [],
-   "properties": {
-    "ue_properties": {
-     "widget_ue_connectable": {},
-     "version": "7.7",
-     "input_ue_unconnectable": {}
-    }
-   },
-   "widgets_values": [
-    "Guide: [Subgraph](https://docs.comfy.org/interface/features/subgraph)\n\n## Model links (for local users)\n\n**text_encoders**\n\n- [qwen_3_4b.safetensors](https://huggingface.co/Comfy-Org/z_image_turbo/resolve/main/split_files/text_encoders/qwen_3_4b.safetensors)\n\n**diffusion_models**\n\n- [flux-2-klein-4b-fp8.safetensors](https://huggingface.co/black-forest-labs/FLUX.2-klein-4b-fp8/resolve/main/flux-2-klein-4b-fp8.safetensors)\n\n**vae**\n\n- [flux2-vae.safetensors](https://huggingface.co/Comfy-Org/flux2-dev/resolve/main/split_files/vae/flux2-vae.safetensors)\n\n\nModel Storage Location\n\n```\n\ud83d\udcc2 ComfyUI/\n\u251c\u2500\u2500 \ud83d\udcc2 models/\n\u2502   \u251c\u2500\u2500 \ud83d\udcc2 text_encoders/\n\u2502   \u2502      \u2514\u2500\u2500 qwen_3_4b.safetensors\n\u2502   \u251c\u2500\u2500 \ud83d\udcc2 diffusion_models/\n\u2502   \u2502      \u2514\u2500\u2500 flux-2-klein-4b-fp8.safetensors\n\u2502   \u2514\u2500\u2500 \ud83d\udcc2 vae/\n\u2502          \u2514\u2500\u2500 flux2-vae.safetensors\n```\n\n## Report issues\n\nNote: please update ComfyUI first ([guide](https://docs.comfy.org/installation/update_comfyui)) and prepare required models. Desktop/Cloud will be updated after the stable release; nightly-supported models may not be included yet, please wait for the next stable release.\n\n- Cannot run / runtime errors: [ComfyUI/issues](https://github.com/Comfy-Org/ComfyUI/issues)\n- UI / frontend issues: [ComfyUI_frontend/issues](https://github.com/Comfy-Org/ComfyUI_frontend/issues)\n- Workflow issues: [workflow_templates/issues](https://github.com/Comfy-Org/workflow_templates/issues)\n"
-   ],
-   "color": "#222",
-   "bgcolor": "#000"
-  },
-  {
    "id": 94,
    "type": "SaveImage",
    "pos": [

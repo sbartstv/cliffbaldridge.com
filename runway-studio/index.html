@@ -29,6 +29,11 @@
   <div class="credits">
     <div class="byline">Built by <b>Cliff Baldridge</b> · <a href="https://www.linkedin.com/in/cliffbaldridge/" target="_blank" rel="noopener">linkedin.com/in/cliffbaldridge</a></div>
     <div class="event">Built for the <b>Comfy Open Source Higgsfield Hackathon</b> · Built at <b>AI on the Lot</b>, 10/29/2026</div>
+    <div class="links">
+      <a href="https://github.com/sbartstv/cliffbaldridge.com/tree/main/runway-studio" target="_blank" rel="noopener">Source code (MIT) ↗</a>
+      <a href="https://cliffbaldridge.com/runway-studio/runway-studio.zip" download>⬇ Download zip</a>
+      <a href="https://cliffbaldridge.com/runway-studio/comfyui_master_workflow.json" download>⬇ ComfyUI master workflow</a>
+    </div>
     <div class="models">
       <a href="https://huggingface.co/black-forest-labs/FLUX.2-klein-4b-fp8" target="_blank" rel="noopener">FLUX.2 Klein 4B ↗</a>
       <a href="https://huggingface.co/Comfy-Org/flux2-klein" target="_blank" rel="noopener">Qwen3 4B ↗</a>
@@ -91,6 +96,37 @@
         <span data-step="runway">Runway</span>
         <b id="total"></b>
       </div>
+    </section>
+
+    <section class="stage examples" id="examples">
+      <div class="stage-head">
+        <span class="num">★</span>
+        <div>
+          <h2>Made with Runway Studio</h2>
+          <p>Real outputs, rendered on a laptop RTX 3080. Model + dress → try-on → runway video with sound.</p>
+        </div>
+      </div>
+      <div class="example">
+        <figure><img src="media/set1-model.jpg" alt="Generated model" loading="lazy"><figcaption>Model</figcaption></figure>
+        <span class="plus">+</span>
+        <figure><img src="media/set1-dress.jpg" alt="Generated emerald mermaid gown" loading="lazy"><figcaption>Dress</figcaption></figure>
+        <span class="plus">→</span>
+        <figure><img src="media/set1-look.jpg" alt="Try-on result" loading="lazy"><figcaption>Try-on</figcaption></figure>
+        <span class="plus">→</span>
+        <figure><video src="media/set1-runway.mp4" muted autoplay loop playsinline controls></video><figcaption>Runway (LTX-2.3)</figcaption></figure>
+      </div>
+      <div class="example">
+        <figure><img src="media/set2-model.jpg" alt="Generated model" loading="lazy"><figcaption>Model</figcaption></figure>
+        <span class="plus">+</span>
+        <figure><img src="media/set2-dress.jpg" alt="Generated navy gown with sheer cape" loading="lazy"><figcaption>Dress</figcaption></figure>
+        <span class="plus">→</span>
+        <figure><img src="media/set2-look.jpg" alt="Try-on result" loading="lazy"><figcaption>Try-on</figcaption></figure>
+        <span class="plus">→</span>
+        <figure><video src="media/set2-runway.mp4" muted autoplay loop playsinline controls></video><figcaption>Runway (LTX-2.3)</figcaption></figure>
+      </div>
+      <img class="lookbook" src="media/lookbook.jpg" alt="Lookbook of eight generated try-on looks" loading="lazy">
+      <img class="lookbook" src="media/workflow.png" alt="The full ComfyUI workflow behind Runway Studio" loading="lazy" style="margin-top:14px">
+      <p class="hint">The ComfyUI workflow behind it: woman + dress (FLUX.2 Klein) → try-on (Klein edit) → runway video (LTX-2.3).</p>
     </section>
 
     <!-- Stage 1 -->

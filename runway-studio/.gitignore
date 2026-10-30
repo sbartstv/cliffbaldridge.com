@@ -15,6 +15,8 @@ output/
 outputs/
 *.mp4
 *.webm
+# ...except the curated examples shown on the page and in the README
+!media/*.mp4
 
 # Python / OS / editor
 __pycache__/

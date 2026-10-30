@@ -45,6 +45,15 @@ async def studio_asset(request):
     return web.FileResponse(path, headers={"Cache-Control": "no-store"})
 
 
+@routes.get("/studio/media/{name}")
+async def studio_media(request):
+    name = os.path.basename(request.match_info["name"])
+    path = os.path.join(ROOT, "media", name)
+    if not os.path.isfile(path):
+        raise web.HTTPNotFound()
+    return web.FileResponse(path)
+
+
 NODE_CLASS_MAPPINGS = {}
 NODE_DISPLAY_NAME_MAPPINGS = {}
 print("[Runway Studio] open http://127.0.0.1:8188/studio/")

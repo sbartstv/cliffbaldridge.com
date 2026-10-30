@@ -1,8 +1,23 @@
 # Runway Studio
 
-**Live app: https://cliffbaldridge.com/runway-studio/**
+**Live app: https://cliffbaldridge.com/runway-studio/** · **[⬇ Download zip](https://cliffbaldridge.com/runway-studio/runway-studio.zip)** · **[⬇ ComfyUI master workflow](comfyui_master_workflow.json)**
 
 An open-source virtual try-on and runway video app built on ComfyUI, using open-weight models only.
+
+![Lookbook of eight looks made with Runway Studio](media/lookbook.jpg)
+
+| Model | Dress | Try-on | Runway video |
+|---|---|---|---|
+| <img src="media/set1-model.jpg" width="160"> | <img src="media/set1-dress.jpg" width="160"> | <img src="media/set1-look.jpg" width="160"> | [▶ set1-runway.mp4](media/set1-runway.mp4) |
+| <img src="media/set2-model.jpg" width="160"> | <img src="media/set2-dress.jpg" width="160"> | <img src="media/set2-look.jpg" width="160"> | [▶ set2-runway.mp4](media/set2-runway.mp4) |
+
+All of these were rendered on a laptop RTX 3080: about 10–30 seconds per image and about 2 minutes per video.
+
+### The full app, one click
+
+A full **✨ Create runway look** run on the live site, connected to a local ComfyUI: model, dress, try-on and runway video in **208.9 seconds** total.
+
+<img src="media/runwaystudio_finalapp.png" alt="Full page of the Runway Studio app after a one-click run" width="560">
 
 1. **Model & Dress**: FLUX.2 Klein 4B generates a full-length model and a dress from one-click presets, your own prompt, 🎲 Surprise me, or an uploaded photo.
 2. **Try it on**: FLUX.2 Klein puts the dress on the model, using both images as references. An optional open try-on LoRA is one checkbox away.
@@ -67,6 +82,8 @@ The app is plain HTML, CSS and JavaScript (`index.html`, `assets/`). For each st
 | Runway | `workflows/ltx_runway.json` | `PROMPT`, `SEED`, `IMAGE_1` (look), `WIDTH`, `HEIGHT`, `FRAMES`, `FPS` |
 
 `comfyui_master_workflow.json` is the whole pipeline as one ComfyUI graph. Drag it into ComfyUI to see or run every step together.
+
+![The full ComfyUI workflow: woman and dress (FLUX.2 Klein) → try-on (Klein edit) → runway video (LTX-2.3)](media/workflow.png)
 
 To swap in your own workflow:
 1. In ComfyUI, use **Export (API)**.
