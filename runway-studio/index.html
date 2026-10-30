@@ -130,6 +130,29 @@
       <p class="hint">The ComfyUI workflow behind it: woman + dress (FLUX.2 Klein) → try-on (Klein edit) → runway video (LTX-2.3).</p>
     </section>
 
+    <!-- Same one-click panel again, right above step 1 (kept in sync with the top one) -->
+    <section class="hero">
+      <div class="hero-text">
+        <div class="kicker">One click</div>
+        <h2>Dress Try-On + Runway Video</h2>
+        <p>Model → dress → try-on → runway video, automatically. Or run each step yourself below.</p>
+      </div>
+      <div class="hero-actions">
+        <button id="one-click-2" class="primary big">✨ Create runway look</button>
+        <div class="row">
+          <label class="toggle"><input type="checkbox" class="mirror" data-of="auto-surprise" checked> 🎲 Surprise me</label>
+          <label class="toggle"><input type="checkbox" class="mirror" data-of="auto-video" checked> Include runway video</label>
+        </div>
+      </div>
+      <div class="pipeline">
+        <span data-step="woman">Model</span>
+        <span data-step="dress">Dress</span>
+        <span data-step="tryon">Try-on</span>
+        <span data-step="runway">Runway</span>
+        <b id="total-2"></b>
+      </div>
+    </section>
+
     <!-- Stage 1 -->
     <section class="stage">
       <div class="stage-head">

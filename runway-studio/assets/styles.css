@@ -57,6 +57,13 @@ main { max-width: 1240px; margin: 0 auto; padding: 24px 28px 48px; display: grid
 .h1-sub { color: var(--accent); font-weight: 600; }
 .hero .kicker { color: var(--accent); font-size: 13px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; margin-bottom: 6px; }
 .hero h2 { font-size: 34px; }
+.oneclick-bar { display: flex; align-items: center; justify-content: space-between; gap: 18px; flex-wrap: wrap;
+  border: 1px solid var(--accent); border-radius: 20px; padding: 20px 24px;
+  background: radial-gradient(120% 160% at 100% 0%, rgba(232, 194, 122, .14), transparent 60%), var(--panel); }
+.oneclick-bar h2 { margin: 0; font-size: 22px; }
+.oneclick-bar p { margin: 4px 0 0; color: var(--muted); }
+.oneclick-actions { display: flex; align-items: center; gap: 16px; }
+.oneclick-actions b { color: var(--accent); font-size: 18px; font-variant-numeric: tabular-nums; }
 
 .credits .links { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; font-size: 14px; }
 .credits .links a { color: var(--accent); text-decoration: none; }

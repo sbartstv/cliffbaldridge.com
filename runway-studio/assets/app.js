@@ -463,16 +463,28 @@ const LORA_PROMPT = "TRYON a full-body photo of a person. Replace the outfit wit
 // ---------- one click: model + dress -> try-on -> runway ----------
 {
   const btn = $("#one-click");
+  const btn2 = $("#one-click-2"); // second copy, right above step 1
   const steps = $("#pipeline");
   const total = $("#total");
-  const mark = (step, state) => { steps.querySelector(`[data-step="${step}"]`).className = state; };
-  const focus = (sel) => $(sel).scrollIntoView({ behavior: "smooth", block: "center" });
+  const total2 = $("#total-2");
+  const mark = (step, state) => document.querySelectorAll(`.pipeline [data-step="${step}"]`).forEach((s) => (s.className = state));
 
+  // Keep the second panel's switches in sync with the top ones.
+  document.querySelectorAll("input.mirror").forEach((m) => {
+    const src = $(`#${m.dataset.of}`);
+    m.onchange = () => { src.checked = m.checked; };
+    src.addEventListener("change", () => { m.checked = src.checked; });
+  });
+  const focus = (sel) => $(sel).scrollIntoView({ behavior: "smooth", block: "center" });
+  const showTotal = (text) => { total.textContent = text; total2.textContent = text; };
+
+  btn2.onclick = () => btn.click();
   btn.onclick = async () => {
-    btn.disabled = true;
-    steps.querySelectorAll("span").forEach((s) => (s.className = ""));
+    if (btn.disabled) return;
+    btn.disabled = btn2.disabled = true;
+    document.querySelectorAll(".pipeline span").forEach((s) => (s.className = ""));
     const t0 = performance.now();
-    const tick = setInterval(() => (total.textContent = `${((performance.now() - t0) / 1000).toFixed(1)}s`), 100);
+    const tick = setInterval(() => showTotal(`${((performance.now() - t0) / 1000).toFixed(1)}s`), 100);
     try {
       if ($("#auto-surprise").checked) { surprise("woman"); surprise("dress"); }
       mark("woman", "run"); mark("dress", "run");
@@ -488,8 +500,8 @@ const LORA_PROMPT = "TRYON a full-body photo of a person. Replace the outfit wit
       mark("runway", (await runners.runway()) ? "ok" : "err");
     } finally {
       clearInterval(tick);
-      total.textContent = `${((performance.now() - t0) / 1000).toFixed(1)}s total`;
-      btn.disabled = false;
+      showTotal(`${((performance.now() - t0) / 1000).toFixed(1)}s total`);
+      btn.disabled = btn2.disabled = false;
     }
   };
 }
@@ -567,6 +579,7 @@ async function checkVideoModel() {
     const names = (await r.json()).CheckpointLoaderSimple.input.required.ckpt_name[0];
     const ready = names.some((n) => n.startsWith("ltx-2.3"));
     $("#auto-video").checked = ready;
+    document.querySelectorAll('input.mirror[data-of="auto-video"]').forEach((m) => (m.checked = ready));
     $("#video-note").textContent = ready ? "" : "(video model still downloading)";
   } catch {}
 }
