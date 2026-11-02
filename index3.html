@@ -84,6 +84,12 @@
         .job-link:hover { text-decoration: underline; }
         .job-pics { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 18px; max-width: 620px; }
         .job-pics img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
+        .top-videos { margin-top: 24px; }
+        .top-videos > h4 { font-family: 'Bebas Neue', sans-serif; font-size: 24px; letter-spacing: 1.5px; font-weight: 400; color: var(--gold); margin-bottom: 12px; }
+        .top-lines { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        .top-lines div { background: var(--dark); border-left: 2px solid var(--gold); padding: 16px 18px; }
+        .top-lines b { display: block; font-family: 'Bebas Neue', sans-serif; font-size: 40px; letter-spacing: 1px; font-weight: 400; color: var(--gold); line-height: 1.1; margin-bottom: 4px; }
+        .top-lines p { font-size: 14px; line-height: 1.6; color: rgba(255,255,255,0.72); }
 
         /* KARTOON SHOWCASE */
         #kartoon { background: var(--dark); border-top: 1px solid rgba(255,255,255,0.06); }
@@ -104,15 +110,16 @@
         .group > p { font-size: 14px; color: rgba(255,255,255,0.58); line-height: 1.7; margin-bottom: 20px; max-width: 860px; }
 
         /* VIDEOS */
-        .videos { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; margin-top: 16px; }
-        .videos.three { grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .videos { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 24px; margin-top: 16px; }
         .frame { position: relative; aspect-ratio: 16 / 9; background: #000; }
         .frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
         figure.video h5 { font-size: 15px; font-weight: 600; line-height: 1.4; margin-top: 12px; }
         figure.video .views { display: inline-block; font-size: 11px; letter-spacing: 1.2px; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-top: 6px; }
         figure.video p { font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.7; margin-top: 6px; }
         .videos.three figure.video h5 { font-size: 13px; }
-        .lead { display: grid; grid-template-columns: 1.5fr 1fr; gap: 32px; align-items: center; background: var(--mid); border: 1px solid rgba(255,255,255,0.06); padding: 20px; }
+        .lead { display: grid; grid-template-columns: 340px 1fr; gap: 28px; align-items: center; max-width: 760px; background: var(--mid); border: 1px solid rgba(255,255,255,0.06); padding: 16px; }
+        .lead .frame { max-width: 340px; }
+        .top-videos .lead { margin-top: 12px; background: var(--dark); }
         .lead h5 { font-size: 20px; font-weight: 600; line-height: 1.35; }
         .lead .views { font-family: 'Bebas Neue', sans-serif; font-size: 44px; letter-spacing: 1px; color: var(--gold); line-height: 1.1; margin-bottom: 8px; }
         .lead p { font-size: 14px; color: rgba(255,255,255,0.62); line-height: 1.7; margin-top: 10px; }
@@ -139,7 +146,6 @@
         /* RESPONSIVE */
         @media (max-width: 1000px) {
             .pillars { grid-template-columns: repeat(2, 1fr); }
-            .videos.three { grid-template-columns: repeat(2, 1fr); }
             .prior { grid-template-columns: repeat(2, 1fr); }
             .showcase-top, .lead { grid-template-columns: 1fr; }
         }
@@ -159,7 +165,7 @@
 
             section { padding: 44px 16px; }
             .summary { font-size: 16px; }
-            .pillars, .prior, .credentials, .videos, .videos.three { grid-template-columns: 1fr; }
+            .pillars, .prior, .credentials, .top-lines { grid-template-columns: 1fr; }
             .stats { grid-template-columns: repeat(2, 1fr); }
 
             .job { grid-template-columns: 1fr; gap: 2px; padding: 24px 0; }
@@ -359,20 +365,91 @@
                 </div>
             </div>
 
-            <!-- KARTOON CHANNEL JR. TOP VIDEOS ROW GOES HERE (about 6 videos with view counts, plus "DJ Is My Name") -->
-
             <div class="group">
-                <h4>Rainbow Rangers</h4>
+                <h4>Kartoon Channel Jr. Top Videos</h4>
                 <p>Launched Rainbow Rangers, the preschool series that premiered on Nick Jr. in 2018.</p>
                 <div class="lead">
                     <div class="frame"><iframe src="https://www.youtube.com/embed/M4EK_FX78r0" title="Rainbow Rangers, Ride Rangers Ride!" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
                     <div>
-                        <div class="views">5M views</div>
+                        <div class="views">5.1M views</div>
                         <h5>Rainbow Rangers, Watch Today on Nick Jr. 3p/2c, Ride Rangers Ride!</h5>
-                        <p>Top video on Kartoon Channel Jr.</p>
+                        <p>Top video on Kartoon Channel Jr. · Nov 26, 2018</p>
+                        <p>Kartoon Studios, Kartoon Channel! Jr.</p>
                     </div>
                 </div>
                 <div class="videos">
+                    <figure class="video">
+                        <div class="frame"><iframe src="https://www.youtube.com/embed/wNs4qrxJzD4" title="Rainbow Rangers Meet A Burping Cow?" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+                        <figcaption>
+                            <h5>Rainbow Rangers Meet A Burping Cow? | Cartoon For Kids</h5>
+                            <span class="views">3.8M views · Feb 19, 2019</span>
+                            <p>Kartoon Studios, Kartoon Channel! Jr.</p>
+                        </figcaption>
+                    </figure>
+                    <figure class="video">
+                        <div class="frame"><iframe src="https://www.youtube.com/embed/lzUYFG7e78Q" title="Twinkle, Twinkle, Little Star Song Sing Along" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+                        <figcaption>
+                            <h5>Twinkle, Twinkle, Little Star Song Sing Along | Nursery Rhymes Kids Songs | From Baby Genius</h5>
+                            <span class="views">2.9M views · Apr 23, 2016</span>
+                            <p>Kartoon Studios, Kartoon Channel! Jr.</p>
+                        </figcaption>
+                    </figure>
+                    <figure class="video">
+                        <div class="frame"><iframe src="https://www.youtube.com/embed/LP1mDPyrUDk" title="Rainbow Rangers Watch Daily on Nick Jr." loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+                        <figcaption>
+                            <h5>Rainbow Rangers Watch Daily on Nick Jr. 10:30am/9:30c Monday - Friday, Ride Rangers Ride!</h5>
+                            <span class="views">2.8M views · Oct 23, 2018</span>
+                            <p>Kartoon Studios, Kartoon Channel! Jr.</p>
+                        </figcaption>
+                    </figure>
+                    <figure class="video">
+                        <div class="frame"><iframe src="https://www.youtube.com/embed/2V9Kd-g4hZI" title="Rainbow Rangers Watch Today on Nick Jr. 10:30am/9:30c" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+                        <figcaption>
+                            <h5>Rainbow Rangers Watch Today on Nick Jr. 10:30am/9:30c, Ride Rangers Ride!</h5>
+                            <span class="views">2.4M views · Nov 8, 2018</span>
+                            <p>Kartoon Studios, Kartoon Channel! Jr.</p>
+                        </figcaption>
+                    </figure>
+                    <figure class="video">
+                        <div class="frame"><iframe src="https://www.youtube.com/embed/5eBiBjAl8w0" title="Rainbow Rangers Look For Chameleon and More!" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+                        <figcaption>
+                            <h5>Rainbow Rangers Look For Chameleon and More! | Cartoon For Kids</h5>
+                            <span class="views">1.9M views · Feb 17, 2019</span>
+                            <p>Kartoon Studios, Kartoon Channel! Jr.</p>
+                        </figcaption>
+                    </figure>
+                    <figure class="video">
+                        <div class="frame"><iframe src="https://www.youtube.com/embed/8ExaRgNkNdo" title="DJ Is My Name Song 30 Minutes Full DVD Sing Along" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+                        <figcaption>
+                            <h5>DJ Is My Name Song 30 Minutes Full DVD Sing Along | Nursery Rhymes Kids Songs | From Baby Genius</h5>
+                            <span class="views">1.9M views · Jun 13, 2016</span>
+                            <p>Kartoon Studios, Kartoon Channel! Jr.</p>
+                        </figcaption>
+                    </figure>
+                    <figure class="video">
+                        <div class="frame"><iframe src="https://www.youtube.com/embed/AwK03aY2qT0" title="Rainbow Rangers Watch Today on Nick Jr." loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+                        <figcaption>
+                            <h5>Rainbow Rangers Watch Today on Nick Jr., Ride Rangers Ride!</h5>
+                            <span class="views">1.6M views · Dec 11, 2018</span>
+                            <p>Kartoon Studios, Kartoon Channel! Jr.</p>
+                        </figcaption>
+                    </figure>
+                    <figure class="video">
+                        <div class="frame"><iframe src="https://www.youtube.com/embed/oMNE9TfDuFQ" title="Rainbow Rangers Watch Daily on Nick Jr. 3p/2c" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+                        <figcaption>
+                            <h5>Rainbow Rangers Watch Daily on Nick Jr. 3p/2c Monday - Friday, Ride Rangers Ride!</h5>
+                            <span class="views">1.5M views · Oct 27, 2018</span>
+                            <p>Kartoon Studios, Kartoon Channel! Jr.</p>
+                        </figcaption>
+                    </figure>
+                    <figure class="video">
+                        <div class="frame"><iframe src="https://www.youtube.com/embed/eaEj6qWCetU" title="Wheels On The Bus Song 30 Minutes Full DVD Sing Along" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+                        <figcaption>
+                            <h5>Wheels On The Bus Song 30 Minutes Full DVD Sing Along | Nursery Rhymes Kids Songs | From Baby Genius</h5>
+                            <span class="views">1.5M views · Jun 17, 2016</span>
+                            <p>Kartoon Studios, Kartoon Channel! Jr.</p>
+                        </figcaption>
+                    </figure>
                     <figure class="video">
                         <div class="frame"><iframe src="https://www.youtube.com/embed/NZFQn9P_orQ" title="Rainbow Rangers, Season 1 Episode 1" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
                         <figcaption>
@@ -380,6 +457,7 @@
                             <p>Launched Rainbow Rangers on Nick Jr., including the series' first episode, the most-viewed of the show.</p>
                         </figcaption>
                     </figure>
+                    <!-- MORE KARTOON CHANNEL JR. TOP VIDEOS GO HERE -->
                 </div>
             </div>
 
@@ -574,18 +652,89 @@
 
             <div class="job">
                 <div class="job-meta">
-                    <div class="job-date">Jan 2016 – Mar 2016</div>
+                    <div class="job-date">Jan 2016 – Apr 2016 · Remote</div>
                     <div class="job-company">NBCUniversal</div>
                 </div>
                 <div>
-                    <div class="job-title">Social Media Specialist — Steve Harvey Show</div>
+                    <div class="job-title">Steve Harvey YouTube Channel Manager and OTT Manager</div>
                     <div class="job-body">
+                        <p><strong>Contract for NBCUniversal through Endemol Shine North America.</strong> Oversaw full YouTube channel management and digital strategy for Steve Harvey's NBCUniversal syndicated TV series, following the viral Miss Universe moment.</p>
                         <ul>
-                            <li>Scaled YouTube from 800K to <strong>2M+ subscribers</strong> and 2M+ daily views after the viral Miss Universe moment</li>
-                            <li>10M+ combined followers across all platforms</li>
-                            <li>Syndicated the show to Hulu, Comcast Xfinity and VOD platforms</li>
+                            <li>Scaled the brand's digital presence from 800K to over <strong>2M subscribers</strong> and <strong>2M+ daily views</strong>, leading to <strong>10M+ combined followers</strong> across all platforms.</li>
+                            <li>High volume: completed <strong>10 YouTube videos per day</strong>, including optimization and lower thirds in Photoshop.</li>
+                            <li>Syndicated the full daily 1-hour TV show to Hulu, Comcast Xfinity, and VOD platforms using NBC's Anvato CMS.</li>
+                            <li>Managed daily content operations, including video editing, channel optimization, metadata, SEO, thumbnails, and social copywriting.</li>
+                            <li>Worked daily with both the Endemol Shine VP of Production and the Steve Harvey VP of Digital in Chicago.</li>
+                            <li>Provided strategic guidance on growth, analytics, and community engagement, transforming the show into a digital powerhouse.</li>
+                            <li>Acted as the face of the Steve Harvey brand on YouTube, leading all fan engagement and interactive campaigns across platforms.</li>
                         </ul>
-                        <!-- 1 OR 2 STEVE HARVEY VIDEOS GO HERE -->
+                        <div class="top-videos">
+                            <h4>Top Videos</h4>
+                            <div class="top-lines">
+                                <div><b>1M</b><p>Helped the Steve Harvey show pass 1 million YouTube subscribers and earn the YouTube Gold Play Button.</p></div>
+                                <div><b>53M</b><p>Delivered the channel's second most-viewed video ever: uploaded and optimized "My brother doesn't share his girlfriend!" from Extraordinary Kids, March 2016, with 53.5 million views and 1.1 million likes.</p></div>
+                            </div>
+                            <div class="lead">
+                                <div class="frame"><iframe src="https://www.youtube.com/embed/nCSx2BWGBNM" title="My brother doesn't share his girlfriend!" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+                                <div>
+                                    <div class="views">53.5M views</div>
+                                    <h5>My brother doesn't share his girlfriend! || STEVE HARVEY</h5>
+                                    <p>Extraordinary Kids · 1.1M likes · Mar 31, 2016. Second most-viewed video of the entire channel.</p>
+                                    <p>Steve Harvey Show, NBCUniversal</p>
+                                </div>
+                            </div>
+                            <div class="videos">
+                                <figure class="video">
+                                    <div class="frame"><iframe src="https://www.youtube.com/embed/2-XA8Z0-nBo" title="Ask Steve: What are you calling my daughter for?" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+                                    <figcaption>
+                                        <h5>Ask Steve: What are you calling my daughter for? || STEVE HARVEY</h5>
+                                        <span class="views">3M views · Jan 7, 2016</span>
+                                        <p>Steve Harvey Show, NBCUniversal</p>
+                                    </figcaption>
+                                </figure>
+                                <figure class="video">
+                                    <div class="frame"><iframe src="https://www.youtube.com/embed/b1T5FnVRD9Q" title="Ask Steve: Steve's grandson's TV debut!" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+                                    <figcaption>
+                                        <h5>Ask Steve: Steve's grandson's TV debut! || STEVE HARVEY</h5>
+                                        <span class="views">4M views · Jan 14, 2016</span>
+                                        <p>Steve Harvey Show, NBCUniversal</p>
+                                    </figcaption>
+                                </figure>
+                                <figure class="video">
+                                    <div class="frame"><iframe src="https://www.youtube.com/embed/LVXWup-DGqY" title="Steve Harvey's biggest birthday surprise yet!" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+                                    <figcaption>
+                                        <h5>Steve Harvey's biggest birthday surprise yet! || STEVE HARVEY</h5>
+                                        <span class="views">1.4M views · Jan 15, 2016</span>
+                                        <p>Steve Harvey Show, NBCUniversal</p>
+                                    </figcaption>
+                                </figure>
+                                <figure class="video">
+                                    <div class="frame"><iframe src="https://www.youtube.com/embed/cDFRw7XpcFI" title="Do Miss Universe and Miss Colombia forgive Steve?" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+                                    <figcaption>
+                                        <h5>Do Miss Universe and Miss Colombia forgive Steve? || STEVE HARVEY</h5>
+                                        <span class="views">3.9M views · Jan 15, 2016</span>
+                                        <p>Steve Harvey Show, NBCUniversal</p>
+                                    </figcaption>
+                                </figure>
+                                <figure class="video">
+                                    <div class="frame"><iframe src="https://www.youtube.com/embed/CyZ-nbiZpWA" title="Advice Little Kids Give Adults" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+                                    <figcaption>
+                                        <h5>Advice Little Kids Give Adults || STEVE HARVEY</h5>
+                                        <span class="views">2.2M views · Feb 15, 2016</span>
+                                        <p>Steve Harvey Show, NBCUniversal</p>
+                                    </figcaption>
+                                </figure>
+                                <figure class="video">
+                                    <div class="frame"><iframe src="https://www.youtube.com/embed/m7JfJzzVqeI" title="Ask Steve: No One Told Your Little..." loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+                                    <figcaption>
+                                        <h5>Ask Steve: No One Told Your Little... || STEVE HARVEY</h5>
+                                        <span class="views">4M views · Mar 22, 2016</span>
+                                        <p>Steve Harvey Show, NBCUniversal</p>
+                                    </figcaption>
+                                </figure>
+                                <!-- MORE STEVE HARVEY TOP VIDEOS GO HERE -->
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
