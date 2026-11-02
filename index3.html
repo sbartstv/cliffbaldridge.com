@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cliff Baldridge</title>
+    <meta name="description" content="Cliff Baldridge: media, marketing and AI content leader. YouTube growth, paid media, generative AI and entertainment. Los Angeles or remote.">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --blue: #0055cc;
+            --dark: #080808;
+            --mid: #141414;
+            --light: #f0ede8;
+            --gold: #c9a84c;
+            --muted: #888;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'DM Sans', sans-serif; background: var(--dark); color: white; }
+        img { max-width: 100%; display: block; }
+
+        /* NAV */
+        nav {
+            position: fixed; top: 0; width: 100%; z-index: 200;
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 16px 48px;
+            background: rgba(8,8,8,0.9);
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+        .logo { font-family: 'Bebas Neue', sans-serif; font-size: 20px; letter-spacing: 3px; color: white; text-decoration: none; }
+        nav ul { display: flex; gap: 32px; list-style: none; }
+        nav a { color: rgba(255,255,255,0.65); text-decoration: none; font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 500; transition: color 0.2s; }
+        nav a:hover { color: white; }
+
+        /* HEADER */
+        .resume-top { padding: 120px 48px 56px; max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: 170px 1fr; gap: 40px; align-items: center; }
+        .resume-top img { width: 170px; height: 170px; object-fit: cover; border-radius: 6px; border: 2px solid rgba(255,255,255,0.15); }
+        .resume-top h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(48px, 7vw, 92px); letter-spacing: 4px; line-height: 1; }
+        .headline { font-size: 20px; color: var(--gold); font-weight: 500; margin-top: 8px; }
+        .tags { font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.7); margin-top: 12px; line-height: 1.9; }
+        .contact-line { font-size: 14px; color: rgba(255,255,255,0.58); margin-top: 12px; line-height: 1.9; }
+        .contact-line a { color: var(--gold); text-decoration: none; }
+        .contact-line a:hover { text-decoration: underline; }
+
+        /* BADGES */
+        .badges {
+            display: flex; flex-wrap: wrap; gap: 10px;
+            justify-content: center; padding: 26px 48px;
+            background: var(--mid);
+            border-top: 1px solid rgba(255,255,255,0.05);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .badge { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; padding: 7px 18px; border-radius: 2px; font-weight: 600; color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.09); }
+        .badge.gold { color: var(--gold); border-color: rgba(201,168,76,0.3); background: rgba(201,168,76,0.07); }
+
+        /* SECTIONS */
+        section { padding: 72px 48px; }
+        .inner { max-width: 1180px; margin: 0 auto; }
+        .section-label { font-family: 'Bebas Neue', sans-serif; font-size: 13px; letter-spacing: 4px; text-transform: uppercase; color: var(--muted); margin-bottom: 36px; display: flex; align-items: center; gap: 16px; }
+        .section-label::after { content: ''; flex: 1; height: 1px; background: rgba(255,255,255,0.07); }
+
+        /* SUMMARY + PILLARS */
+        .summary { font-size: 18px; line-height: 1.7; color: rgba(255,255,255,0.72); max-width: 860px; margin-bottom: 44px; }
+        .pillars { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+        .pillar { background: var(--mid); border: 1px solid rgba(255,255,255,0.06); border-top: 2px solid var(--gold); padding: 24px 20px; }
+        .pillar h3 { font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 1px; font-weight: 400; margin-bottom: 10px; }
+        .pillar p { font-size: 14px; line-height: 1.7; color: rgba(255,255,255,0.58); }
+
+        /* EXPERIENCE */
+        .band { background: var(--mid); }
+        .job { display: grid; grid-template-columns: 190px 1fr; gap: 0 40px; padding: 36px 0; border-bottom: 1px solid rgba(255,255,255,0.06); }
+        .job:last-child { border-bottom: none; }
+        .job-meta { padding-top: 6px; }
+        .job-date { font-size: 12px; color: var(--muted); margin-bottom: 6px; }
+        .job-company { font-size: 13px; color: var(--gold); font-weight: 600; }
+        .job-title { font-family: 'Bebas Neue', sans-serif; font-size: 24px; letter-spacing: 1px; margin-bottom: 12px; color: white; }
+        .job-body { font-size: 14px; color: rgba(255,255,255,0.62); line-height: 1.8; }
+        .job-body ul { padding-left: 16px; }
+        .job-body li { margin: 6px 0; }
+        .job-body strong { color: rgba(255,255,255,0.86); font-weight: 500; }
+        .job-link { color: var(--gold); font-size: 13px; text-decoration: none; display: inline-block; margin-top: 10px; }
+        .job-link:hover { text-decoration: underline; }
+        .job-pics { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 18px; max-width: 620px; }
+        .job-pics img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
+
+        /* KARTOON SHOWCASE */
+        #kartoon { background: var(--dark); border-top: 1px solid rgba(255,255,255,0.06); }
+        .showcase-top { display: grid; grid-template-columns: 1.1fr 1fr; gap: 40px; align-items: center; margin-bottom: 32px; }
+        .showcase-top h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(38px, 5vw, 64px); letter-spacing: 3px; line-height: 1; font-weight: 400; }
+        .showcase-top .sub { color: var(--gold); font-size: 15px; font-weight: 500; margin-top: 10px; }
+        .showcase-top p.intro { font-size: 16px; color: rgba(255,255,255,0.68); line-height: 1.7; margin-top: 14px; }
+        .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.08); margin-bottom: 44px; }
+        .stat { background: var(--dark); padding: 22px 16px; text-align: center; }
+        .stat b { display: block; font-family: 'Bebas Neue', sans-serif; font-size: 38px; letter-spacing: 1px; font-weight: 400; color: var(--gold); }
+        .stat span { font-size: 11px; letter-spacing: 1.2px; text-transform: uppercase; color: var(--muted); }
+        .role { margin-bottom: 44px; }
+        .role h3 { font-family: 'Bebas Neue', sans-serif; font-size: 28px; letter-spacing: 1px; font-weight: 400; }
+        .role .when { font-size: 13px; color: var(--muted); margin: 2px 0 12px; }
+        .role .job-body { max-width: 860px; }
+        .group { margin-top: 52px; }
+        .group > h4 { font-family: 'Bebas Neue', sans-serif; font-size: 24px; letter-spacing: 1.5px; font-weight: 400; color: var(--gold); margin-bottom: 6px; }
+        .group > p { font-size: 14px; color: rgba(255,255,255,0.58); line-height: 1.7; margin-bottom: 20px; max-width: 860px; }
+
+        /* VIDEOS */
+        .videos { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; margin-top: 16px; }
+        .videos.three { grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .frame { position: relative; aspect-ratio: 16 / 9; background: #000; }
+        .frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+        figure.video h5 { font-size: 15px; font-weight: 600; line-height: 1.4; margin-top: 12px; }
+        figure.video .views { display: inline-block; font-size: 11px; letter-spacing: 1.2px; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-top: 6px; }
+        figure.video p { font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.7; margin-top: 6px; }
+        .videos.three figure.video h5 { font-size: 13px; }
+        .lead { display: grid; grid-template-columns: 1.5fr 1fr; gap: 32px; align-items: center; background: var(--mid); border: 1px solid rgba(255,255,255,0.06); padding: 20px; }
+        .lead h5 { font-size: 20px; font-weight: 600; line-height: 1.35; }
+        .lead .views { font-family: 'Bebas Neue', sans-serif; font-size: 44px; letter-spacing: 1px; color: var(--gold); line-height: 1.1; margin-bottom: 8px; }
+        .lead p { font-size: 14px; color: rgba(255,255,255,0.62); line-height: 1.7; margin-top: 10px; }
+        figure.photo img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
+        figure.photo h5 { font-size: 15px; font-weight: 600; line-height: 1.4; margin-top: 12px; }
+        figure.photo p { font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.7; margin-top: 6px; }
+
+        /* PRIOR PROJECTS */
+        .prior { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+        .prior div { background: var(--dark); border: 1px solid rgba(255,255,255,0.06); padding: 22px 20px; }
+        .prior h3 { font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 1px; font-weight: 400; margin-bottom: 8px; }
+        .prior p { font-size: 14px; color: rgba(255,255,255,0.58); line-height: 1.7; }
+        .credentials { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 44px; }
+        .credentials h3 { font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 1px; font-weight: 400; color: var(--gold); margin-bottom: 10px; }
+        .credentials ul { list-style: none; font-size: 14px; color: rgba(255,255,255,0.62); line-height: 2; }
+
+        /* CONTACT */
+        #contact { padding: 80px 48px; background: var(--dark); text-align: center; border-top: 1px solid rgba(255,255,255,0.06); }
+        #contact h2 { font-family: 'Bebas Neue', sans-serif; font-size: 52px; letter-spacing: 4px; margin-bottom: 20px; font-weight: 400; }
+        #contact a { color: var(--gold); font-size: 20px; text-decoration: none; }
+        #contact a:hover { text-decoration: underline; }
+        #contact p { color: var(--muted); font-size: 13px; letter-spacing: 0.5px; margin-top: 20px; }
+
+        /* RESPONSIVE */
+        @media (max-width: 1000px) {
+            .pillars { grid-template-columns: repeat(2, 1fr); }
+            .videos.three { grid-template-columns: repeat(2, 1fr); }
+            .prior { grid-template-columns: repeat(2, 1fr); }
+            .showcase-top, .lead { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 768px) {
+            nav { padding: 12px 16px; }
+            nav ul { gap: 14px; }
+            nav a { font-size: 11px; letter-spacing: 1px; }
+            .logo { font-size: 17px; letter-spacing: 2px; }
+
+            .resume-top { grid-template-columns: 1fr; padding: 88px 16px 36px; gap: 20px; }
+            .resume-top img { width: 120px; height: 120px; }
+            .headline { font-size: 17px; }
+            .tags { font-size: 11px; }
+
+            .badges { padding: 14px 16px; gap: 8px; }
+            .badge { font-size: 10px; padding: 6px 12px; }
+
+            section { padding: 44px 16px; }
+            .summary { font-size: 16px; }
+            .pillars, .prior, .credentials, .videos, .videos.three { grid-template-columns: 1fr; }
+            .stats { grid-template-columns: repeat(2, 1fr); }
+
+            .job { grid-template-columns: 1fr; gap: 2px; padding: 24px 0; }
+            .job-meta { display: flex; flex-wrap: wrap; gap: 8px; align-items: baseline; margin-bottom: 8px; }
+            .job-date { margin-bottom: 0; }
+
+            .lead { padding: 12px; gap: 16px; }
+            #contact { padding: 50px 16px; }
+            #contact h2 { font-size: 38px; }
+            #contact a { font-size: 16px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a class="logo" href="#top">Cliff Baldridge</a>
+        <ul>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#kartoon">Kartoon</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- RESUME TOP -->
+    <header class="resume-top" id="top">
+        <img src="cliffmagic1.jpg" alt="Cliff Baldridge">
+        <div>
+            <h1>Cliff Baldridge</h1>
+            <div class="headline">Media, Marketing &amp; AI Content Leader</div>
+            <div class="tags">YouTube Growth · Paid Media · Generative AI · Entertainment</div>
+            <div class="contact-line">
+                Los Angeles / Remote · Available now<br>
+                <a href="mailto:vipmediapr@gmail.com">vipmediapr@gmail.com</a> ·
+                <a href="https://www.youtube.com/@SBARTSTV" target="_blank" rel="noopener">YouTube</a> ·
+                <a href="https://sbartstv.com" target="_blank" rel="noopener">sbartstv.com</a> ·
+                <a href="https://aiquantumcypher.com" target="_blank" rel="noopener">aiquantumcypher.com</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- BADGES -->
+    <div class="badges">
+        <span class="badge">400K+ YouTube Subscribers</span>
+        <span class="badge">110M Household OTT Network</span>
+        <span class="badge">Television Academy Member</span>
+        <span class="badge">28K+ LinkedIn Connections</span>
+        <span class="badge gold">Kartoon Channel / Genius Brands</span>
+    </div>
+
+    <!-- SUMMARY + WHAT I DO -->
+    <section id="summary">
+        <div class="inner">
+            <div class="section-label">What I Do</div>
+            <p class="summary">Media and marketing professional who grows YouTube channels, runs large paid campaigns, launches animated series, and builds generative AI video pipelines.</p>
+            <div class="pillars">
+                <div class="pillar">
+                    <h3>YouTube &amp; Social Growth</h3>
+                    <p>Steve Harvey 800K to 2M+ subscribers. Own channel at 400K+ subscribers. Content ID and MCN management.</p>
+                </div>
+                <div class="pillar">
+                    <h3>Paid Media &amp; Google Ads</h3>
+                    <p>Multi-million dollar campaigns with the YouTube Kids, TV and Ads teams.</p>
+                </div>
+                <div class="pillar">
+                    <h3>Media &amp; Entertainment / OTT</h3>
+                    <p>110M household network. Netflix, Amazon, Nickelodeon, Stan Lee, Llama Llama.</p>
+                </div>
+                <div class="pillar">
+                    <h3>Generative AI &amp; Multimedia</h3>
+                    <p>ComfyUI, WAN 2.2, LoRA training, Unreal Engine, Unity and XR.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EXPERIENCE: LIGHT ENTRIES -->
+    <section id="experience" class="band">
+        <div class="inner">
+            <div class="section-label">Experience</div>
+
+            <div class="job">
+                <div class="job-meta">
+                    <div class="job-date">Jan 2016 – Present</div>
+                    <div class="job-company">SBARTSTV</div>
+                </div>
+                <div>
+                    <div class="job-title">News Director — Santa Barbara Arts TV</div>
+                    <div class="job-body">
+                        <ul>
+                            <li>Built a YouTube Partner channel with <strong>400K+ subscribers and 150M+ views</strong></li>
+                            <li>Covered the Santa Barbara International Film Festival, the Kirk Douglas Award and charity galas</li>
+                            <li>Produced the 30-episode Santa Barbara Navy League TV series</li>
+                        </ul>
+                        <a href="https://sbartstv.com" class="job-link" target="_blank" rel="noopener">→ sbartstv.com</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="job">
+                <div class="job-meta">
+                    <div class="job-date">Mar 2019 – Present</div>
+                    <div class="job-company">AI Quantum Cypher</div>
+                </div>
+                <div>
+                    <div class="job-title">Chief Technology Officer</div>
+                    <div class="job-body">
+                        <ul>
+                            <li>Patent pending hybrid quantum-pooled communication security architecture</li>
+                            <li>Text-to-video pipelines with ComfyUI, WAN 2.2 and LoRA training</li>
+                            <li>Model Context Protocol and Agent-to-Agent multi-agent frameworks</li>
+                            <li>Winner: AT&amp;T Developer Hackathon (Best VR/AR Film), Intel IoT Creator Award, Nreal/Xreal Hackathon</li>
+                        </ul>
+                        <a href="https://aiquantumcypher.com" class="job-link" target="_blank" rel="noopener">→ aiquantumcypher.com</a>
+                        <div class="job-pics">
+                            <img src="trained9.jpg" alt="Trained LoRA in ComfyUI" loading="lazy">
+                            <img src="i2vv.jpg" alt="Image to video with WAN 2.2" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="job">
+                <div class="job-meta">
+                    <div class="job-date">Oct 2025 – Dec 2025</div>
+                    <div class="job-company">2020 Companies</div>
+                </div>
+                <div>
+                    <div class="job-title">Meta Brand Ambassador &amp; Sales Specialist</div>
+                    <div class="job-body">
+                        <ul>
+                            <li>B2B training and B2C demos for Ray-Ban Meta, Oakley Meta and Meta Quest 3</li>
+                            <li><strong>Top Performer, Los Angeles region</strong>, with 38 Meta Sales Academy badges and certifications</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="job">
+                <div class="job-meta">
+                    <div class="job-date">Mar 2023 – Oct 2025</div>
+                    <div class="job-company">Lear Capital</div>
+                </div>
+                <div>
+                    <div class="job-title">Senior Account Executive</div>
+                    <div class="job-body">
+                        <ul>
+                            <li>Consistently exceeded <strong>$175K+ monthly revenue goals</strong> selling to high-net-worth clients</li>
+                            <li>Managed the full sales cycle for high-value transactions</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- KARTOON SHOWCASE -->
+    <section id="kartoon">
+        <div class="inner">
+            <div class="section-label">Main Showcase</div>
+
+            <div class="showcase-top">
+                <div>
+                    <h2>Kartoon Channel / Genius Brands</h2>
+                    <div class="sub">Now Kartoon Studios · Beverly Hills · 2016 – 2023</div>
+                    <p class="intro">Projects and channels I worked on at Genius Brands / Kartoon Studios.</p>
+                </div>
+                <img src="kartoon.jpg" alt="Kartoon Channel" loading="lazy">
+            </div>
+
+            <div class="stats">
+                <div class="stat"><b>5M</b><span>Top video views</span></div>
+                <div class="stat"><b>110M</b><span>Household OTT network</span></div>
+                <div class="stat"><b>300+</b><span>Licensing deals</span></div>
+                <div class="stat"><b>$1M</b><span>SpacePOP Google Ads campaign</span></div>
+            </div>
+
+            <div class="role">
+                <h3>Consultant</h3>
+                <div class="when">Mar 2019 – Mar 2023</div>
+                <div class="job-body">Consulted on media, TV and digital content distribution across OTT and international markets.</div>
+            </div>
+
+            <div class="role">
+                <h3>Advertising Director / YouTube Manager</h3>
+                <div class="when">Mar 2016 – Mar 2019</div>
+                <div class="job-body">
+                    <ul>
+                        <li><strong>Launched and grew Genius Brands' Baby Genius and Kid Genius YouTube channels to 200K+ subscribers.</strong> Both channels were later rebranded under Kartoon Studios.</li>
+                        <li>Secured the company's YouTube TV partnership, positioning its kids' content for monetization on the platform.</li>
+                        <li>Built a 110M household OTT network across Amazon Prime, Roku, Xumo, YouTube TV and Twitch.</li>
+                        <li>Ran multi-million dollar Google Ads campaigns with the YouTube Kids, TV and Ads teams.</li>
+                        <li>Oversaw trailers for Netflix, Amazon and Nickelodeon, and managed YouTube MCN and Content ID.</li>
+                        <li>Worked directly with Andy Heyward on media, TV and digital content distribution.</li>
+                        <li>Supported licensing with Walmart and Target through Licensing Expo Las Vegas, MIPCOM Jr. and Kidscreen.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- KARTOON CHANNEL JR. TOP VIDEOS ROW GOES HERE (about 6 videos with view counts, plus "DJ Is My Name") -->
+
+            <div class="group">
+                <h4>Rainbow Rangers</h4>
+                <p>Launched Rainbow Rangers, the preschool series that premiered on Nick Jr. in 2018.</p>
+                <div class="lead">
+                    <div class="frame"><iframe src="https://www.youtube.com/embed/M4EK_FX78r0" title="Rainbow Rangers, Ride Rangers Ride!" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+                    <div>
+                        <div class="views">5M views</div>
+                        <h5>Rainbow Rangers, Watch Today on Nick Jr. 3p/2c, Ride Rangers Ride!</h5>
+                        <p>Top video on Kartoon Channel Jr.</p>
+                    </div>
+                </div>
+                <div class="videos">
+                    <figure class="video">
+                        <div class="frame"><iframe src="https://www.youtube.com/embed/NZFQn9P_orQ" title="Rainbow Rangers, Season 1 Episode 1" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+                        <figcaption>
+                            <h5>Rainbow Rangers, Go With the Rainbow Floe &amp; Northern Lights, Season 1 Episode 1</h5>
+                            <p>Launched Rainbow Rangers on Nick Jr., including the series' first episode, the most-viewed of the show.</p>
+                        </figcaption>
+                    </figure>
+                </div>
+            </div>
+
+            <div class="group">
+                <h4>Llama Llama — Netflix Original</h4>
+                <div class="videos">
+                    <figure class="video">
+                        <div class="frame"><iframe src="https://www.youtube.com/embed/wA-BNeApbfE" title="Llama Llama's Red Pajamas!" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+                        <figcaption>
+                            <h5>Llama Llama's Red Pajamas!</h5>
+                            <span class="views">2.38M views</span>
+                            <p>As YouTube Manager, set up the Llama Llama &amp; Friends channel, uploaded its first video, and ran the marketing campaign with Netflix for the Netflix Original series starring Jennifer Garner.</p>
+                        </figcaption>
+                    </figure>
+                    <figure class="photo">
+                        <img src="garner.jpg" alt="Jennifer Garner and Llama Llama" loading="lazy">
+                        <h5>Starring Jennifer Garner</h5>
+                        <p>Netflix Original series based on Anna Dewdney's books.</p>
+                    </figure>
+                </div>
+            </div>
+
+            <div class="group">
+                <h4>SpacePOP</h4>
+                <div class="videos">
+                    <figure class="video">
+                        <div class="frame"><iframe src="https://www.youtube.com/embed/TRoT_I_1hKA" title="SpacePOP series" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+                        <figcaption>
+                            <h5>SpacePOP series</h5>
+                            <span class="views">2M first video · about 100K per episode</span>
+                            <p>As YouTube Manager, ran a $1M Google Ads campaign for the 52-episode series. The first episode reached 2 million views in one day, and episodes averaged about 100,000 views each. The launch helped secure 300+ licensing deals in toys and consumer products at Licensing Expo Las Vegas.</p>
+                        </figcaption>
+                    </figure>
+                    <figure class="video">
+                        <div class="frame"><iframe src="https://www.youtube.com/embed/_KKQ3MAoLDQ" title="SpacePOP dolls at Toys R Us" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+                        <figcaption>
+                            <h5>SpacePOP dolls at Toys "R" Us</h5>
+                            <span class="views">169K views</span>
+                            <p>SpacePOP dolls by Madame Alexander at Toys "R" Us. Supported the licensing deals, ran YouTube sponsorships, and created the promotional videos.</p>
+                        </figcaption>
+                    </figure>
+                </div>
+            </div>
+
+            <div class="group">
+                <h4>SpacePOP DIY Series — 355K+ Views</h4>
+                <p>Oversaw a team of USC and UCLA interns who produced a series of SpacePOP DIY videos for YouTube.</p>
+                <div class="videos three">
+                    <figure class="video">
+                        <div class="frame"><iframe src="https://www.youtube.com/embed/QalRt_PxrBs" title="SpacePOP DIY videos" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+                        <figcaption><h5>SpacePOP DIY videos</h5></figcaption>
+                    </figure>
+                    <figure class="video">
+                        <div class="frame"><iframe src="https://www.youtube.com/embed/pdeHp8bED34" title="Making Glitter Foam Slime DIY" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+                        <figcaption><h5>Making Glitter Foam Slime DIY, Juno SpacePOP Slime</h5><span class="views">125K views</span></figcaption>
+                    </figure>
+                    <figure class="video">
+                        <div class="frame"><iframe src="https://www.youtube.com/embed/-DlYGS-ChiM" title="SpacePOP Is Born, Six Flags Sweepstakes" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+                        <figcaption><h5>SpacePOP Is Born, DIY Hera Garden Slime &amp; Videobomb Six Flags Sweepstakes!</h5><span class="views">100K views</span><p>Six Flags sweepstakes partnership.</p></figcaption>
+                    </figure>
+                    <figure class="video">
+                        <div class="frame"><iframe src="https://www.youtube.com/embed/flJMkTQtYMk" title="DIY Pearly Slime No Borax" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+                        <figcaption><h5>DIY Pearly Slime No Borax!</h5><span class="views">70K views</span></figcaption>
+                    </figure>
+                    <figure class="video">
+                        <div class="frame"><iframe src="https://www.youtube.com/embed/KTAIOaVSvEw" title="DIY SpacePOP Crayon Art" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+                        <figcaption><h5>DIY SpacePOP Crayon Art! Happy National Crayon Day!</h5><span class="views">60K views</span></figcaption>
+                    </figure>
+                    <figure class="video">
+                        <div class="frame"><iframe src="https://www.youtube.com/embed/qIrs8uY_ssc" title="DIY SpacePOP Terrarium Succulents How-To" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+                        <figcaption><h5>DIY SpacePOP Terrarium Succulents How-To!</h5></figcaption>
+                    </figure>
+                </div>
+            </div>
+
+            <div class="group">
+                <h4>Warren Buffett's Secret Millionaires Club</h4>
+                <div class="videos">
+                    <figure class="video">
+                        <div class="frame"><iframe src="https://www.youtube.com/embed/IUTy731-RXA" title="Warren Buffett's Secret Millionaires Club" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+                        <figcaption>
+                            <h5>Warren Buffett's Secret Millionaires Club</h5>
+                            <p>Helped relaunch Warren Buffett's animated series on YouTube and streaming.</p>
+                        </figcaption>
+                    </figure>
+                    <figure class="video">
+                        <div class="frame"><iframe src="https://www.youtube.com/embed/cACtcuihiRY" title="Trading Places animation" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+                        <figcaption>
+                            <h5>"Trading Places" animation</h5>
+                            <p>Animated short created for Warren Buffett's annual Berkshire Hathaway shareholders meeting.</p>
+                        </figcaption>
+                    </figure>
+                    <figure class="photo">
+                        <img src="warrenbuffettdoll.jpg" alt="Cliff Baldridge holding the boxed Talking Warren Buffett doll" loading="lazy">
+                        <h5>Talking Warren Buffett doll</h5>
+                        <p>Special edition talking doll created for the Berkshire Hathaway shareholders meeting.</p>
+                    </figure>
+                </div>
+            </div>
+
+            <div class="group">
+                <h4>Celebrity Guests</h4>
+                <p>Released celebrity guest episodes of Warren Buffett's Secret Millionaires Club featuring Bill Gates, Nick Cannon and Jay-Z.</p>
+                <div class="videos three">
+                    <figure class="video">
+                        <div class="frame"><iframe src="https://www.youtube.com/embed/YFL8-BK4QFk" title="The Gift with Bill Gates" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+                        <figcaption><h5>"The Gift" with Bill Gates</h5><p>Released on the Kid Genius Cartoons channel I grew, now the Kartoon Channel.</p></figcaption>
+                    </figure>
+                    <figure class="video">
+                        <div class="frame"><iframe src="https://www.youtube.com/embed/LpQFZ1sxuTg" title="Avast Ye Downloads! with Nick Cannon" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+                        <figcaption><h5>"Avast Ye Downloads!" Part 2 with Nick Cannon</h5></figcaption>
+                    </figure>
+                    <figure class="video">
+                        <div class="frame"><iframe src="https://www.youtube.com/embed/Me3orb3a7DA" title="Secret Millionaires Club with Jay-Z" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+                        <figcaption><h5>Secret Millionaires Club with Jay-Z</h5></figcaption>
+                    </figure>
+                </div>
+            </div>
+
+            <div class="group">
+                <h4>Stan Lee</h4>
+                <p>On the team for the Stan Lee VR Experience, the only official Stan Lee VR content.</p>
+                <div class="videos">
+                    <figure class="video">
+                        <div class="frame"><iframe src="https://www.youtube.com/embed/VEpPgX7BbuY" title="Stan Lee's Superhero Kindergarten" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+                        <figcaption>
+                            <h5>Stan Lee's Superhero Kindergarten, starring Arnold Schwarzenegger</h5>
+                            <p>I was part of the original team that developed the series.</p>
+                        </figcaption>
+                    </figure>
+                    <figure class="video">
+                        <div class="frame"><iframe src="https://www.youtube.com/embed/4gK3Sg_84rE" title="Mighty Micro Escape, Stan Lee's Mighty 7" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+                        <figcaption>
+                            <h5>"Mighty Micro Escape," Stan Lee's Mighty 7</h5>
+                            <p>Brought Stan Lee's Mighty 7 back from the vault and aired it on YouTube. Its animation became Stan Lee's Cosmic Crusaders, written by Deadpool co-creator Fabian Nicieza. That three-episode special premiered with The Hollywood Reporter at Comic-Con, together with the Stan Lee VR experience. I released it exclusively on YouTube.</p>
+                        </figcaption>
+                    </figure>
+                    <figure class="photo">
+                        <img src="stanleevr.jpeg" alt="Stan Lee VR Experience" loading="lazy">
+                        <h5>Stan Lee VR Experience</h5>
+                        <p>Comic-Con and The Hollywood Reporter.</p>
+                    </figure>
+                    <figure class="photo">
+                        <img src="stanandcliff.png" alt="Cliff Baldridge with Stan Lee" loading="lazy">
+                        <h5>With Stan Lee</h5>
+                    </figure>
+                </div>
+            </div>
+
+            <div class="group">
+                <h4>Series Launched on YouTube</h4>
+                <div class="videos">
+                    <figure class="video">
+                        <div class="frame"><iframe src="https://www.youtube.com/embed/GedqfqRfKEw" title="Da Jammies, Mall in the Family" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+                        <figcaption>
+                            <h5>Da Jammies, "Mall in the Family," Season 1 Episode 1</h5>
+                            <p>Launched Da Jammies on YouTube, starting with the series premiere.</p>
+                        </figcaption>
+                    </figure>
+                    <figure class="video">
+                        <div class="frame"><iframe src="https://www.youtube.com/embed/w0KH-eTztlw" title="Cloned, Thomas Edison's Secret Lab" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+                        <figcaption>
+                            <h5>"Cloned," Thomas Edison's Secret Lab, Season 3 Episode 4</h5>
+                            <span class="views">20K views</span>
+                        </figcaption>
+                    </figure>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EXPERIENCE: EARLIER ROLES -->
+    <section class="band">
+        <div class="inner">
+            <div class="section-label">Experience, continued</div>
+
+            <div class="job">
+                <div class="job-meta">
+                    <div class="job-date">Aug 2018 – Present</div>
+                    <div class="job-company">Television Academy</div>
+                </div>
+                <div>
+                    <div class="job-title">Associate Member and Judge</div>
+                    <div class="job-body">
+                        <ul>
+                            <li>Associate Member, Emerging Media Programming Peer Group</li>
+                            <li>Judge, College Television Awards and Television Academy Foundation Internship Program</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="job">
+                <div class="job-meta">
+                    <div class="job-date">Jan 2016 – Mar 2016</div>
+                    <div class="job-company">NBCUniversal</div>
+                </div>
+                <div>
+                    <div class="job-title">Social Media Specialist — Steve Harvey Show</div>
+                    <div class="job-body">
+                        <ul>
+                            <li>Scaled YouTube from 800K to <strong>2M+ subscribers</strong> and 2M+ daily views after the viral Miss Universe moment</li>
+                            <li>10M+ combined followers across all platforms</li>
+                            <li>Syndicated the show to Hulu, Comcast Xfinity and VOD platforms</li>
+                        </ul>
+                        <!-- 1 OR 2 STEVE HARVEY VIDEOS GO HERE -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRIOR PROJECTS: NO DATES -->
+    <section id="prior" class="band" style="border-top:1px solid rgba(255,255,255,0.06);">
+        <div class="inner">
+            <div class="section-label">Prior Projects</div>
+            <div class="prior">
+                <div><h3>Alvin and the Chipmunks</h3><p>Bagdasarian Productions.</p></div>
+                <div><h3>Disney Imagineering</h3><p>Disney projects with Imagineering.</p></div>
+                <div><h3>Google Helpouts</h3><p>Mentored creators in media production on Google's expert platform.</p></div>
+                <div><h3>YouTube Space LA</h3><p>Award-winning Producer Partner at Google's production facility.</p></div>
+                <div><h3>Google &amp; YouTube Partner</h3><p>Official Google Partner. Oversaw multimillion-dollar advertising campaigns through Google Ads and YouTube.</p></div>
+                <div><h3>Brand Collaborations</h3><p>Amazon Twitch × Inspector Gadget, Adam Savage, Doritos, Mercedes-Benz, H&amp;M.</p></div>
+            </div>
+            <div class="credentials">
+                <div>
+                    <h3>Awards</h3>
+                    <ul>
+                        <li>AT&amp;T Developer Award, Best Use AR Film &amp; Television</li>
+                        <li>Cynopsis Innovation Award</li>
+                        <li>Navy PR Award, Santa Barbara TV</li>
+                        <li>XReal AR Hackathon Winner</li>
+                        <li>Intel IoT Creator Award</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Certifications</h3>
+                    <ul>
+                        <li>YouTube Certified</li>
+                        <li>Google Ads and Google Analytics</li>
+                        <li>AWS, Azure and Cloud ML</li>
+                        <li>Meta Sales Academy, 38 badges and certifications</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Let's Work Together</h2>
+        <p style="margin-bottom:20px;"><a href="mailto:vipmediapr@gmail.com">vipmediapr@gmail.com</a></p>
+        <p>Los Angeles / Remote &nbsp;·&nbsp; Television Academy Member &nbsp;·&nbsp; 28K+ LinkedIn Connections</p>
+    </section>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', e => {
+                e.preventDefault();
+                document.querySelector(a.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
+
+</body>
+</html>
