@@ -64,18 +64,20 @@
         .top .links small { margin-left: 4px; font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.55); }
         .top .now { margin-top: 24px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,0.1); }
         .top .now-label { margin-bottom: 6px; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; font-weight: 700; color: var(--gold); }
-        .top .now-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 10px; }
+        .top .now-grid { display: grid; grid-template-columns: 1fr 1.3fr 1fr; gap: 22px; margin-top: 10px; }
         .top .now-cell .pics { display: flex; gap: 6px; }
-        .top .now-cell .pics img { height: 130px; width: auto; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 4px; cursor: zoom-in; }
+        .top .now-cell .pics > img, .top .now-cell .pics > a { flex: 1 1 0; min-width: 0; }
+        .top .now-cell .pics img { display: block; width: 100%; height: 180px; object-fit: cover; border-radius: 4px; cursor: zoom-in; }
         .top .now-cell .pics a img { cursor: pointer; }
         .top .now-cell .pics a:hover img { outline: 2px solid var(--gold); }
         .top .now-cell .pics img.whole { object-fit: contain; background: #f1ede6; }
+        .top .now-cell .pics img[src*="863750567"] { object-position: 75% center; }
         .top .now-cell p, .top .now-more { margin-top: 10px; font-size: 15px; font-weight: 600; line-height: 1.55; color: #fff; }
         .top .now-more { margin-top: 18px; }
         .top .now-cell strong, .top .now-more strong { color: var(--gold); }
         .top .now .d { color: rgba(255,255,255,0.6); }
         .top .now a { color: var(--gold); text-decoration: none; white-space: nowrap; }
-        @media (max-width: 768px) { .top .now-grid { grid-template-columns: 1fr; gap: 20px; } .top .now-cell .pics img { height: 100px; } }
+        @media (max-width: 768px) { .top .now-grid { grid-template-columns: 1fr; gap: 20px; } .top .now-cell .pics img { height: 150px; } }
         .top .now-item { display: grid; grid-template-columns: 120px 1fr; gap: 18px; align-items: center; margin: 12px 0; }
         .top .now-item img { width: 120px; height: 80px; object-fit: cover; border-radius: 4px; cursor: zoom-in; }
         .top .now-item img.whole { object-fit: contain; background: #f1ede6; }
@@ -340,6 +342,10 @@
                 <div class="now">
                     <div class="now-label">Latest projects · What I'm doing now</div>
                     <div class="now-grid">
+                        <div class="now-cell">
+                            <div class="pics"><img class="whole" src="ytpics/860300347_28833085686356738_6225113086718391051_n.jpg" alt="Los Angeles Investor Conference: Marketing Partner Clifford Baldridge, Chief Technology Officer, SBARTSTV / AI Quantum Cypher. Thursday, Nov 19, 2026, Blankspaces, Venice, CA"></div>
+                            <p><span class="d">Nov 19, 2026 · Venice</span><br><strong>Marketing Partner</strong>, Los Angeles Investor Conference, representing SBARTSTV and AI Quantum Cypher before 400 investors and founders.</p>
+                        </div>
                         <div class="now-cell">
                             <div class="pics"><img src="ytpics/863750567_28809535525378421_3384192265437338880_n.jpg" alt="Holding the Most Creative certificate at the FaithTech SoCal × Baptize The World Hackathon, October 24, 2026, Los Angeles"><img class="whole" src="awards/faithtech-most-creative.jpg" alt="FaithTech Certificate of Honor: Most Creative, the most imaginative answer to the challenge. Presented to my Baptism Story, team member Clifford Baldridge. FaithTech Social Hackathon, October 24, 2026, Los Angeles"></div>
                             <p><span class="d">Oct 24, 2026</span><br>Won <strong>Most Creative</strong> out of 75 participants, judged by Google employees, at the FaithTech Social Hackathon (FaithTech SoCal × Baptize The World), Los Angeles, for the team project "My Baptism Story."</p>
