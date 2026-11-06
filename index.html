@@ -308,6 +308,19 @@
             #contact h2 { font-size: 38px; }
             #contact a { font-size: 16px; }
         }
+
+        /* Work samples stay within the Genius Brands experience entry. */
+        #kartoon.xp-showcase { margin-top: 24px; border-top: 0; background: transparent; scroll-margin-top: 90px; }
+        .xp-showcase .showcase-top { gap: 24px; }
+        .xp-showcase .showcase-top h2 { font-size: clamp(28px, 4vw, 42px); }
+        .xp-showcase .videos { grid-template-columns: repeat(auto-fill, minmax(min(260px, 100%), 1fr)); }
+        .xp-showcase .lead { grid-template-columns: minmax(0, 340px) minmax(0, 1fr); }
+        .xp-showcase > .group { margin-top: 32px; }
+        .xp-showcase .job-body ul { padding-left: 18px; }
+        @media (max-width: 768px) {
+            .xp-showcase .showcase-top, .xp-showcase .lead { grid-template-columns: 1fr; }
+            .xp-showcase .lead .frame { width: 100%; }
+        }
     </style>
 </head>
 <body>
@@ -458,30 +471,8 @@
                     <div class="yrs">2016 – 2023</div>
                     <div>
                         <div class="what">Advertising Director, YouTube Manager, then Consultant <span>· Genius Brands / Kartoon Studios</span></div>
-                        <p>Built a 150M-household OTT network. Ran the $1M SpacePOP Google Ads launch that helped secure 300+ licensing deals. Licensing support with Walmart and Target. <a href="#kartoon">See the work</a></p>
-                    </div>
-                </div>
-                <div class="xp">
-                    <div class="yrs">2016</div>
-                    <div>
-                        <div class="what">Steve Harvey YouTube &amp; OTT Manager <span>· NBCUniversal (contract)</span></div>
-                        <p>Grew the channel from 800K to 2M+ subscribers. Syndicated the daily show to Hulu and Xfinity. <a href="#steve-harvey">See the work</a></p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="xp-group">
-                <h3>Earlier</h3>
-                <p class="xp-earlier">YouTube Space LA Producer Partner · Google Helpouts expert · Disney Imagineering · Alvin and the Chipmunks (Bagdasarian Productions)</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- KARTOON SHOWCASE -->
-    <section id="kartoon">
-        <div class="inner">
-            <div class="section-label">Main Showcase</div>
-
+                        <p>Built a 150M-household OTT network. Ran the $1M SpacePOP Google Ads launch that helped secure 300+ licensing deals. Licensing support with Walmart and Target.</p>
+                        <div id="kartoon" class="xp-showcase">
             <div class="showcase-top">
                 <div>
                     <h2>Kartoon Channel / Genius Brands</h2>
@@ -786,8 +777,26 @@
                     </figure>
                 </div>
             </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="xp">
+                    <div class="yrs">2016</div>
+                    <div>
+                        <div class="what">Steve Harvey YouTube &amp; OTT Manager <span>· NBCUniversal (contract)</span></div>
+                        <p>Grew the channel from 800K to 2M+ subscribers. Syndicated the daily show to Hulu and Xfinity. <a href="#steve-harvey">See the work</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="xp-group">
+                <h3>Earlier</h3>
+                <p class="xp-earlier">YouTube Space LA Producer Partner · Google Helpouts expert · Disney Imagineering · Alvin and the Chipmunks (Bagdasarian Productions)</p>
+            </div>
         </div>
     </section>
+
+
 
     <!-- STEVE HARVEY SHOWCASE -->
     <section class="band" id="steve-harvey">
