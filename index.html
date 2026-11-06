@@ -67,6 +67,8 @@
         .top .now-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 10px; }
         .top .now-cell .pics { display: flex; gap: 6px; }
         .top .now-cell .pics img { height: 130px; width: auto; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 4px; cursor: zoom-in; }
+        .top .now-cell .pics a img { cursor: pointer; }
+        .top .now-cell .pics a:hover img { outline: 2px solid var(--gold); }
         .top .now-cell .pics img.whole { object-fit: contain; background: #f1ede6; }
         .top .now-cell p, .top .now-more { margin-top: 10px; font-size: 15px; font-weight: 600; line-height: 1.55; color: #fff; }
         .top .now-more { margin-top: 18px; }
@@ -343,7 +345,7 @@
                             <p><span class="d">Oct 24, 2026</span><br>Won <strong>Most Creative</strong> out of 75 participants, judged by Google employees, at the FaithTech Social Hackathon (FaithTech SoCal × Baptize The World), Los Angeles, for the team project "My Baptism Story."</p>
                         </div>
                         <div class="now-cell">
-                            <div class="pics"><img src="runway-studio/media/lookbook.jpg" alt="Runway Studio lookbook: eight AI-generated dress try-on looks made in ComfyUI"></div>
+                            <div class="pics"><a href="runway-studio/" title="Open Runway Studio"><img src="runway-studio/media/lookbook.jpg" alt="Runway Studio lookbook: eight AI-generated dress try-on looks made in ComfyUI. Opens the Runway Studio app"></a></div>
                             <p><span class="d">Oct 29, 2026 · Culver City</span><br>Created <strong>Runway Studio</strong>, a free, hybrid open-source virtual try-on and runway video app built with ComfyUI, Flux and LTX. Built for the ComfyUI Open Source Higgsfield hackathon competition, in person at AI On The Lot. <a href="https://github.com/sbartstv/cliffbaldridge.com/tree/main/runway-studio" target="_blank" rel="noopener">See the project</a> · <a href="runway-studio/">Live app</a></p>
                         </div>
                     </div>
@@ -1101,7 +1103,7 @@
         const box = document.getElementById('lightbox');
         const boxImg = box.querySelector('img');
         const boxCap = box.querySelector('p');
-        document.querySelectorAll('.now-cell img, .now-item img, .win .pic img, .award-card .pic img, .photo-grid img, .job-pics.cards img').forEach(img => {
+        document.querySelectorAll('.now-cell .pics > img, .now-item img, .win .pic img, .award-card .pic img, .photo-grid img, .job-pics.cards img').forEach(img => {
             img.addEventListener('click', () => {
                 boxImg.src = img.src;
                 boxImg.alt = img.alt;
