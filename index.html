@@ -321,6 +321,14 @@
             .xp-showcase .showcase-top, .xp-showcase .lead { grid-template-columns: 1fr; }
             .xp-showcase .lead .frame { width: 100%; }
         }
+
+        .xp-showcase .genius-pics { gap: 20px; margin: 20px 0 28px; align-items: flex-start; }
+        .xp-showcase .genius-pics figure { width: 190px; max-width: 100%; }
+        .xp-showcase .genius-pics img { width: 100%; height: 130px; object-fit: contain; }
+        .xp-showcase .genius-pics figcaption { margin-top: 6px; font-size: 13px; line-height: 1.5; }
+        .xp-showcase figure.photo img { cursor: zoom-in; }
+        .xp-showcase figure.photo img.tall { height: 190px; max-height: 190px; max-width: 100%; object-fit: contain; }
+        .xp-showcase .videos { align-items: start; }
     </style>
 </head>
 <body>
@@ -471,48 +479,22 @@
                     <div class="yrs">2016 – 2023</div>
                     <div>
                         <div class="what">Advertising Director, YouTube Manager, then Consultant <span>· Genius Brands / Kartoon Studios</span></div>
-                        <p>Built a 150M-household OTT network. Ran the $1M SpacePOP Google Ads launch that helped secure 300+ licensing deals. Licensing support with Walmart and Target.</p>
                         <div id="kartoon" class="xp-showcase">
-            <div class="showcase-top">
-                <div>
-                    <h2>Kartoon Channel / Genius Brands</h2>
-                    <div class="sub">Now Kartoon Studios · Beverly Hills · 2016 – 2023</div>
-                    <p class="intro">Projects and channels I worked on at Genius Brands / Kartoon Studios.</p>
-                </div>
-                <img src="kartoon.jpg" alt="Kartoon Channel" loading="lazy">
-            </div>
-
-            <div class="stats">
-                <div class="stat"><b>5M</b><span>Top video views</span></div>
-                <div class="stat"><b>150M</b><span>Household OTT network</span></div>
-                <div class="stat"><b>300+</b><span>Licensing deals</span></div>
-                <div class="stat"><b>$1M</b><span>SpacePOP Google Ads campaign</span></div>
-            </div>
-
-            <div class="role">
-                <h3>Consultant</h3>
-                <div class="when">Mar 2019 – Mar 2023</div>
-                <div class="job-body">Consulted on media, TV and digital content distribution across OTT and international markets.</div>
-            </div>
-
-            <div class="role">
-                <h3>Advertising Director / YouTube Manager</h3>
-                <div class="when">Mar 2016 – Mar 2019</div>
-                <div class="job-body">
-                    <ul>
-                        <li><strong>Launched and grew Genius Brands' Baby Genius and Kid Genius YouTube channels to 200K+ subscribers.</strong> Both channels were later rebranded under Kartoon Studios.</li>
-                        <li>Secured the company's YouTube TV partnership, positioning its kids' content for monetization on the platform.</li>
-                        <li>Built a 150M household OTT network across Amazon Prime, Roku, Xumo, YouTube TV and Twitch.</li>
-                        <li>Ran multi-million dollar Google Ads campaigns with the YouTube Kids, TV and Ads teams.</li>
-                        <li>Oversaw trailers for Netflix, Amazon and Nickelodeon, and managed YouTube MCN and Content ID.</li>
-                        <li>Worked directly with Andy Heyward on media, TV and digital content distribution.</li>
-                        <li>Supported licensing with Walmart and Target through Licensing Expo Las Vegas, MIPCOM Jr. and Kidscreen.</li>
-                    </ul>
-                </div>
-                <div class="job-pics cards">
-                    <img src="awards/genius-brands-card-front.jpg" alt="Genius Brands International business card" loading="lazy">
-                    <img src="awards/genius-brands-card-back.jpg" alt="Business card: Cliff Baldridge, YouTube Operations and Google AdWords Advertising Manager, Beverly Hills, CA" loading="lazy">
-                </div>
+            <ul class="xp-bullets">
+                <li>Launched and grew Baby Genius and Kid Genius YouTube channels to 200K+ subscribers, later rebranded under Kartoon Studios.</li>
+                <li>Secured the company's YouTube TV partnership and built a 150M-household OTT network across Amazon Prime, Roku, Xumo, YouTube TV and Twitch.</li>
+                <li>Ran multi-million dollar Google Ads campaigns with the YouTube Kids, TV and Ads teams.</li>
+                <li>Ran the $1M SpacePOP launch campaign, helping secure 300+ licensing deals.</li>
+                <li>Launched Rainbow Rangers on Nick Jr.; the top channel video reached 5M+ views.</li>
+                <li>Oversaw trailers for Netflix, Amazon and Nickelodeon, and managed YouTube MCN and Content ID.</li>
+                <li>Worked directly with Andy Heyward on media, TV and digital content distribution.</li>
+                <li>Supported Walmart and Target licensing through Licensing Expo Las Vegas, MIPCOM Jr. and Kidscreen.</li>
+                <li>Consulted on OTT and international content distribution, 3/2019 – 3/2023; Advertising Director / YouTube Manager, 3/2016 – 3/2019.</li>
+            </ul>
+            <div class="xp-pics genius-pics">
+                <figure><img src="awards/genius-brands-card-front.jpg" alt="Genius Brands International business card" loading="lazy"><figcaption>Genius Brands International</figcaption></figure>
+                <figure><img src="awards/genius-brands-card-back.jpg" alt="Cliff Baldridge, YouTube Operations and Google AdWords Advertising Manager, Beverly Hills" loading="lazy"><figcaption>YouTube Operations &amp; Google AdWords</figcaption></figure>
+                <figure><img src="kartoon.jpg" alt="Kartoon Channel network" loading="lazy"><figcaption>Kartoon Channel · now Kartoon Studios</figcaption></figure>
             </div>
 
             <div class="group">
@@ -1126,7 +1108,7 @@
         const box = document.getElementById('lightbox');
         const boxImg = box.querySelector('img');
         const boxCap = box.querySelector('p');
-        document.querySelectorAll('.xp-pics img, .now-cell .pics > img, .now-item img, .win .pic img, .award-card .pic img, .photo-grid img, .job-pics.cards img').forEach(img => {
+        document.querySelectorAll('.xp-showcase figure.photo img, .xp-pics img, .now-cell .pics > img, .now-item img, .win .pic img, .award-card .pic img, .photo-grid img, .job-pics.cards img').forEach(img => {
             img.addEventListener('click', () => {
                 boxImg.src = img.src;
                 boxImg.alt = img.alt;
