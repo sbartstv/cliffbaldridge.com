@@ -47,23 +47,46 @@
         /* SECTION 1: WHO I AM */
         .top { padding: 120px 48px 56px; }
         .top .wrap { max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: 180px 1fr; gap: 40px; align-items: center; }
-        .top .photo { width: 180px; height: 180px; border-radius: 50%; object-fit: cover; object-position: 30% 35%; border: 4px solid var(--mid); box-shadow: 0 0 0 1px rgba(255,255,255,0.12); }
+        .top .photo { width: 180px; height: 180px; border-radius: 50%; object-fit: cover; object-position: center; border: 4px solid var(--mid); box-shadow: 0 0 0 1px rgba(255,255,255,0.12); }
         .top h1 { font-size: 48px; line-height: 1.05; font-weight: 700; color: #fff; letter-spacing: -0.5px; }
         .top .top-role { margin-top: 8px; font-size: 18px; font-weight: 600; color: var(--gold); }
-        .top .where { margin-top: 4px; font-size: 14px; color: rgba(255,255,255,0.55); }
-        .top .pitch { margin-top: 16px; font-size: 18px; line-height: 1.6; color: rgba(255,255,255,0.85); max-width: 680px; }
-        .top .links { margin-top: 22px; display: flex; flex-wrap: wrap; gap: 10px; }
-        .top .links a { text-decoration: none; font-size: 14px; font-weight: 600; padding: 9px 18px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.14); color: #fff; }
-        .top .links a.primary { background: var(--gold); border-color: var(--gold); color: var(--dark); }
-        .top .links a:hover { border-color: var(--gold); }
+        .top .sub-role { margin-top: 4px; font-size: 15px; font-weight: 600; color: rgba(255,255,255,0.88); }
+        .top .where { margin-top: 6px; font-size: 14px; color: rgba(255,255,255,0.55); }
+        .top .focus { margin-top: 16px; font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 600; color: rgba(255,255,255,0.72); }
+        .top .proof { list-style: none; margin-top: 10px; max-width: 760px; }
+        .top .proof li { font-size: 16px; line-height: 1.65; color: rgba(255,255,255,0.86); }
+        .top .worked { margin-top: 14px; font-size: 13px; line-height: 1.7; color: rgba(255,255,255,0.62); }
+        .top .worked span { margin-right: 8px; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 600; color: var(--muted); }
+        .top .links { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 6px 22px; }
+        .top .links a { text-decoration: none; font-size: 15px; font-weight: 600; color: var(--gold); }
+        .top .links a:hover { text-decoration: underline; }
         @media (max-width: 768px) {
             .top { padding: 96px 20px 40px; }
             .top .wrap { grid-template-columns: 1fr; text-align: center; gap: 20px; }
             .top .photo { margin: 0 auto; width: 150px; height: 150px; }
             .top h1 { font-size: 38px; }
-            .top .pitch { font-size: 16px; }
+            .top .proof { display: inline-block; text-align: left; }
+            .top .proof li { font-size: 15px; }
             .top .links { justify-content: center; }
         }
+
+        /* SECTION 2: LATEST WINS */
+        #wins { padding: 56px 48px 64px; background: var(--mid); border-top: 1px solid rgba(255,255,255,0.06); border-bottom: 1px solid rgba(255,255,255,0.06); }
+        .win-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .win { background: var(--dark); border: 1px solid rgba(255,255,255,0.08); border-top: 2px solid var(--gold); display: flex; flex-direction: column; }
+        .win .pic { aspect-ratio: 4 / 3; background: #0d0d0d; overflow: hidden; }
+        .win .pic img { width: 100%; height: 100%; object-fit: cover; cursor: zoom-in; }
+        .win .pic img.whole { object-fit: contain; background: #f1ede6; }
+        .win .pic.stat { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 20px; background: linear-gradient(160deg, #1b1b1b, #0b0b0b); }
+        .win .pic.stat b { font-family: 'Bebas Neue', sans-serif; font-size: 104px; font-weight: 400; color: var(--gold); line-height: 0.9; }
+        .win .pic.stat span { font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.7); margin-top: 10px; max-width: 220px; line-height: 1.6; }
+        .win .txt { padding: 18px 20px 22px; }
+        .win .when { font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold); font-weight: 600; }
+        .win h3 { font-family: 'Bebas Neue', sans-serif; font-size: 28px; letter-spacing: 1px; font-weight: 400; color: #fff; margin-top: 6px; line-height: 1.1; }
+        .win .org { font-size: 14px; color: rgba(255,255,255,0.85); font-weight: 600; margin-top: 2px; }
+        .win p { font-size: 14px; color: rgba(255,255,255,0.62); line-height: 1.6; margin-top: 10px; }
+        @media (max-width: 1000px) { .win-grid { grid-template-columns: 1fr 1fr; } }
+        @media (max-width: 768px) { #wins { padding: 44px 16px; } .win-grid { grid-template-columns: 1fr; } }
 
         /* BADGES */
         .badges {
@@ -246,56 +269,28 @@
     <!-- SECTION 1: WHO I AM -->
     <header class="top" id="top">
         <div class="wrap">
-            <img class="photo" src="cliffmagic1.jpg" alt="Cliff Baldridge">
+            <img class="photo" src="cliff-headshot.jpg" alt="Cliff Baldridge">
             <div>
                 <h1>Cliff Baldridge</h1>
-                <div class="top-role">Multimedia Producer · Digital Media &amp; AI Content</div>
-                <div class="where">Los Angeles / Remote · Available now</div>
-                <p class="pitch">I get shows, brands and products in front of millions: 2M+ subscribers for Steve Harvey, 300+ licensing deals for SpacePOP, and 150M+ views on my own channel.</p>
+                <div class="top-role">Marketing &amp; Sales Professional · Content &amp; Digital Media · Generative AI</div>
+                <div class="sub-role">AI · AR · VR Builder · Hackathon Winner</div>
+                <div class="sub-role">Television Academy · Emerging Media Peer Group Member</div>
+                <div class="where">Los Angeles · Hybrid or Remote · Available now</div>
+                <div class="focus">Broadcast Licensing · Consumer Products · Media &amp; Entertainment Deals · Music</div>
+                <ul class="proof">
+                    <li>Built and managed YouTube channels to over 1 billion combined views and 1 million+ subscribers.</li>
+                    <li>Built a 150M-household OTT network for Kartoon Studios (formerly Genius Brands): Kartoon Channel! and Kartoon Channel! Jr.</li>
+                    <li>Earned all 4 YouTube Certifications · Google AdWords Certified</li>
+                </ul>
+                <div class="worked"><span>Worked with</span>Netflix · Nickelodeon · Walmart · Target · Amazon · Twitch · Xumo · Comcast</div>
                 <div class="links">
                     <a class="primary" href="mailto:vipmediapr@gmail.com">Email</a>
+                    <a href="https://www.linkedin.com/in/cliffbaldridge" target="_blank" rel="noopener">LinkedIn</a>
                     <a href="https://www.youtube.com/@SBARTSTV" target="_blank" rel="noopener">YouTube</a>
-                    <a href="https://sbartstv.com" target="_blank" rel="noopener">sbartstv.com</a>
-                    <a href="https://aiquantumcypher.com" target="_blank" rel="noopener">aiquantumcypher.com</a>
                 </div>
             </div>
         </div>
     </header>
-
-    <!-- BADGES -->
-    <div class="badges">
-        <span class="badge">400K+ YouTube Subscribers</span>
-        <span class="badge">110M Household OTT Network</span>
-        <span class="badge">Television Academy Member</span>
-        <span class="badge">28K+ LinkedIn Connections</span>
-        <span class="badge gold">Kartoon Channel / Genius Brands</span>
-    </div>
-
-    <!-- SUMMARY + WHAT I DO -->
-    <section id="summary">
-        <div class="inner">
-            <div class="section-label">What I Do</div>
-            <p class="summary">Media and marketing professional who grows YouTube channels, runs large paid campaigns, launches animated series, and builds generative AI video pipelines.</p>
-            <div class="pillars">
-                <div class="pillar">
-                    <h3>YouTube &amp; Social Growth</h3>
-                    <p>Steve Harvey 800K to 2M+ subscribers. Own channel at 400K+ subscribers. Content ID and MCN management.</p>
-                </div>
-                <div class="pillar">
-                    <h3>Paid Media &amp; Google Ads</h3>
-                    <p>Multi-million dollar campaigns with the YouTube Kids, TV and Ads teams.</p>
-                </div>
-                <div class="pillar">
-                    <h3>Media &amp; Entertainment / OTT</h3>
-                    <p>110M household network. Netflix, Amazon, Nickelodeon, Stan Lee, Llama Llama.</p>
-                </div>
-                <div class="pillar">
-                    <h3>Generative AI &amp; Multimedia</h3>
-                    <p>ComfyUI, WAN 2.2, LoRA training, Unreal Engine, Unity and XR.</p>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- EXPERIENCE: LIGHT ENTRIES -->
     <section id="experience" class="band">
@@ -393,7 +388,7 @@
 
             <div class="stats">
                 <div class="stat"><b>5M</b><span>Top video views</span></div>
-                <div class="stat"><b>110M</b><span>Household OTT network</span></div>
+                <div class="stat"><b>150M</b><span>Household OTT network</span></div>
                 <div class="stat"><b>300+</b><span>Licensing deals</span></div>
                 <div class="stat"><b>$1M</b><span>SpacePOP Google Ads campaign</span></div>
             </div>
@@ -411,7 +406,7 @@
                     <ul>
                         <li><strong>Launched and grew Genius Brands' Baby Genius and Kid Genius YouTube channels to 200K+ subscribers.</strong> Both channels were later rebranded under Kartoon Studios.</li>
                         <li>Secured the company's YouTube TV partnership, positioning its kids' content for monetization on the platform.</li>
-                        <li>Built a 110M household OTT network across Amazon Prime, Roku, Xumo, YouTube TV and Twitch.</li>
+                        <li>Built a 150M household OTT network across Amazon Prime, Roku, Xumo, YouTube TV and Twitch.</li>
                         <li>Ran multi-million dollar Google Ads campaigns with the YouTube Kids, TV and Ads teams.</li>
                         <li>Oversaw trailers for Netflix, Amazon and Nickelodeon, and managed YouTube MCN and Content ID.</li>
                         <li>Worked directly with Andy Heyward on media, TV and digital content distribution.</li>
@@ -1022,6 +1017,68 @@
         </div>
     </section>
 
+    <!-- SECTION 2: LATEST WINS -->
+    <section id="wins">
+        <div class="inner">
+            <div class="section-label">Latest Wins</div>
+            <div class="win-grid">
+                <article class="win">
+                    <div class="pic"><img class="whole" src="ytpics/860300347_28833085686356738_6225113086718391051_n.jpg" alt="Los Angeles Investor Conference: Marketing Partner Clifford Baldridge, Chief Technology Officer, SBARTSTV / AI Quantum Cypher. Thursday, Nov 19, 2026, Blankspaces, Venice, CA"></div>
+                    <div class="txt">
+                        <div class="when">Upcoming · Nov 19, 2026</div>
+                        <h3>Marketing Partner</h3>
+                        <div class="org">Los Angeles Investor Conference</div>
+                        <p>Representing SBARTSTV and AI Quantum Cypher at a conference of 400 investors and founders in AI, consumer products and creators. Blankspaces, Venice.</p>
+                    </div>
+                </article>
+                <article class="win">
+                    <div class="pic"><img src="ytpics/863750567_28809535525378421_3384192265437338880_n.jpg" alt="Most Creative certificate at the FaithTech SoCal × Baptize The World Hackathon, October 24, 2026, The Robertson Triangle, Los Angeles"></div>
+                    <div class="txt">
+                        <div class="when">Oct 24, 2026</div>
+                        <h3>Most Creative</h3>
+                        <div class="org">FaithTech SoCal × Baptize The World Hackathon</div>
+                        <p>Certificate of Honor for the most imaginative answer to the challenge, for the team project "My Baptism Story." The Robertson Triangle, Los Angeles.</p>
+                    </div>
+                </article>
+                <article class="win">
+                    <div class="pic stat"><b>38</b><span>Meta Sales Academy badges and certifications</span></div>
+                    <div class="txt">
+                        <div class="when">2025</div>
+                        <h3>Top Performer, Los Angeles</h3>
+                        <div class="org">Meta · 2020 Companies</div>
+                        <p>B2B training and B2C demos for Ray-Ban Meta, Oakley Meta and Meta Quest 3.</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- SUMMARY + WHAT I DO -->
+    <section id="summary">
+        <div class="inner">
+            <div class="section-label">What I Do</div>
+            <p class="summary">Media and marketing professional who grows YouTube channels, runs large paid campaigns, launches animated series, and builds generative AI video pipelines.</p>
+            <div class="pillars">
+                <div class="pillar">
+                    <h3>YouTube &amp; Social Growth</h3>
+                    <p>Steve Harvey 800K to 2M+ subscribers. Own channel at 400K+ subscribers. Content ID and MCN management.</p>
+                </div>
+                <div class="pillar">
+                    <h3>Paid Media &amp; Google Ads</h3>
+                    <p>Multi-million dollar campaigns with the YouTube Kids, TV and Ads teams.</p>
+                </div>
+                <div class="pillar">
+                    <h3>Media &amp; Entertainment / OTT</h3>
+                    <p>150M household network. Netflix, Amazon, Nickelodeon, Stan Lee, Llama Llama.</p>
+                </div>
+                <div class="pillar">
+                    <h3>Generative AI &amp; Multimedia</h3>
+                    <p>ComfyUI, WAN 2.2, LoRA training, Unreal Engine, Unity and XR.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <div class="lightbox" id="lightbox" aria-hidden="true"><img alt=""><p></p></div>
 
     <section id="contact">
@@ -1042,7 +1099,7 @@
         const box = document.getElementById('lightbox');
         const boxImg = box.querySelector('img');
         const boxCap = box.querySelector('p');
-        document.querySelectorAll('.award-card .pic img, .photo-grid img, .job-pics.cards img').forEach(img => {
+        document.querySelectorAll('.win .pic img, .award-card .pic img, .photo-grid img, .job-pics.cards img').forEach(img => {
             img.addEventListener('click', () => {
                 boxImg.src = img.src;
                 boxImg.alt = img.alt;
