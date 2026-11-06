@@ -329,6 +329,22 @@
         .xp-showcase figure.photo img { cursor: zoom-in; }
         .xp-showcase figure.photo img.tall { height: 190px; max-height: 190px; max-width: 100%; object-fit: contain; }
         .xp-showcase .videos { align-items: start; }
+
+        /* Compact work samples preserve the existing project and photo layout. */
+        .xp-showcase .videos { grid-template-columns: repeat(auto-fill, minmax(min(240px, 100%), 1fr)); gap: 18px; margin-top: 12px; }
+        .xp-showcase > .group { margin-top: 24px; }
+        .xp-showcase .group > h4 { font-size: 21px; }
+        .xp-showcase .lead { grid-template-columns: minmax(0, 280px) minmax(0, 1fr); gap: 18px; padding: 12px; }
+        .xp-showcase .lead h5 { font-size: 17px; }
+        .xp-showcase .lead .views { font-size: 30px; }
+        .xp-showcase figure.video h5, .xp-showcase figure.photo h5 { font-size: 14px; }
+        .xp-showcase figure.video p, .xp-showcase figure.photo p { font-size: 13px; line-height: 1.55; }
+        .xp-showcase figure.photo img:not(.tall) { max-height: 190px; object-fit: contain; object-position: left center; }
+        .steve-work { scroll-margin-top: 90px; }
+        .steve-work .job { display: block; padding: 16px 0 0; }
+        .steve-work .job-meta { margin-bottom: 12px; }
+        .steve-work .job-title { font-size: 21px; }
+        @media (max-width: 600px) { .xp-showcase .lead { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
@@ -476,11 +492,12 @@
                     </div>
                 </div>
                 <div class="xp">
-                    <div class="yrs">2016 – 2023</div>
+                    <div class="yrs">3/2016 – 3/2023</div>
                     <div>
-                        <div class="what">Advertising Director, YouTube Manager, then Consultant <span>· Genius Brands / Kartoon Studios</span></div>
+                        <div class="what">Advertising Director, YouTube Manager, then Consultant <span>· Kartoon Studios, Kartoon Channel!, Kartoon Channel! Jr. / Genius Brands</span></div>
                         <div id="kartoon" class="xp-showcase">
             <ul class="xp-bullets">
+                <li>Full-time Advertising Director / YouTube Manager, 3/2016–3/2019; Consultant, 3/2019–2/2023.</li>
                 <li>Launched and grew Baby Genius and Kid Genius YouTube channels to 200K+ subscribers, later rebranded under Kartoon Studios.</li>
                 <li>Secured the company's YouTube TV partnership and built a 150M-household OTT network across Amazon Prime, Roku, Xumo, YouTube TV and Twitch.</li>
                 <li>Ran multi-million dollar Google Ads campaigns with the YouTube Kids, TV and Ads teams.</li>
@@ -489,7 +506,7 @@
                 <li>Oversaw trailers for Netflix, Amazon and Nickelodeon, and managed YouTube MCN and Content ID.</li>
                 <li>Worked directly with Andy Heyward on media, TV and digital content distribution.</li>
                 <li>Supported Walmart and Target licensing through Licensing Expo Las Vegas, MIPCOM Jr. and Kidscreen.</li>
-                <li>Consulted on OTT and international content distribution, 3/2019 – 3/2023; Advertising Director / YouTube Manager, 3/2016 – 3/2019.</li>
+                <li>Consulted on OTT and international content distribution.</li>
             </ul>
             <div class="xp-pics genius-pics">
                 <figure><img src="awards/genius-brands-card-front.jpg" alt="Genius Brands International business card" loading="lazy"><figcaption>Genius Brands International</figcaption></figure>
@@ -766,25 +783,8 @@
                     <div class="yrs">2016</div>
                     <div>
                         <div class="what">Steve Harvey YouTube &amp; OTT Manager <span>· NBCUniversal (contract)</span></div>
-                        <p>Grew the channel from 800K to 2M+ subscribers. Syndicated the daily show to Hulu and Xfinity. <a href="#steve-harvey">See the work</a></p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="xp-group">
-                <h3>Earlier</h3>
-                <p class="xp-earlier">YouTube Space LA Producer Partner · Google Helpouts expert · Disney Imagineering · Alvin and the Chipmunks (Bagdasarian Productions)</p>
-            </div>
-        </div>
-    </section>
-
-
-
-    <!-- STEVE HARVEY SHOWCASE -->
-    <section class="band" id="steve-harvey">
-        <div class="inner">
-            <div class="section-label">Steve Harvey Show · NBCUniversal</div>
-
+                        <p>Grew the channel from 800K to 2M+ subscribers. Syndicated the daily show to Hulu and Xfinity.</p>
+                        <div id="steve-harvey" class="xp-showcase steve-work">
             <div class="job">
                 <div class="job-meta">
                     <div class="job-date">Jan 2016 – Apr 2016 · Remote</div>
@@ -873,8 +873,21 @@
                     </div>
                 </div>
             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="xp-group">
+                <h3>Earlier</h3>
+                <p class="xp-earlier">YouTube Space LA Producer Partner · Google Helpouts expert · Disney Imagineering · Alvin and the Chipmunks (Bagdasarian Productions)</p>
+            </div>
         </div>
     </section>
+
+
+
+
 
     <!-- PRIOR PROJECTS: NO DATES -->
     <section id="prior" class="band" style="border-top:1px solid rgba(255,255,255,0.06);">
