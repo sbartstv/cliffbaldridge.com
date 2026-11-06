@@ -53,6 +53,7 @@
         .top .sub-role { margin-top: 4px; font-size: 15px; font-weight: 600; color: rgba(255,255,255,0.88); }
         .top .where { margin-top: 6px; font-size: 14px; color: rgba(255,255,255,0.55); }
         .top .focus { margin-top: 16px; font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 600; color: rgba(255,255,255,0.72); }
+        .top .focus span { white-space: nowrap; }
         .top .proof { list-style: none; margin-top: 10px; max-width: 760px; }
         .top .proof li { font-size: 16px; line-height: 1.65; color: rgba(255,255,255,0.86); }
         .top .worked { margin-top: 14px; font-size: 13px; line-height: 1.7; color: rgba(255,255,255,0.62); }
@@ -60,6 +61,8 @@
         .top .links { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 6px 22px; }
         .top .links a { text-decoration: none; font-size: 15px; font-weight: 600; color: var(--gold); }
         .top .links a:hover { text-decoration: underline; }
+        .top .links .soc { font-size: 15px; font-weight: 600; color: var(--gold); white-space: nowrap; }
+        .top .links small { margin-left: 4px; font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.55); }
         @media (max-width: 768px) {
             .top { padding: 96px 20px 40px; }
             .top .wrap { grid-template-columns: 1fr; text-align: center; gap: 20px; }
@@ -69,6 +72,20 @@
             .top .proof li { font-size: 15px; }
             .top .links { justify-content: center; }
         }
+
+        /* EXPERIENCE: ONE LINE PER JOB */
+        .xp-group + .xp-group { margin-top: 34px; }
+        .xp-group h3 { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; color: var(--muted); margin-bottom: 4px; }
+        .xp { display: grid; grid-template-columns: 130px 1fr; gap: 0 28px; padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.06); }
+        .xp:last-child { border-bottom: none; }
+        .xp .yrs { font-size: 14px; font-weight: 600; color: var(--gold); padding-top: 3px; }
+        .xp .what { font-size: 17px; font-weight: 600; color: #fff; }
+        .xp .what span { font-weight: 500; color: rgba(255,255,255,0.6); }
+        .xp p { margin-top: 4px; font-size: 14px; line-height: 1.6; color: rgba(255,255,255,0.62); max-width: 860px; }
+        .xp p a { color: var(--gold); text-decoration: none; white-space: nowrap; }
+        .xp p a:hover { text-decoration: underline; }
+        .xp-earlier { font-size: 14px; line-height: 1.7; color: rgba(255,255,255,0.62); padding-top: 8px; }
+        @media (max-width: 768px) { .xp { grid-template-columns: 1fr; } .xp .yrs { padding-top: 0; margin-bottom: 2px; } }
 
         /* SECTION 2: LATEST WINS */
         #wins { padding: 56px 48px 64px; background: var(--mid); border-top: 1px solid rgba(255,255,255,0.06); border-bottom: 1px solid rgba(255,255,255,0.06); }
@@ -276,98 +293,95 @@
                 <div class="sub-role">AI · AR · VR Builder · Hackathon Winner</div>
                 <div class="sub-role">Television Academy · Emerging Media Peer Group Member</div>
                 <div class="where">Los Angeles · Hybrid or Remote · Available now</div>
-                <div class="focus">Broadcast Licensing · Consumer Products · Media &amp; Entertainment Deals · Music</div>
+                <div class="focus"><span>Broadcast Licensing</span> · <span>Consumer Products</span> · <span>Media &amp; Entertainment Deals</span> · <span>New Business Development</span> · <span>YouTube Management</span> · <span>Social Media</span> · <span>Google Ads</span> · <span>Music</span></div>
                 <ul class="proof">
                     <li>Built and managed YouTube channels to over 1 billion combined views and 1 million+ subscribers.</li>
                     <li>Built a 150M-household OTT network for Kartoon Studios (formerly Genius Brands): Kartoon Channel! and Kartoon Channel! Jr.</li>
                     <li>Earned all 4 YouTube Certifications · Google AdWords Certified</li>
                 </ul>
-                <div class="worked"><span>Worked with</span>Netflix · Nickelodeon · Walmart · Target · Amazon · Twitch · Xumo · Comcast</div>
+                <div class="worked"><span>Worked with</span>Netflix · Nickelodeon · Walmart · Target · major studios and networks, plus licensing deals with Xumo · Comcast · Amazon · Twitch</div>
                 <div class="links">
-                    <a class="primary" href="mailto:vipmediapr@gmail.com">Email</a>
-                    <a href="https://www.linkedin.com/in/cliffbaldridge" target="_blank" rel="noopener">LinkedIn</a>
-                    <a href="https://www.youtube.com/@SBARTSTV" target="_blank" rel="noopener">YouTube</a>
+                    <a class="soc" href="mailto:vipmediapr@gmail.com">Email</a>
+                    <a class="soc" href="https://www.linkedin.com/in/cliffbaldridge" target="_blank" rel="noopener">LinkedIn <small>28K enterprise connections</small></a>
+                    <a class="soc" href="https://www.youtube.com/@SBARTSTV" target="_blank" rel="noopener">YouTube <small>400K subscribers</small></a>
+                    <a class="soc" href="https://x.com/sbartstv" target="_blank" rel="noopener">X <small>10K+ followers</small></a>
+                    <a class="soc" href="https://www.instagram.com/sbartstv" target="_blank" rel="noopener">Instagram <small>2K+ followers</small></a>
+                    <a class="soc" href="https://www.facebook.com/sbartstv" target="_blank" rel="noopener">Facebook <small>5K followers</small></a>
+                    <a class="soc" href="https://www.tiktok.com/@sbartstv" target="_blank" rel="noopener">TikTok <small>5 new, growing channels · Live streaming</small></a>
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- EXPERIENCE: LIGHT ENTRIES -->
+    <!-- SECTION: EXPERIENCE (ONE LINE PER JOB, NEWEST FIRST) -->
     <section id="experience" class="band">
         <div class="inner">
             <div class="section-label">Experience</div>
 
-            <div class="job">
-                <div class="job-meta">
-                    <div class="job-date">Jan 2016 – Present</div>
-                    <div class="job-company">SBARTSTV</div>
+            <div class="xp-group">
+                <h3>Long-running</h3>
+                <div class="xp">
+                    <div class="yrs">2019 – Now</div>
+                    <div>
+                        <div class="what">Chief Technology Officer <span>· AI Quantum Cypher</span></div>
+                        <p>AI video pipelines (ComfyUI, WAN 2.2, LoRA training), multi-agent AI and a patent-pending security design. Hackathon wins: AT&amp;T (Best VR/AR Film), Intel IoT Creator, Xreal. <a href="https://aiquantumcypher.com" target="_blank" rel="noopener">aiquantumcypher.com</a></p>
+                    </div>
                 </div>
-                <div>
-                    <div class="job-title">News Director — Santa Barbara Arts TV</div>
-                    <div class="job-body">
-                        <ul>
-                            <li>Built a YouTube Partner channel with <strong>400K+ subscribers and 150M+ views</strong></li>
-                            <li>Covered the Santa Barbara International Film Festival, the Kirk Douglas Award and charity galas</li>
-                            <li>Produced the 30-episode Santa Barbara Navy League TV series</li>
-                        </ul>
-                        <a href="https://sbartstv.com" class="job-link" target="_blank" rel="noopener">→ sbartstv.com</a>
+                <div class="xp">
+                    <div class="yrs">2018 – Now</div>
+                    <div>
+                        <div class="what">Associate Member &amp; Judge <span>· Television Academy</span></div>
+                        <p>Emerging Media Programming Peer Group. Judge, College Television Awards.</p>
+                    </div>
+                </div>
+                <div class="xp">
+                    <div class="yrs">2016 – Now</div>
+                    <div>
+                        <div class="what">News Director <span>· SBARTSTV, Santa Barbara Arts TV</span></div>
+                        <p>Built a YouTube Partner channel to 400K+ subscribers and 150M+ views. <a href="https://sbartstv.com" target="_blank" rel="noopener">sbartstv.com</a></p>
+                    </div>
+                </div>
+                <div class="xp">
+                    <div class="yrs">2016 – 2023</div>
+                    <div>
+                        <div class="what">Advertising Director, YouTube Manager, then Consultant <span>· Genius Brands / Kartoon Studios</span></div>
+                        <p>Built a 150M-household OTT network. Ran the $1M SpacePOP Google Ads launch that helped secure 300+ licensing deals. Licensing support with Walmart and Target. <a href="#kartoon">See the work</a></p>
                     </div>
                 </div>
             </div>
 
-            <div class="job">
-                <div class="job-meta">
-                    <div class="job-date">Mar 2019 – Present</div>
-                    <div class="job-company">AI Quantum Cypher</div>
+            <div class="xp-group">
+                <h3>Contracts</h3>
+                <div class="xp">
+                    <div class="yrs">2025</div>
+                    <div>
+                        <div class="what">Meta Brand Ambassador <span>· 2020 Companies (contract)</span></div>
+                        <p>Top Performer, Los Angeles region. B2B training and B2C demos for Ray-Ban Meta, Oakley Meta and Meta Quest 3.</p>
+                    </div>
                 </div>
-                <div>
-                    <div class="job-title">Chief Technology Officer</div>
-                    <div class="job-body">
-                        <ul>
-                            <li>Patent pending hybrid quantum-pooled communication security architecture</li>
-                            <li>Text-to-video pipelines with ComfyUI, WAN 2.2 and LoRA training</li>
-                            <li>Model Context Protocol and Agent-to-Agent multi-agent frameworks</li>
-                            <li>Winner: AT&amp;T Developer Hackathon (Best VR/AR Film), Intel IoT Creator Award, Nreal/Xreal Hackathon</li>
-                        </ul>
-                        <a href="https://aiquantumcypher.com" class="job-link" target="_blank" rel="noopener">→ aiquantumcypher.com</a>
-                        <div class="job-pics">
-                            <img src="trained9.jpg" alt="Trained LoRA in ComfyUI" loading="lazy">
-                            <img src="i2vv.jpg" alt="Image to video with WAN 2.2" loading="lazy">
-                        </div>
+                <div class="xp">
+                    <div class="yrs">2016</div>
+                    <div>
+                        <div class="what">Steve Harvey YouTube &amp; OTT Manager <span>· NBCUniversal (contract)</span></div>
+                        <p>Grew the channel from 800K to 2M+ subscribers. Syndicated the daily show to Hulu and Xfinity. <a href="#steve-harvey">See the work</a></p>
                     </div>
                 </div>
             </div>
 
-            <div class="job">
-                <div class="job-meta">
-                    <div class="job-date">Oct 2025 – Dec 2025</div>
-                    <div class="job-company">2020 Companies</div>
-                </div>
-                <div>
-                    <div class="job-title">Meta Brand Ambassador &amp; Sales Specialist</div>
-                    <div class="job-body">
-                        <ul>
-                            <li>B2B training and B2C demos for Ray-Ban Meta, Oakley Meta and Meta Quest 3</li>
-                            <li><strong>Top Performer, Los Angeles region</strong>, with 38 Meta Sales Academy badges and certifications</li>
-                        </ul>
+            <div class="xp-group">
+                <h3>Sales</h3>
+                <div class="xp">
+                    <div class="yrs">2023 – 2025</div>
+                    <div>
+                        <div class="what">Senior Account Executive <span>· Lear Capital</span></div>
+                        <p>Consistently exceeded $175K+ monthly revenue goals with high-net-worth clients.</p>
                     </div>
                 </div>
             </div>
 
-            <div class="job">
-                <div class="job-meta">
-                    <div class="job-date">Mar 2023 – Oct 2025</div>
-                    <div class="job-company">Lear Capital</div>
-                </div>
-                <div>
-                    <div class="job-title">Senior Account Executive</div>
-                    <div class="job-body">
-                        <ul>
-                            <li>Consistently exceeded <strong>$175K+ monthly revenue goals</strong> selling to high-net-worth clients</li>
-                            <li>Managed the full sales cycle for high-value transactions</li>
-                        </ul>
-                    </div>
-                </div>
+            <div class="xp-group">
+                <h3>Earlier</h3>
+                <p class="xp-earlier">YouTube Space LA Producer Partner · Google Helpouts expert · Disney Imagineering · Alvin and the Chipmunks (Bagdasarian Productions)</p>
             </div>
         </div>
     </section>
@@ -684,26 +698,10 @@
         </div>
     </section>
 
-    <!-- EXPERIENCE: EARLIER ROLES -->
-    <section class="band">
+    <!-- STEVE HARVEY SHOWCASE -->
+    <section class="band" id="steve-harvey">
         <div class="inner">
-            <div class="section-label">Experience, continued</div>
-
-            <div class="job">
-                <div class="job-meta">
-                    <div class="job-date">Aug 2018 – Present</div>
-                    <div class="job-company">Television Academy</div>
-                </div>
-                <div>
-                    <div class="job-title">Associate Member and Judge</div>
-                    <div class="job-body">
-                        <ul>
-                            <li>Associate Member, Emerging Media Programming Peer Group</li>
-                            <li>Judge, College Television Awards and Television Academy Foundation Internship Program</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+            <div class="section-label">Steve Harvey Show · NBCUniversal</div>
 
             <div class="job">
                 <div class="job-meta">
