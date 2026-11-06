@@ -64,17 +64,29 @@
         .top .links small { margin-left: 4px; font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.55); }
         .top .now { margin-top: 24px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,0.1); }
         .top .now-label { margin-bottom: 6px; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; font-weight: 700; color: var(--gold); }
+        .top .now-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 10px; }
+        .top .now-cell .pics { display: flex; gap: 6px; }
+        .top .now-cell .pics img { height: 130px; width: auto; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 4px; cursor: zoom-in; }
+        .top .now-cell .pics img.whole { object-fit: contain; background: #f1ede6; }
+        .top .now-cell p, .top .now-more { margin-top: 10px; font-size: 15px; font-weight: 600; line-height: 1.55; color: #fff; }
+        .top .now-more { margin-top: 18px; }
+        .top .now-cell strong, .top .now-more strong { color: var(--gold); }
+        .top .now .d { color: rgba(255,255,255,0.6); }
+        .top .now a { color: var(--gold); text-decoration: none; white-space: nowrap; }
+        @media (max-width: 768px) { .top .now-grid { grid-template-columns: 1fr; gap: 20px; } .top .now-cell .pics img { height: 100px; } }
         .top .now-item { display: grid; grid-template-columns: 120px 1fr; gap: 18px; align-items: center; margin: 12px 0; }
         .top .now-item img { width: 120px; height: 80px; object-fit: cover; border-radius: 4px; cursor: zoom-in; }
         .top .now-item img.whole { object-fit: contain; background: #f1ede6; }
         .top .now-item.two { grid-template-columns: 246px 1fr; }
         .top .now-item .thumbs { display: flex; gap: 6px; }
         .top .now-item .thumbs.tall img { width: 57px; height: 80px; object-fit: cover; background: #f1ede6; }
+        .top .now-item.three { grid-template-columns: 210px 1fr; }
+        .top .now-item .thumbs .arrow { align-self: center; color: var(--gold); font-weight: 700; font-size: 18px; padding: 0 2px; }
         .top .now-item p { font-size: 16px; font-weight: 600; line-height: 1.6; color: #fff; }
         .top .now-item p strong { color: var(--gold); font-weight: 700; }
         .top .now-item p .d { color: rgba(255,255,255,0.6); }
         .top .now-item a { color: var(--gold); text-decoration: none; white-space: nowrap; }
-        @media (max-width: 768px) { .top .now { text-align: left; } .top .now-item { grid-template-columns: 90px 1fr; gap: 12px; } .top .now-item img { width: 90px; height: 64px; } .top .now-item p { font-size: 15px; } .top .now-item.two { grid-template-columns: 1fr; } .top .now-item .thumbs img { width: 50%; height: 110px; } .top .now-item .thumbs.tall img { width: 42px; height: 64px; } }
+        @media (max-width: 768px) { .top .now { text-align: left; } .top .now-item { grid-template-columns: 90px 1fr; gap: 12px; } .top .now-item img { width: 90px; height: 64px; } .top .now-item p { font-size: 15px; } .top .now-item.two { grid-template-columns: 1fr; } .top .now-item .thumbs img { width: 50%; height: 110px; } .top .now-item .thumbs.tall img { width: 42px; height: 64px; } .top .now-item.three { grid-template-columns: 1fr; } }
         @media (max-width: 768px) {
             .top { padding: 96px 20px 40px; }
             .top .wrap { grid-template-columns: 1fr; text-align: center; gap: 20px; }
@@ -322,25 +334,20 @@
                     <a class="soc" href="https://www.tiktok.com/@sbartstv" target="_blank" rel="noopener">TikTok <small>5 new, growing channels · Live streaming</small></a>
                 </div>
 
-                <!-- WHAT I'M DOING NOW -->
+                <!-- WHAT I'M DOING NOW: TWO COLUMNS -->
                 <div class="now">
                     <div class="now-label">Latest projects · What I'm doing now</div>
-                    <div class="now-item">
-                        <div class="thumbs tall"><img src="runway-studio/media/set1-dress.jpg" alt="Runway Studio: AI-generated emerald mermaid gown"><img src="runway-studio/media/set1-look.jpg" alt="Runway Studio: virtual try-on of the emerald gown on an AI model"></div>
-                        <p><span class="d">Oct 29, 2026 ·</span> Built <strong>Runway Studio</strong> for the Comfy Open Source Higgsfield Hackathon at AI on the Lot: AI model + dress → virtual try-on → runway video with sound, all in ComfyUI on a laptop GPU. <a href="https://github.com/sbartstv/cliffbaldridge.com/tree/main/runway-studio" target="_blank" rel="noopener">See the project</a> · <a href="runway-studio/">Live app</a></p>
+                    <div class="now-grid">
+                        <div class="now-cell">
+                            <div class="pics"><img src="ytpics/863750567_28809535525378421_3384192265437338880_n.jpg" alt="Holding the Most Creative certificate at the FaithTech SoCal × Baptize The World Hackathon, October 24, 2026, Los Angeles"><img class="whole" src="awards/faithtech-most-creative.jpg" alt="FaithTech Certificate of Honor: Most Creative, the most imaginative answer to the challenge. Presented to my Baptism Story, team member Clifford Baldridge. FaithTech Social Hackathon, October 24, 2026, Los Angeles"></div>
+                            <p><span class="d">Oct 24, 2026</span><br>Won <strong>Most Creative</strong> out of 75 participants, judged by Google employees, at the FaithTech Social Hackathon (FaithTech SoCal × Baptize The World), Los Angeles, for the team project "My Baptism Story."</p>
+                        </div>
+                        <div class="now-cell">
+                            <div class="pics"><img src="runway-studio/media/lookbook.jpg" alt="Runway Studio lookbook: eight AI-generated dress try-on looks made in ComfyUI"></div>
+                            <p><span class="d">Oct 29, 2026</span><br>Built <strong>Runway Studio</strong>, an AI dress try-on and runway video maker in ComfyUI, for the Comfy Open Source Higgsfield Hackathon at AI on the Lot. <a href="https://github.com/sbartstv/cliffbaldridge.com/tree/main/runway-studio" target="_blank" rel="noopener">See the project</a> · <a href="runway-studio/">Live app</a></p>
+                        </div>
                     </div>
-                    <div class="now-item two">
-                        <div class="thumbs"><img src="ytpics/863750567_28809535525378421_3384192265437338880_n.jpg" alt="Holding the Most Creative certificate at the FaithTech SoCal × Baptize The World Hackathon, October 24, 2026, Los Angeles"><img class="whole" src="awards/faithtech-most-creative.jpg" alt="FaithTech Certificate of Honor: Most Creative, the most imaginative answer to the challenge. Presented to my Baptism Story, team member Clifford Baldridge. FaithTech Social Hackathon, October 24, 2026, Los Angeles"></div>
-                        <p><span class="d">Oct 24, 2026 ·</span> Won <strong>Most Creative</strong> at the FaithTech Social Hackathon in Los Angeles for the team project "My Baptism Story": the most imaginative answer to the challenge.</p>
-                    </div>
-                    <div class="now-item">
-                        <img src="trained9.jpg" alt="Trained character LoRA in ComfyUI">
-                        <p><span class="d">Now ·</span> Building generative AI video in <strong>ComfyUI</strong>: custom character LoRA training, dataset pipelines, and WAN 2.2 image-to-video, text-to-video and first/last-frame workflows on RunPod. <a href="index1.html">See the AI work</a></p>
-                    </div>
-                    <div class="now-item">
-                        <img class="whole" src="ytpics/860300347_28833085686356738_6225113086718391051_n.jpg" alt="Los Angeles Investor Conference: Marketing Partner Clifford Baldridge, Chief Technology Officer, SBARTSTV / AI Quantum Cypher. Thursday, Nov 19, 2026, Blankspaces, Venice, CA">
-                        <p><span class="d">Nov 19, 2026 ·</span> <strong>Marketing Partner</strong>, Los Angeles Investor Conference, representing SBARTSTV and AI Quantum Cypher before 400 investors and founders.</p>
-                    </div>
+                    <p class="now-more"><span class="d">Nov 19, 2026 ·</span> <strong>Marketing Partner</strong>, Los Angeles Investor Conference · <a href="index1.html">More AI work in ComfyUI</a></p>
                 </div>
             </div>
         </div>
@@ -1094,7 +1101,7 @@
         const box = document.getElementById('lightbox');
         const boxImg = box.querySelector('img');
         const boxCap = box.querySelector('p');
-        document.querySelectorAll('.now-item img, .win .pic img, .award-card .pic img, .photo-grid img, .job-pics.cards img').forEach(img => {
+        document.querySelectorAll('.now-cell img, .now-item img, .win .pic img, .award-card .pic img, .photo-grid img, .job-pics.cards img').forEach(img => {
             img.addEventListener('click', () => {
                 boxImg.src = img.src;
                 boxImg.alt = img.alt;
