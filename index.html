@@ -121,7 +121,10 @@
         .xp-intro { margin-top: 4px; font-size: 15px; line-height: 1.6; color: #fff; font-style: italic; }
         .xp-pics { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
         .xp-pics img { height: 130px; width: auto; border-radius: 4px; cursor: zoom-in; background: #f1ede6; }
-        @media (max-width: 768px) { .xp-pics img { height: 90px; } }
+        .xp-pics.meta-badges { align-items: flex-end; }
+        .xp-pics.meta-badges img { height: 190px; background: #fff; }
+        .xp-pics.meta-badges img.feature { height: 240px; outline: 2px solid var(--gold); }
+        @media (max-width: 768px) { .xp-pics img { height: 90px; } .xp-pics.meta-badges img { height: 120px; } .xp-pics.meta-badges img.feature { height: 150px; } }
         @media (max-width: 768px) { .xp { grid-template-columns: 1fr; } .xp .yrs { padding-top: 0; margin-bottom: 2px; } }
 
         /* SECTION 2: LATEST WINS */
@@ -424,6 +427,12 @@
                             <li><strong>Top Performer</strong>, Los Angeles region: evangelized emerging technology, raised customer engagement and drove strong sales.</li>
                             <li><strong>Meta Sales Academy Certifications &amp; Badges:</strong> 38 earned, including Ray-Ban Meta Display with Neural Band (Level 2), Ray-Ban Meta Gen 2, Oakley Meta Vanguard (Level 2), Quest 3, Meta Sales and RX.</li>
                         </ul>
+                        <div class="xp-pics meta-badges">
+                            <img class="feature" src="awards/meta-rayban-display-level2.jpg" alt="Meta badge earned: Meta Ray-Ban Display (Level 2), Neural Band Level 2 Certified" loading="lazy">
+                            <img src="awards/meta-badges-wearables.jpg" alt="Meta Sales Academy badges: Ray-Ban Meta Display with Neural Band, Ray-Ban Meta Gen 2, Oakley Meta Vanguard, Oakley Meta HSTN and RX" loading="lazy">
+                            <img src="awards/meta-badges-quest-ai.jpg" alt="Meta Sales Academy badges: Meta Quest 3, Ray-Ban Meta certified, Meta AI and wearables customer badges" loading="lazy">
+                            <img src="awards/meta-badges-sales-academy.jpg" alt="Meta Sales Academy badges: VR and AR category overview, History of Facebook and Meta, Meta Quest 3S" loading="lazy">
+                        </div>
                     </div>
                 </div>
                 <div class="xp">
