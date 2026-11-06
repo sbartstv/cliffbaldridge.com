@@ -117,6 +117,11 @@
         .xp-bullets li { margin: 4px 0; font-size: 15px; line-height: 1.6; color: #fff; }
         .xp-bullets li a { color: var(--gold); text-decoration: none; }
         .xp-bullets li a:hover { text-decoration: underline; }
+        .xp-bullets strong { color: var(--gold); font-weight: 700; }
+        .xp-intro { margin-top: 4px; font-size: 15px; line-height: 1.6; color: #fff; font-style: italic; }
+        .xp-pics { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+        .xp-pics img { height: 130px; width: auto; border-radius: 4px; cursor: zoom-in; background: #f1ede6; }
+        @media (max-width: 768px) { .xp-pics img { height: 90px; } }
         @media (max-width: 768px) { .xp { grid-template-columns: 1fr; } .xp .yrs { padding-top: 0; margin-bottom: 2px; } }
 
         /* SECTION 2: LATEST WINS */
@@ -380,7 +385,17 @@
                             <li>Sponsored media packages and public relations for consumer electronics, beauty, fashion and lifestyle brands.</li>
                             <li>Built a large social media network: a verified (checkmark) YouTube channel with 400K+ subscribers, over 1 billion total views across the network, Google Social Graph verified, 40K+ social media followers and a 28K LinkedIn enterprise and technology audience.</li>
                             <li>FAA Part 107 sUAS drone pilot. Proficient in Adobe Premiere and Creative Suite, CapCut, YouTube and social media.</li>
+                            <li><strong>40 Under 40 Award</strong>, Pacific Coast Business Times.</li>
+                            <li><strong>Field Production Series of the Year</strong>, Santa Barbara Navy League, for the Navy League TV series.</li>
+                            <li><strong>Project Award</strong>, The John E. Profant Foundation for the Arts, for talent and work benefiting the community.</li>
                         </ul>
+                        <div class="xp-pics">
+                            <img src="awards/40under40-certificate.jpg" alt="Pacific Coast Business Times 40 Under 40 certificate for Cliff Baldridge" loading="lazy">
+                            <img src="awards/40under40-star.jpg" alt="Pacific Coast Business Times 40 Under 40 crystal star award" loading="lazy">
+                            <img src="awards/navy-league-field-production.jpg" alt="Field Production Series of the Year award, Santa Barbara Navy League" loading="lazy">
+                            <img src="awards/sbnl-tv-article.jpg" alt="Navy Blue newsletter article: SBNL TV Awarded Field Production Series of the Year" loading="lazy">
+                            <img src="awards/profant-foundation-award.jpg" alt="Project Award for Cliff Baldridge from The John E. Profant Foundation for the Arts" loading="lazy">
+                        </div>
                         <p><a href="https://sbartstv.com" target="_blank" rel="noopener">sbartstv.com</a></p>
                     </div>
                 </div>
@@ -388,12 +403,14 @@
                     <div class="yrs">2019 – Present</div>
                     <div>
                         <div class="what">Chief Technology Officer <span>· AI Quantum Cypher · Los Angeles, hybrid</span></div>
+                        <p class="xp-intro">Visionary GenAI systems architect and media-tech futurist focused on enterprise AI innovation, text-to-video automation and spatial computing.</p>
                         <ul class="xp-bullets">
-                            <li>Patent pending: AI Quantum Cypher (AIQC), a hybrid quantum-pooled communication security architecture. Works with quantum SDKs including IBM Qiskit, Google Cirq and Microsoft Q#.</li>
-                            <li>Generative AI video in ComfyUI with Flux and LTX, plus NVIDIA Omniverse media pipelines. Built <a href="runway-studio/">Runway Studio</a>, a free open-source virtual try-on and runway video app (2026).</li>
-                            <li>Multi-agent AI with Model Context Protocol (MCP) and Agent-to-Agent (A2A) frameworks. Edge AI with Intel OpenVINO.</li>
-                            <li>XR and spatial computing in Unity and Unreal Engine 5 for Magic Leap, Snap Spectacles 5, HoloLens 2, Xreal and Ray-Ban Meta, including brain-controlled AR with the NextMind EEG headset. Delivered XR projects for Verizon and Xreal. Microsoft HoloLens 2 reseller.</li>
-                            <li>Hackathon wins: FaithTech Most Creative (2026), AT&amp;T Developer Hackathon (Best VR/AR Film), Intel IoT Creator Award, Nreal/Xreal Hackathon.</li>
+                            <li><strong>Patent pending:</strong> AI Quantum Cypher (AIQC), a hybrid quantum-pooled security communications architecture.</li>
+                            <li><strong>Winner, Most Creative:</strong> FaithTech Social Hackathon, Los Angeles (Oct 2026), out of 75 participants, judged by Google employees.</li>
+                            <li>Built <a href="runway-studio/">Runway Studio</a> (Oct 2026): a free, hybrid open-source virtual try-on and runway video app in ComfyUI with Flux and LTX, for the ComfyUI Open Source Higgsfield hackathon at AI On The Lot.</li>
+                            <li>Integrated Snap's NextMind EEG headset with Unity for brain-controlled AR media, and built Snap Spectacles 5 AR apps in Lens Studio through the MIT Snap loaner program.</li>
+                            <li><strong>Winner, Nreal/Xreal Hackathon:</strong> AR FLIR "Predator Vision" thermal vision system.</li>
+                            <li><strong>AT&amp;T Developer Award:</strong> Best Use of AR Film, built for Magic Leap.</li>
                         </ul>
                         <p><a href="https://aiquantumcypher.com" target="_blank" rel="noopener">aiquantumcypher.com</a></p>
                     </div>
@@ -1125,7 +1142,7 @@
         const box = document.getElementById('lightbox');
         const boxImg = box.querySelector('img');
         const boxCap = box.querySelector('p');
-        document.querySelectorAll('.now-cell .pics > img, .now-item img, .win .pic img, .award-card .pic img, .photo-grid img, .job-pics.cards img').forEach(img => {
+        document.querySelectorAll('.xp-pics img, .now-cell .pics > img, .now-item img, .win .pic img, .award-card .pic img, .photo-grid img, .job-pics.cards img').forEach(img => {
             img.addEventListener('click', () => {
                 boxImg.src = img.src;
                 boxImg.alt = img.alt;
