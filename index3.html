@@ -137,6 +137,31 @@
         .credentials h3 { font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 1px; font-weight: 400; color: var(--gold); margin-bottom: 10px; }
         .credentials ul { list-style: none; font-size: 14px; color: rgba(255,255,255,0.62); line-height: 2; }
 
+        /* AWARDS, CERTIFICATIONS, PHOTOS */
+        #awards { background: var(--dark); border-top: 1px solid rgba(255,255,255,0.06); }
+        #certifications { padding-top: 0; background: var(--dark); }
+        #photos { background: var(--mid); }
+        .award-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+        .award-card { background: var(--mid); border: 1px solid rgba(255,255,255,0.06); border-top: 2px solid var(--gold); display: flex; flex-direction: column; }
+        .award-card .pic { aspect-ratio: 4 / 3; background: #0d0d0d; padding: 10px; display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: 8px; }
+        .award-card .pic img { width: 100%; height: 100%; object-fit: contain; cursor: zoom-in; }
+        .award-card .txt { padding: 16px 16px 18px; }
+        .award-card h3 { font-family: 'Bebas Neue', sans-serif; font-size: 21px; letter-spacing: 1px; font-weight: 400; line-height: 1.15; margin-bottom: 6px; }
+        .award-card .org { font-size: 12px; color: var(--gold); font-weight: 600; letter-spacing: 0.4px; margin-bottom: 6px; }
+        .award-card p { font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.6; }
+        .photo-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
+        .photo-grid figure { background: var(--dark); border: 1px solid rgba(255,255,255,0.05); }
+        .photo-grid img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; cursor: zoom-in; }
+        .photo-grid img.whole { object-fit: contain; background: #f4f1ea; }
+        .photo-grid figcaption { font-size: 12px; color: rgba(255,255,255,0.62); padding: 8px 10px 10px; line-height: 1.45; }
+        .job-pics.cards img { aspect-ratio: auto; object-fit: contain; cursor: zoom-in; }
+
+        /* LIGHTBOX */
+        .lightbox { position: fixed; inset: 0; z-index: 500; background: rgba(0,0,0,0.93); display: none; align-items: center; justify-content: center; padding: 48px 24px 64px; cursor: zoom-out; }
+        .lightbox.open { display: flex; }
+        .lightbox img { max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; }
+        .lightbox p { position: absolute; left: 0; right: 0; bottom: 20px; text-align: center; font-size: 14px; color: rgba(255,255,255,0.75); padding: 0 24px; }
+
         /* CONTACT */
         #contact { padding: 80px 48px; background: var(--dark); text-align: center; border-top: 1px solid rgba(255,255,255,0.06); }
         #contact h2 { font-family: 'Bebas Neue', sans-serif; font-size: 52px; letter-spacing: 4px; margin-bottom: 20px; font-weight: 400; }
@@ -149,6 +174,8 @@
             .pillars { grid-template-columns: repeat(2, 1fr); }
             .prior { grid-template-columns: repeat(2, 1fr); }
             .showcase-top, .lead { grid-template-columns: 1fr; }
+            .award-grid { grid-template-columns: repeat(2, 1fr); }
+            .photo-grid { grid-template-columns: repeat(3, 1fr); }
         }
         @media (max-width: 768px) {
             nav { padding: 12px 16px; }
@@ -166,7 +193,9 @@
 
             section { padding: 44px 16px; }
             .summary { font-size: 16px; }
-            .pillars, .prior, .credentials, .top-lines { grid-template-columns: 1fr; }
+            .pillars, .prior, .credentials, .top-lines, .award-grid { grid-template-columns: 1fr; }
+            .photo-grid { grid-template-columns: repeat(2, 1fr); }
+            #certifications { padding-top: 0; }
             .stats { grid-template-columns: repeat(2, 1fr); }
 
             .job { grid-template-columns: 1fr; gap: 2px; padding: 24px 0; }
@@ -187,6 +216,8 @@
         <ul>
             <li><a href="#experience">Experience</a></li>
             <li><a href="#kartoon">Kartoon</a></li>
+            <li><a href="#awards">Awards</a></li>
+            <li><a href="#photos">Photos</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
@@ -364,17 +395,21 @@
                         <li>Supported licensing with Walmart and Target through Licensing Expo Las Vegas, MIPCOM Jr. and Kidscreen.</li>
                     </ul>
                 </div>
+                <div class="job-pics cards">
+                    <img src="awards/genius-brands-card-front.jpg" alt="Genius Brands International business card" loading="lazy">
+                    <img src="awards/genius-brands-card-back.jpg" alt="Business card: Cliff Baldridge, YouTube Operations and Google AdWords Advertising Manager, Beverly Hills, CA" loading="lazy">
+                </div>
             </div>
 
             <div class="group">
                 <h4>Kartoon Channel Jr. Top Videos</h4>
-                <p>Launched Rainbow Rangers, the preschool series that premiered on Nick Jr. in 2018.</p>
+                <p>Launched Rainbow Rangers, the preschool series that premiered on Nick Jr.</p>
                 <div class="lead">
                     <div class="frame"><iframe src="https://www.youtube.com/embed/M4EK_FX78r0" title="Rainbow Rangers, Ride Rangers Ride!" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
                     <div>
                         <div class="views">5.1M views</div>
                         <h5>Rainbow Rangers, Watch Today on Nick Jr. 3p/2c, Ride Rangers Ride!</h5>
-                        <p>Top video on Kartoon Channel Jr. · Nov 26, 2018</p>
+                        <p>Top video on Kartoon Channel Jr.</p>
                         <p>Kartoon Studios, Kartoon Channel! Jr.</p>
                     </div>
                 </div>
@@ -383,7 +418,7 @@
                         <div class="frame"><iframe src="https://www.youtube.com/embed/wNs4qrxJzD4" title="Rainbow Rangers Meet A Burping Cow?" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
                         <figcaption>
                             <h5>Rainbow Rangers Meet A Burping Cow? | Cartoon For Kids</h5>
-                            <span class="views">3.8M views · Feb 19, 2019</span>
+                            <span class="views">3.8M views</span>
                             <p>Kartoon Studios, Kartoon Channel! Jr.</p>
                         </figcaption>
                     </figure>
@@ -391,7 +426,7 @@
                         <div class="frame"><iframe src="https://www.youtube.com/embed/lzUYFG7e78Q" title="Twinkle, Twinkle, Little Star Song Sing Along" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
                         <figcaption>
                             <h5>Twinkle, Twinkle, Little Star Song Sing Along | Nursery Rhymes Kids Songs | From Baby Genius</h5>
-                            <span class="views">2.9M views · Apr 23, 2016</span>
+                            <span class="views">2.9M views</span>
                             <p>Kartoon Studios, Kartoon Channel! Jr.</p>
                         </figcaption>
                     </figure>
@@ -399,7 +434,7 @@
                         <div class="frame"><iframe src="https://www.youtube.com/embed/LP1mDPyrUDk" title="Rainbow Rangers Watch Daily on Nick Jr." loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
                         <figcaption>
                             <h5>Rainbow Rangers Watch Daily on Nick Jr. 10:30am/9:30c Monday - Friday, Ride Rangers Ride!</h5>
-                            <span class="views">2.8M views · Oct 23, 2018</span>
+                            <span class="views">2.8M views</span>
                             <p>Kartoon Studios, Kartoon Channel! Jr.</p>
                         </figcaption>
                     </figure>
@@ -407,7 +442,7 @@
                         <div class="frame"><iframe src="https://www.youtube.com/embed/2V9Kd-g4hZI" title="Rainbow Rangers Watch Today on Nick Jr. 10:30am/9:30c" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
                         <figcaption>
                             <h5>Rainbow Rangers Watch Today on Nick Jr. 10:30am/9:30c, Ride Rangers Ride!</h5>
-                            <span class="views">2.4M views · Nov 8, 2018</span>
+                            <span class="views">2.4M views</span>
                             <p>Kartoon Studios, Kartoon Channel! Jr.</p>
                         </figcaption>
                     </figure>
@@ -415,7 +450,7 @@
                         <div class="frame"><iframe src="https://www.youtube.com/embed/5eBiBjAl8w0" title="Rainbow Rangers Look For Chameleon and More!" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
                         <figcaption>
                             <h5>Rainbow Rangers Look For Chameleon and More! | Cartoon For Kids</h5>
-                            <span class="views">1.9M views · Feb 17, 2019</span>
+                            <span class="views">1.9M views</span>
                             <p>Kartoon Studios, Kartoon Channel! Jr.</p>
                         </figcaption>
                     </figure>
@@ -423,7 +458,7 @@
                         <div class="frame"><iframe src="https://www.youtube.com/embed/8ExaRgNkNdo" title="DJ Is My Name Song 30 Minutes Full DVD Sing Along" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
                         <figcaption>
                             <h5>DJ Is My Name Song 30 Minutes Full DVD Sing Along | Nursery Rhymes Kids Songs | From Baby Genius</h5>
-                            <span class="views">1.9M views · Jun 13, 2016</span>
+                            <span class="views">1.9M views</span>
                             <p>Kartoon Studios, Kartoon Channel! Jr.</p>
                         </figcaption>
                     </figure>
@@ -431,7 +466,7 @@
                         <div class="frame"><iframe src="https://www.youtube.com/embed/AwK03aY2qT0" title="Rainbow Rangers Watch Today on Nick Jr." loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
                         <figcaption>
                             <h5>Rainbow Rangers Watch Today on Nick Jr., Ride Rangers Ride!</h5>
-                            <span class="views">1.6M views · Dec 11, 2018</span>
+                            <span class="views">1.6M views</span>
                             <p>Kartoon Studios, Kartoon Channel! Jr.</p>
                         </figcaption>
                     </figure>
@@ -439,7 +474,7 @@
                         <div class="frame"><iframe src="https://www.youtube.com/embed/oMNE9TfDuFQ" title="Rainbow Rangers Watch Daily on Nick Jr. 3p/2c" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
                         <figcaption>
                             <h5>Rainbow Rangers Watch Daily on Nick Jr. 3p/2c Monday - Friday, Ride Rangers Ride!</h5>
-                            <span class="views">1.5M views · Oct 27, 2018</span>
+                            <span class="views">1.5M views</span>
                             <p>Kartoon Studios, Kartoon Channel! Jr.</p>
                         </figcaption>
                     </figure>
@@ -447,7 +482,7 @@
                         <div class="frame"><iframe src="https://www.youtube.com/embed/eaEj6qWCetU" title="Wheels On The Bus Song 30 Minutes Full DVD Sing Along" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
                         <figcaption>
                             <h5>Wheels On The Bus Song 30 Minutes Full DVD Sing Along | Nursery Rhymes Kids Songs | From Baby Genius</h5>
-                            <span class="views">1.5M views · Jun 17, 2016</span>
+                            <span class="views">1.5M views</span>
                             <p>Kartoon Studios, Kartoon Channel! Jr.</p>
                         </figcaption>
                     </figure>
@@ -674,14 +709,14 @@
                             <h4>Top Videos</h4>
                             <div class="top-lines">
                                 <div><b>1M</b><p>Helped the Steve Harvey show pass 1 million YouTube subscribers and earn the YouTube Gold Play Button.</p></div>
-                                <div><b>53M</b><p>Delivered the channel's second most-viewed video ever: uploaded and optimized "My brother doesn't share his girlfriend!" from Extraordinary Kids, March 2016, with 53.5 million views and 1.1 million likes.</p></div>
+                                <div><b>53M</b><p>Delivered the channel's second most-viewed video ever: uploaded and optimized "My brother doesn't share his girlfriend!" from Extraordinary Kids, with 53.5 million views and 1.1 million likes.</p></div>
                             </div>
                             <div class="lead">
                                 <div class="frame"><iframe src="https://www.youtube.com/embed/nCSx2BWGBNM" title="My brother doesn't share his girlfriend!" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
                                 <div>
                                     <div class="views">53.5M views</div>
                                     <h5>My brother doesn't share his girlfriend! || STEVE HARVEY</h5>
-                                    <p>Extraordinary Kids · 1.1M likes · Mar 31, 2016. Second most-viewed video of the entire channel.</p>
+                                    <p>Extraordinary Kids · 1.1M likes. Second most-viewed video of the entire channel.</p>
                                     <p>Steve Harvey Show, NBCUniversal</p>
                                 </div>
                             </div>
@@ -690,7 +725,7 @@
                                     <div class="frame"><iframe src="https://www.youtube.com/embed/2-XA8Z0-nBo" title="Ask Steve: What are you calling my daughter for?" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
                                     <figcaption>
                                         <h5>Ask Steve: What are you calling my daughter for? || STEVE HARVEY</h5>
-                                        <span class="views">3M views · Jan 7, 2016</span>
+                                        <span class="views">3M views</span>
                                         <p>Steve Harvey Show, NBCUniversal</p>
                                     </figcaption>
                                 </figure>
@@ -698,7 +733,7 @@
                                     <div class="frame"><iframe src="https://www.youtube.com/embed/b1T5FnVRD9Q" title="Ask Steve: Steve's grandson's TV debut!" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
                                     <figcaption>
                                         <h5>Ask Steve: Steve's grandson's TV debut! || STEVE HARVEY</h5>
-                                        <span class="views">4M views · Jan 14, 2016</span>
+                                        <span class="views">4M views</span>
                                         <p>Steve Harvey Show, NBCUniversal</p>
                                     </figcaption>
                                 </figure>
@@ -706,7 +741,7 @@
                                     <div class="frame"><iframe src="https://www.youtube.com/embed/LVXWup-DGqY" title="Steve Harvey's biggest birthday surprise yet!" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
                                     <figcaption>
                                         <h5>Steve Harvey's biggest birthday surprise yet! || STEVE HARVEY</h5>
-                                        <span class="views">1.4M views · Jan 15, 2016</span>
+                                        <span class="views">1.4M views</span>
                                         <p>Steve Harvey Show, NBCUniversal</p>
                                     </figcaption>
                                 </figure>
@@ -714,7 +749,7 @@
                                     <div class="frame"><iframe src="https://www.youtube.com/embed/cDFRw7XpcFI" title="Do Miss Universe and Miss Colombia forgive Steve?" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
                                     <figcaption>
                                         <h5>Do Miss Universe and Miss Colombia forgive Steve? || STEVE HARVEY</h5>
-                                        <span class="views">3.9M views · Jan 15, 2016</span>
+                                        <span class="views">3.9M views</span>
                                         <p>Steve Harvey Show, NBCUniversal</p>
                                     </figcaption>
                                 </figure>
@@ -722,7 +757,7 @@
                                     <div class="frame"><iframe src="https://www.youtube.com/embed/CyZ-nbiZpWA" title="Advice Little Kids Give Adults" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
                                     <figcaption>
                                         <h5>Advice Little Kids Give Adults || STEVE HARVEY</h5>
-                                        <span class="views">2.2M views · Feb 15, 2016</span>
+                                        <span class="views">2.2M views</span>
                                         <p>Steve Harvey Show, NBCUniversal</p>
                                     </figcaption>
                                 </figure>
@@ -730,7 +765,7 @@
                                     <div class="frame"><iframe src="https://www.youtube.com/embed/m7JfJzzVqeI" title="Ask Steve: No One Told Your Little..." loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
                                     <figcaption>
                                         <h5>Ask Steve: No One Told Your Little... || STEVE HARVEY</h5>
-                                        <span class="views">4M views · Mar 22, 2016</span>
+                                        <span class="views">4M views</span>
                                         <p>Steve Harvey Show, NBCUniversal</p>
                                     </figcaption>
                                 </figure>
@@ -779,6 +814,193 @@
         </div>
     </section>
 
+    <!-- AWARDS & RECOGNITION -->
+    <section id="awards">
+        <div class="inner">
+            <div class="section-label">Awards &amp; Recognition</div>
+            <div class="award-grid">
+                <figure class="award-card">
+                    <div class="pic">
+                        <img src="awards/40under40-certificate.jpg" alt="Pacific Coast Business Times 40 Under 40 certificate for Cliff Baldridge" loading="lazy">
+                        <img src="awards/40under40-star.jpg" alt="Pacific Coast Business Times 40 Under 40 crystal star award" loading="lazy">
+                    </div>
+                    <figcaption class="txt">
+                        <h3>40 Under 40</h3>
+                        <div class="org">Pacific Coast Business Times</div>
+                        <p>Named to the Pacific Coast Business Times 40 Under 40.</p>
+                    </figcaption>
+                </figure>
+                <figure class="award-card">
+                    <div class="pic"><img src="awards/navy-league-field-production.jpg" alt="Field Production Series of the Year award, Santa Barbara Navy League" loading="lazy"></div>
+                    <figcaption class="txt">
+                        <h3>Field Production Series of the Year</h3>
+                        <div class="org">Santa Barbara Navy League · The Santa Barbara Channels</div>
+                        <p>Navy League TV won Field Production Series of the Year. I co-produced, directed, shot and edited the series.</p>
+                    </figcaption>
+                </figure>
+                <figure class="award-card">
+                    <div class="pic"><img src="awards/sbnl-tv-article.jpg" alt="Navy Blue newsletter article: SBNL TV Awarded Field Production Series of the Year" loading="lazy"></div>
+                    <figcaption class="txt">
+                        <h3>"SBNL TV Awarded Field Production Series of the Year"</h3>
+                        <div class="org">Navy Blue · Navy League of the United States, Santa Barbara Council</div>
+                        <p>Newsletter story on the award, covering fifteen episodes and the council's Year in Review special.</p>
+                    </figcaption>
+                </figure>
+                <figure class="award-card">
+                    <div class="pic"><img src="ytpics/32392104_1709386552486685_2337974767656632320_n.jpg" alt="Cynopsis Kids Imagination Awards winner, SpacePOP, Genius Brands International" loading="lazy"></div>
+                    <figcaption class="txt">
+                        <h3>Imagination Awards Winner</h3>
+                        <div class="org">Cynopsis Kids · Genius Brands International</div>
+                        <p>Best Tween Show Exclusively for a Streaming Platform: SpacePOP, the music-driven tween series on YouTube.</p>
+                    </figcaption>
+                </figure>
+                <figure class="award-card">
+                    <div class="pic"><img src="awards/profant-foundation-award.jpg" alt="Project Award for Cliff Baldridge from The John E. Profant Foundation for the Arts" loading="lazy"></div>
+                    <figcaption class="txt">
+                        <h3>Project Award</h3>
+                        <div class="org">The John E. Profant Foundation for the Arts</div>
+                        <p>In recognition of talent and generous work benefiting the community.</p>
+                    </figcaption>
+                </figure>
+                <figure class="award-card">
+                    <div class="pic"><img src="awards/faithtech-most-creative.jpg" alt="FaithTech Social Hackathon Most Creative certificate, team member Clifford Baldridge" loading="lazy"></div>
+                    <figcaption class="txt">
+                        <h3>Most Creative</h3>
+                        <div class="org">FaithTech Social Hackathon · Los Angeles</div>
+                        <p>Certificate of Honor for the most imaginative answer to the challenge, for the team project "My Baptism Story."</p>
+                    </figcaption>
+                </figure>
+                <figure class="award-card">
+                    <div class="pic"><img src="ytpics/79758819_2627579640667367_7362280368679944192_n.jpg" alt="Udacity Intel Edge AI Scholarship winner badge" loading="lazy"></div>
+                    <figcaption class="txt">
+                        <h3>Intel Edge AI Scholarship</h3>
+                        <div class="org">Udacity · Intel</div>
+                        <p>Scholarship winner.</p>
+                    </figcaption>
+                </figure>
+                <figure class="award-card">
+                    <div class="pic"><img src="ytpics/509241481_10045366465555277_5187458981724553961_n.jpg" alt="Google Helpouts Helper of the Month: Cliff Baldridge" loading="lazy"></div>
+                    <figcaption class="txt">
+                        <h3>Helper of the Month</h3>
+                        <div class="org">Google Helpouts</div>
+                        <p>Named Helper of the Month on Google's live video expert platform.</p>
+                    </figcaption>
+                </figure>
+            </div>
+        </div>
+    </section>
+
+    <!-- CERTIFICATIONS & CREDENTIALS -->
+    <section id="certifications">
+        <div class="inner">
+            <div class="section-label">Certifications &amp; Credentials</div>
+            <div class="award-grid">
+                <figure class="award-card">
+                    <div class="pic">
+                        <img src="ytpics/502578630_10054381637987093_7672798779674948591_n.jpg" alt="YouTube Certified: Audience Growth" loading="lazy">
+                        <img src="ytpics/512963205_10085894771502446_5811089440475544652_n.jpg" alt="YouTube Certified: Channel Growth" loading="lazy">
+                    </div>
+                    <figcaption class="txt">
+                        <h3>YouTube Certified</h3>
+                        <div class="org">YouTube</div>
+                        <p>Audience Growth, Channel Growth, Content Ownership and Asset Monetization.</p>
+                    </figcaption>
+                </figure>
+                <figure class="award-card">
+                    <div class="pic">
+                        <img src="ytpics/510256136_10055684651190125_4348037413900584287_n.jpg" alt="Google AdWords Certification for Cliff Baldridge" loading="lazy">
+                        <img src="ytpics/509364557_10055684731190117_2556590163056604019_n.jpg" alt="Google AdWords Qualified Individual badge" loading="lazy">
+                    </div>
+                    <figcaption class="txt">
+                        <h3>Google AdWords Certified</h3>
+                        <div class="org">Google Partners</div>
+                        <p>AdWords Certification and AdWords Qualified Individual.</p>
+                    </figcaption>
+                </figure>
+                <figure class="award-card">
+                    <div class="pic"><img src="ytpics/71098147_2445619285530071_3578612797371580416_n.jpg" alt="Coursera course certificate: How Google does Machine Learning, Google Cloud" loading="lazy"></div>
+                    <figcaption class="txt">
+                        <h3>How Google Does Machine Learning</h3>
+                        <div class="org">Google Cloud · Coursera</div>
+                        <p>Course certificate.</p>
+                    </figcaption>
+                </figure>
+                <figure class="award-card">
+                    <div class="pic">
+                        <img src="ytpics/505377871_9953534874738437_5846971006296397779_n.jpg" alt="YouTube Creator Academy letter of completion: Maximize Your Channel" loading="lazy">
+                        <img src="ytpics/502520844_10051710634920860_3007609837351279676_n.jpg" alt="YouTube Creator Academy letter of completion: Get Discovered" loading="lazy">
+                    </div>
+                    <figcaption class="txt">
+                        <h3>YouTube Creator Academy</h3>
+                        <div class="org">YouTube</div>
+                        <p>Completed Maximize Your Channel and Get Discovered.</p>
+                    </figcaption>
+                </figure>
+                <figure class="award-card">
+                    <div class="pic">
+                        <img src="awards/faa-part107-recurrent.jpg" alt="FAA Safety Team certificate: Part 107 Small UAS Recurrent" loading="lazy">
+                        <img src="ytpics/509600955_10054386851319905_4784196905634760908_n.jpg" alt="FAA Safety Team certificate: Part 107 Small Unmanned Aircraft Systems (sUAS)" loading="lazy">
+                    </div>
+                    <figcaption class="txt">
+                        <h3>FAA Part 107 Drone Courses</h3>
+                        <div class="org">Federal Aviation Administration · FAA Safety Team</div>
+                        <p>Part 107 Small Unmanned Aircraft Systems (sUAS) and the Part 107 Small UAS Recurrent course.</p>
+                    </figcaption>
+                </figure>
+                <figure class="award-card">
+                    <div class="pic">
+                        <img src="awards/issa-cft-certificate.jpg" alt="ISSA Certified Fitness Trainer certificate for Cliff Baldridge" loading="lazy">
+                        <img src="awards/issa-card.jpg" alt="ISSA card: Cliff Baldridge, CFT, Director of Promotions" loading="lazy">
+                    </div>
+                    <figcaption class="txt">
+                        <h3>ISSA Certified Fitness Trainer</h3>
+                        <div class="org">International Sports Sciences Association</div>
+                        <p>Certified Fitness Trainer (CFT). ISSA card: Director of Promotions.</p>
+                    </figcaption>
+                </figure>
+                <figure class="award-card">
+                    <div class="pic"><img src="ytpics/850583649_28864782096520430_6211515195883899667_n.jpg" alt="Los Angeles Press Club press card for Cliff Baldridge" loading="lazy"></div>
+                    <figcaption class="txt">
+                        <h3>Press Credential</h3>
+                        <div class="org">Los Angeles Press Club</div>
+                        <p>Los Angeles Press Club press card.</p>
+                    </figcaption>
+                </figure>
+            </div>
+        </div>
+    </section>
+
+    <!-- PHOTO HIGHLIGHTS -->
+    <section id="photos">
+        <div class="inner">
+            <div class="section-label">Photo Highlights</div>
+            <div class="photo-grid">
+                <figure><img src="ytpics/504427575_9967082676716990_9130062299041112238_n.jpg" alt="Producing at YouTube Space LA" loading="lazy"><figcaption>Producing at YouTube Space LA</figcaption></figure>
+                <figure><img src="ytpics/506338969_9993685894056668_7776320105843672974_n.jpg" alt="Behind a RED camera" loading="lazy"><figcaption>Behind the RED camera</figcaption></figure>
+                <figure><img src="ytpics/32218854_1704773966281277_6093620000935903232_n.jpg" alt="At YouTube Space" loading="lazy"><figcaption>YouTube Space</figcaption></figure>
+                <figure><img src="ytpics/508106729_10006722069419717_5646016024563455939_n.jpg" alt="GRAMMY Connect at YouTube Space LA" loading="lazy"><figcaption>GRAMMY Connect at YouTube Space LA</figcaption></figure>
+                <figure><img src="ytpics/506527672_9997970550294869_1713440146036753886_n.jpg" alt="Cultivated Wit's Comedy Hack Day LA" loading="lazy"><figcaption>Cultivated Wit's Comedy Hack Day LA</figcaption></figure>
+                <figure><img src="ytpics/506304162_9991822377576353_5014932719174848422_n.jpg" alt="Variety Entertainment and Technology Summit" loading="lazy"><figcaption>Variety Entertainment &amp; Technology Summit</figcaption></figure>
+                <figure><img src="ytpics/509600822_10052876094804314_1762891504539620786_n.jpg" alt="VidCon" loading="lazy"><figcaption>VidCon</figcaption></figure>
+                <figure><img src="ytpics/509266439_10052555724836351_3728763104642295674_n.jpg" alt="Twitch" loading="lazy"><figcaption>Twitch</figcaption></figure>
+                <figure><img src="ytpics/802642152_28234560432875936_4877944752965070631_n.jpg" alt="Emmys red carpet" loading="lazy"><figcaption>Emmys red carpet</figcaption></figure>
+                <figure><img src="ytpics/40414414_1861402060618466_9113188576476004352_n.jpg" alt="Television Academy" loading="lazy"><figcaption>Television Academy</figcaption></figure>
+                <figure><img src="ytpics/185628789_3959462777479040_2648301400471477474_n.jpg" alt="Santa Barbara International Film Festival red carpet" loading="lazy"><figcaption>Santa Barbara International Film Festival</figcaption></figure>
+                <figure><img src="ytpics/503563354_9924887094269882_8110976256737217235_n.jpg" alt="Santa Barbara International Film Festival" loading="lazy"><figcaption>Santa Barbara International Film Festival</figcaption></figure>
+                <figure><img src="ytpics/72321275_2500192336739432_1826432553406431232_n.jpg" alt="Unreal Engine and Epic Games" loading="lazy"><figcaption>Unreal Engine &amp; Epic Games</figcaption></figure>
+                <figure><img src="ytpics/65460408_2297255647033103_9157662352940728320_n.jpg" alt="AT&amp;T SHAPE" loading="lazy"><figcaption>AT&amp;T SHAPE</figcaption></figure>
+                <figure><img src="ytpics/53858716_2128313950593941_5584291189491761152_n.jpg" alt="Netflix" loading="lazy"><figcaption>Netflix</figcaption></figure>
+                <figure><img src="ytpics/64787395_2292151457543522_8057400995673538560_n.jpg" alt="The Academy of Magical Arts, Hollywood" loading="lazy"><figcaption>The Academy of Magical Arts</figcaption></figure>
+                <figure><img src="ytpics/462528590_8428588693899737_7263795142343820458_n.jpg" alt="Google Helpouts provider" loading="lazy"><figcaption>Google Helpouts provider</figcaption></figure>
+                <figure><img class="whole" src="ytpics/505479211_9970079086417349_1677500812322902433_n.jpg" alt="Newspaper: Cliff Baldridge, a Santa Barbara-based tech enthusiast and expert on all things Google" loading="lazy"><figcaption>In the press: "expert on all things Google"</figcaption></figure>
+                <figure><img src="ytpics/860300347_28833085686356738_6225113086718391051_n.jpg" alt="Marketing partner, Los Angeles Investor Conference" loading="lazy"><figcaption>Marketing partner, Los Angeles Investor Conference</figcaption></figure>
+                <figure><img src="ytpics/863750567_28809535525378421_3384192265437338880_n.jpg" alt="FaithTech SoCal hackathon, Most Creative" loading="lazy"><figcaption>FaithTech SoCal hackathon: Most Creative</figcaption></figure>
+            </div>
+        </div>
+    </section>
+
+    <div class="lightbox" id="lightbox" aria-hidden="true"><img alt=""><p></p></div>
+
     <section id="contact">
         <h2>Let's Work Together</h2>
         <p style="margin-bottom:20px;"><a href="mailto:vipmediapr@gmail.com">vipmediapr@gmail.com</a></p>
@@ -792,6 +1014,23 @@
                 document.querySelector(a.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth' });
             });
         });
+
+        // Click any award, certificate or photo to see it full size
+        const box = document.getElementById('lightbox');
+        const boxImg = box.querySelector('img');
+        const boxCap = box.querySelector('p');
+        document.querySelectorAll('.award-card .pic img, .photo-grid img, .job-pics.cards img').forEach(img => {
+            img.addEventListener('click', () => {
+                boxImg.src = img.src;
+                boxImg.alt = img.alt;
+                boxCap.textContent = img.alt;
+                box.classList.add('open');
+                box.setAttribute('aria-hidden', 'false');
+            });
+        });
+        const closeBox = () => { box.classList.remove('open'); box.setAttribute('aria-hidden', 'true'); boxImg.src = ''; };
+        box.addEventListener('click', closeBox);
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') closeBox(); });
     </script>
 
 </body>
