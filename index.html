@@ -370,6 +370,10 @@
         .xp-showcase figure.photo img[src="stanandcliff.png"] { background: #000; }
         img[src$="stanandcliff.png"] { clip-path: inset(0 12% 0 13%); }
         .lightbox img { background: #000; }
+
+        .lightbox-photo { display: contents; }
+        .lightbox.stan-view .lightbox-photo { display: block; width: min(80vw, calc(75vh * 1.2163)); aspect-ratio: 1147 / 943; overflow: hidden; background: #000; }
+        .lightbox.stan-view .lightbox-photo img { display: block; width: 130.776%; height: 100%; max-width: none; max-height: none; object-fit: fill; transform: translateX(-13%); clip-path: none; }
     </style>
 </head>
 <body>
@@ -1010,7 +1014,7 @@
 
 
 
-    <div class="lightbox" id="lightbox" aria-hidden="true"><img alt=""><p></p></div>
+    <div class="lightbox" id="lightbox" aria-hidden="true"><div class="lightbox-photo"><img alt=""></div><p></p></div>
 
     <section id="contact">
         <h2>Let's Work Together</h2>
@@ -1105,6 +1109,7 @@
         const boxCap = box.querySelector('p');
         document.querySelectorAll('.xp-showcase figure.photo img, .xp-pics img, .now-cell .pics > img, .now-item img, .win .pic img, .award-card .pic img, .photo-grid img, .job-pics.cards img').forEach(img => {
             img.addEventListener('click', () => {
+                box.classList.toggle('stan-view', img.getAttribute('src').includes('stanandcliff.png'));
                 boxImg.src = img.src;
                 boxImg.alt = img.alt;
                 boxCap.textContent = img.alt;
