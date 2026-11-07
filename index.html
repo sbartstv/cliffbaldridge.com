@@ -356,6 +356,12 @@
         .company-links a { color: var(--gold); text-decoration: none; }
         .company-links a:hover { text-decoration: underline; }
         .projects-awards-title { margin: 24px 0 8px; font-size: 15px; font-weight: 600; text-decoration: underline; text-underline-offset: 4px; }
+        .fitness-history { padding-top: 28px; }
+        .fitness-indent { margin-left: 158px; }
+        .fitness-history .award-grid { display: block; max-width: 600px; }
+        .fitness-history .pic { display: flex; gap: 12px; aspect-ratio: auto; background: transparent; }
+        .fitness-history .pic img { width: auto; max-width: 48%; height: 130px; object-fit: contain; }
+        @media (max-width: 768px) { .fitness-indent { margin-left: 0; } }
     </style>
 </head>
 <body>
@@ -946,9 +952,10 @@
     </section>
 
     <!-- CERTIFICATIONS & CREDENTIALS -->
-    <section id="certifications">
+    <section id="certifications" class="fitness-history">
         <div class="inner">
-            <div class="section-label">Certifications &amp; Credentials</div>
+            <div class="fitness-indent">
+            <div class="section-label">Prior Work in Fitness &amp; Health</div>
             <div class="award-grid">
 
 
@@ -968,6 +975,7 @@
                 </figure>
 
             </div>
+        </div>
         </div>
     </section>
 
