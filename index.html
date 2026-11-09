@@ -64,7 +64,7 @@
         .top .links small { margin-left: 4px; font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.55); }
         .top .now { margin-top: 24px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,0.1); }
         .top .now-label { margin-bottom: 6px; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; font-weight: 700; color: var(--gold); }
-        .top .now-grid { display: grid; grid-template-columns: 0.9fr 1.3fr 1.3fr; gap: 22px; margin-top: 10px; }
+        .top .now-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; margin-top: 10px; }
         .top .now-cell .pics { display: flex; gap: 6px; }
         .top .now-cell .pics > img, .top .now-cell .pics > a { flex: 1 1 0; min-width: 0; }
         .top .now-cell .pics img { display: block; width: 100%; height: 230px; object-fit: cover; border-radius: 4px; cursor: zoom-in; }
@@ -417,8 +417,16 @@
                     <div class="now-label">Latest projects</div>
                     <div class="now-grid">
                         <div class="now-cell">
+                            <div class="pics"><a href="https://www.eventbrite.com/e/malibu-film-festival-tickets-1830130833589" target="_blank" rel="noopener"><img class="whole" src="https___cdn.evbuc.com_images_1196446174_153718656742_1_logo.jpeg" alt="Malibu Film Festival red carpet"></a></div>
+                            <p><span class="d">Nov 15, 2026 · Beverly Hills</span><br><strong>Media — Malibu Film Festival</strong>, representing Santa Barbara Arts TV at the 27th annual festival at the Writers Guild Theater. Independent films, filmmaker conversations, red carpet events and awards. <a href="https://www.eventbrite.com/e/malibu-film-festival-tickets-1830130833589" target="_blank" rel="noopener">Event details &amp; tickets</a></p>
+                        </div>
+                        <div class="now-cell">
                             <div class="pics"><img class="whole" src="ytpics/860300347_28833085686356738_6225113086718391051_n.jpg" alt="Los Angeles Investor Conference: Marketing Partner Clifford Baldridge, Chief Technology Officer, SBARTSTV / AI Quantum Cypher. Thursday, Nov 19, 2026, Blankspaces, Venice, CA"></div>
                             <p><span class="d">Nov 19, 2026 · Venice</span><br><strong>Marketing Partner</strong>, Los Angeles Investor Conference, representing SBARTSTV and AI Quantum Cypher before 400 investors and founders.</p>
+                        </div>
+                        <div class="now-cell">
+                            <div class="pics"><a href="https://www.ces.tech/" target="_blank" rel="noopener"><img class="whole" src="1790731867474.jpeg" alt="CES — Next Starts Here"></a></div>
+                            <p><span class="d">Jan 4–9, 2027 · Las Vegas</span><br><strong>Invited Media — CES 2027</strong>, Consumer Electronics Show, representing Santa Barbara Arts TV. Media Days January 4–5; main show January 6–9. <a href="https://www.ces.tech/plan-your-visit/dates-and-hours" target="_blank" rel="noopener">Official dates &amp; event information</a></p>
                         </div>
                         <div class="now-cell">
                             <div class="pics"><a href="runway-studio/" target="_blank" rel="noopener" title="Open Runway Studio"><img src="runway-studio/media/lookbook.jpg" alt="Runway Studio lookbook: eight AI-generated dress try-on looks made in ComfyUI. Opens the Runway Studio app"></a></div>
